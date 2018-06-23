@@ -1,0 +1,3 @@
+/Volumes/Zero2/taco-monitor/build-xcode/CMakeFiles/taco_mon.dir
+/Volumes/Zero2/taco-monitor/build-xcode/CMakeFiles/ALL_BUILD.dir
+/Volumes/Zero2/taco-monitor/build-xcode/CMakeFiles/ZERO_CHECK.dir

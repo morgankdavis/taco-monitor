@@ -11,12 +11,16 @@
 #define TacoMonitor_h
 
 
-//#include <mutex>
+#include <memory>
 #include <string>
 #include <vector>
 
 
 namespace tacomon {
+	
+	
+	class OBDIIController;
+	
 
 	class TacoMonitor {
 		
@@ -26,21 +30,23 @@ namespace tacomon {
 		     Lifecycle
 		 **************************************************************************************/
 		
-		TacoMonitor()
+		TacoMonitor();
 		
 		/**************************************************************************************
 		     Public
 		 **************************************************************************************/
 		
 		int start(const std::vector<std::string>& args);
-		void update();
-		void TacoMonitor::stop();
+		void stop();
 		
 	private:
 		
-		//std::mutex		m_buttonMutex;
-		bool			m_stop;
+		void update();
+		void shutdown();
 		
+		std::shared_ptr<OBDIIController>	m_obdiiController;
+		
+		bool								m_stop;
 	};
 }
 

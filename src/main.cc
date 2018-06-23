@@ -6,6 +6,9 @@
 //  Copyright © 2018 Morgan K Davis. All rights reserved.
 //
 
+#include <iostream>
+#include <signal.h>
+#include <memory>
 
 #include "TacoMonitor.h"
 
@@ -14,14 +17,15 @@ using namespace std;
 using namespace tacomon;
 
 
-//void signalHandler(int signum) {
-////	cout << "Interrupt signal (" << signum << ") received.\n";
-//	
-//	// cleanup and close up stuff here  
-//	// terminate program
-//	
-//	exit(signum);  
-//}
+unique_ptr<TacoMonitor> tacoMonitor;
+
+
+void signalHandler(int signum) {
+	cout << "signalHandler: " << signum << endl;
+	
+	tacoMonitor->stop();
+	//exit(signum);  
+}
 
 int main(int argc, const char* argv[]) {
 	
@@ -30,7 +34,10 @@ int main(int argc, const char* argv[]) {
 		args.push_back(argv[i]);
 	}
 	
-	//signal(SIGINT, signalHandler);
+	signal(SIGABRT, signalHandler);
+	signal(SIGINT, signalHandler);
 	
-	return TacoMonitor().start(args);
+	tacoMonitor = make_unique<TacoMonitor>();
+	
+	return tacoMonitor->start(args);
 }

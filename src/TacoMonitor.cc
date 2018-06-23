@@ -19,19 +19,16 @@
 #include <unistd.h>
 #include <wiringPi.h>
 
+#include "OBDIIController.h"
+
 
 // we want a signal pin that is HIGH on boot, so the buzzer does not sound.
 // https://raspberrypi.stackexchange.com/questions/51479/gpio-pin-states-on-powerup?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 //	"The power on state is defined in BCM2835 ARM Peripherals page 102.
 //
-//	Basically all GPIO are in INPUT mode, GPIO 0-8 have pull-ups to 3V3 enabled, GPIO 9-27 have pull-downs to 0V enabled."
+//	Basically all GPIO pins are in INPUT mode, GPIO 0-8 have pull-ups to 3V3 enabled, GPIO 9-27 have pull-downs to 0V enabled."
 
 #define BUZZER_BCM_PIN		6
-#define BUTTON_1_PIN		18
-#define BUTTON_2_PIN		25
-#define BUTTON_3_PIN		16
-#define BUTTON_4_PIN		26
-#define BUTTON_5_PIN		23
 
 #define BUZZER_PERIOD		1000
 
@@ -43,21 +40,21 @@ using namespace tacomon;
      Static Prototypes
  **************************************************************************************/
 
-void SetupPython();
-void ExecPython(string python);
-void TerminatePython();
-unsigned LightLevel();
-void DisplayString(string str);
-void FillDisplay(bool fill);
-void SetupGPIO();
-void PollButtons(bool& b1, bool& b2, bool& b3, bool& b4, bool& b5);
+static void SetupPython();
+static void ExecPython(string python);
+static void TerminatePython();
+static unsigned LightLevel();
+static void DisplayString(string str);
+static void DisplaySmallString(unsigned display, string str);
+static void FillDisplay(bool fill);
+static void SetupGPIO();
 
 /**************************************************************************************
      Lifecycle
  **************************************************************************************/
 
 TacoMonitor::TacoMonitor():
-	//m_buttonMutex(mutex()),
+	m_obdiiController(make_shared<OBDIIController>()),
 	m_stop(false) {
 	
 }
@@ -71,28 +68,37 @@ int TacoMonitor::start(const vector<string>& args) {
 	SetupPython();
 	SetupGPIO();
 	
+	if (!m_obdiiController->connect()) {
+		cout << "Couldn't create OBD-II serial connection.";
+	}
+
 	while (!m_stop) {
-		//update();
-		bool b1 = false, b2 = false, b3 = false, b4 = false, b5 = false;
-		PollButtons(b1, b2, b3, b4, b5);
+		update();
 		
-		if (b1) cout << "b1" << endl;
-		if (b2) cout << "b2" << endl;
-		if (b3) cout << "b3" << endl;
-		if (b4) cout << "b4" << endl;
-		if (b5) cout << "b5" << endl;
+//		bool b1 = false, b2 = false, b3 = false, b4 = false, b5 = false;
+//		PollButtons(b1, b2, b3, b4, b5);
+//		
+//		if (b1) cout << "b1" << endl;
+//		if (b2) cout << "b2" << endl;
+//		if (b3) cout << "b3" << endl;
+//		if (b4) cout << "b4" << endl;
+//		if (b5) cout << "b5" << endl;
 	}
 	
-	TerminatePython();
+	shutdown();
 }
 
+void TacoMonitor::stop() {
+	cout << "TacoMonitor::stop()" << endl;
+	
+	m_stop = true;
+}
+
+/**************************************************************************************
+     Private
+ **************************************************************************************/
+
 void TacoMonitor::update() {
-	
-//	ExecPython("clear()\n" \
-//			   "fill(1)\n" \
-//			   "show()\n");
-	
-	
 	
 	auto lux = LightLevel();
 	cout << "lux: " << lux << endl;
@@ -106,13 +112,18 @@ void TacoMonitor::update() {
 	
 	digitalWrite(BUZZER_BCM_PIN, HIGH);
 	delay(BUZZER_PERIOD/2);
-	
-//	ExecPython("clear()\n" \
-//			   "show()\n");
 }
 
-void TacoMonitor::stop() {
-	m_stop = true;
+void TacoMonitor::shutdown() {
+	cout << "TacoMonitor::shutdown()" << endl;
+	
+	digitalWrite(BUZZER_BCM_PIN, HIGH);
+	
+	DisplayString("");
+	
+	TerminatePython();
+	
+	m_obdiiController->disconnect();
 }
 
 /**************************************************************************************
@@ -120,23 +131,21 @@ void TacoMonitor::stop() {
  **************************************************************************************/
 
 void SetupPython() {
+	
 	Py_SetProgramName(L"taco_mon_python");  /* optional but recommended */
 	Py_Initialize();
 	PyRun_SimpleString("import smbus\n"
 					   "from time import sleep\n"
-					   "from microdotphat import clear, set_brightness, show, write_string, fill, WIDTH, HEIGHT\n");
+					   "from microdotphat import clear, set_brightness, show, write_string, draw_tiny, fill, WIDTH, HEIGHT\n");
 }
 
 void ExecPython(string python) {
-//	Py_SetProgramName(L"taco_mon_python");  /* optional but recommended */
-//	Py_Initialize();
-//	PyRun_SimpleString("from time import time, ctime\n"
-//					   "print(\"DICKS\")\n");
+	
 	PyRun_SimpleString(python.c_str());
-//	Py_Finalize();
 }
 
 void TerminatePython() {
+	
 	Py_Finalize();
 }
 
@@ -146,7 +155,7 @@ unsigned LightLevel() {
 	
 	// Create I2C bus
 	int file;
-	char *bus = "/dev/i2c-1";
+	char *bus = "/dev/i2c-0";
 	if ((file = open(bus, O_RDWR)) < 0)  {
 		printf("Failed to open the bus. \n");
 		exit(1);
@@ -199,6 +208,15 @@ void DisplayString(string str) {
 	ExecPython(execStr);
 }
 
+void DisplaySmallString(unsigned display, string str) {
+	
+	char execStr[1024];
+	sprintf(execStr, "clear()\n" \
+			"draw_tiny(%d, \"%s\")\n" \
+			"show()\n", display, str.c_str());
+	ExecPython(execStr);
+}
+
 void FillDisplay(bool fill) {
 	
 	char execStr[1024];
@@ -213,19 +231,12 @@ void SetupGPIO() {
 	wiringPiSetupGpio(); // use BCM pin numbers
 	// http://wiringpi.com/reference/
 	pinMode(BUZZER_BCM_PIN, OUTPUT);
+	digitalWrite(BUZZER_BCM_PIN, HIGH); // high == off
 	
-	pinMode(BUTTON_1_PIN, INPUT);
-	pinMode(BUTTON_2_PIN, INPUT);
-	pinMode(BUTTON_3_PIN, INPUT);
-	pinMode(BUTTON_4_PIN, INPUT);
-	pinMode(BUTTON_5_PIN, INPUT);
+//	pinMode(BUTTON_1_PIN, INPUT);
+//	pinMode(BUTTON_2_PIN, INPUT);
+//	pinMode(BUTTON_3_PIN, INPUT);
+//	pinMode(BUTTON_4_PIN, INPUT);
+//	pinMode(BUTTON_5_PIN, INPUT);
 }
 
-void PollButtons(bool& b1, bool& b2, bool& b3, bool& b4, bool& b5) {
-	
-	if (digitalRead(BUTTON_1_PIN) == HIGH) b1 = true;
-	if (digitalRead(BUTTON_2_PIN) == HIGH) b2 = true;
-	if (digitalRead(BUTTON_3_PIN) == HIGH) b3 = true;
-	if (digitalRead(BUTTON_4_PIN) == HIGH) b4 = true;
-	if (digitalRead(BUTTON_5_PIN) == HIGH) b5 = true;
-}
