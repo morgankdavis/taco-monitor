@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/usr/src/gtest/src/gtest_main.cc" "/home/pi/taco-monitor/build-pi/external/serial/CMakeFiles/gtest_main.dir/usr/src/gtest/src/gtest_main.cc.o"
+  "/usr/src/gtest/src/gtest_main.cc" "/mnt/Crate/taco-monitor/build-pi/external/serial/CMakeFiles/gtest_main.dir/usr/src/gtest/src/gtest_main.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

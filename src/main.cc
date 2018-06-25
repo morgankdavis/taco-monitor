@@ -21,10 +21,9 @@ unique_ptr<TacoMonitor> tacoMonitor;
 
 
 void signalHandler(int signum) {
-	cout << "signalHandler: " << signum << endl;
 	
+	cout << "Caught signal: " << signum << endl;
 	tacoMonitor->stop();
-	//exit(signum);  
 }
 
 int main(int argc, const char* argv[]) {

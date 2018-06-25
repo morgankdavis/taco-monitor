@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/taco-monitor
+CMAKE_SOURCE_DIR = /mnt/Crate/taco-monitor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/taco-monitor/build-pi
+CMAKE_BINARY_DIR = /mnt/Crate/taco-monitor/build-pi
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -124,14 +124,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/taco-monitor/build-pi && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles /home/pi/taco-monitor/build-pi/external/serial/CMakeFiles/progress.marks
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	cd /mnt/Crate/taco-monitor/build-pi && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles /mnt/Crate/taco-monitor/build-pi/external/serial/CMakeFiles/progress.marks
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/clean
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/clean
 .PHONY : clean
 
 # The main clean target
@@ -141,22 +141,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/preinstall
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/preinstall
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/taco-monitor/build-pi && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /mnt/Crate/taco-monitor/build-pi && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 external/serial/CMakeFiles/clean_test_results.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/clean_test_results.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/clean_test_results.dir/rule
 .PHONY : external/serial/CMakeFiles/clean_test_results.dir/rule
 
 # Convenience name for target.
@@ -166,12 +166,12 @@ clean_test_results: external/serial/CMakeFiles/clean_test_results.dir/rule
 
 # fast build rule for target.
 clean_test_results/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/clean_test_results.dir/build.make external/serial/CMakeFiles/clean_test_results.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/clean_test_results.dir/build.make external/serial/CMakeFiles/clean_test_results.dir/build
 .PHONY : clean_test_results/fast
 
 # Convenience name for target.
 external/serial/CMakeFiles/run_tests.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/run_tests.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/run_tests.dir/rule
 .PHONY : external/serial/CMakeFiles/run_tests.dir/rule
 
 # Convenience name for target.
@@ -181,12 +181,12 @@ run_tests: external/serial/CMakeFiles/run_tests.dir/rule
 
 # fast build rule for target.
 run_tests/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/run_tests.dir/build.make external/serial/CMakeFiles/run_tests.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/run_tests.dir/build.make external/serial/CMakeFiles/run_tests.dir/build
 .PHONY : run_tests/fast
 
 # Convenience name for target.
 external/serial/CMakeFiles/_catkin_empty_exported_target.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/_catkin_empty_exported_target.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/_catkin_empty_exported_target.dir/rule
 .PHONY : external/serial/CMakeFiles/_catkin_empty_exported_target.dir/rule
 
 # Convenience name for target.
@@ -196,12 +196,12 @@ _catkin_empty_exported_target: external/serial/CMakeFiles/_catkin_empty_exported
 
 # fast build rule for target.
 _catkin_empty_exported_target/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/_catkin_empty_exported_target.dir/build.make external/serial/CMakeFiles/_catkin_empty_exported_target.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/_catkin_empty_exported_target.dir/build.make external/serial/CMakeFiles/_catkin_empty_exported_target.dir/build
 .PHONY : _catkin_empty_exported_target/fast
 
 # Convenience name for target.
 external/serial/CMakeFiles/tests.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/tests.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/tests.dir/rule
 .PHONY : external/serial/CMakeFiles/tests.dir/rule
 
 # Convenience name for target.
@@ -211,12 +211,12 @@ tests: external/serial/CMakeFiles/tests.dir/rule
 
 # fast build rule for target.
 tests/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/tests.dir/build.make external/serial/CMakeFiles/tests.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/tests.dir/build.make external/serial/CMakeFiles/tests.dir/build
 .PHONY : tests/fast
 
 # Convenience name for target.
 external/serial/CMakeFiles/download_extra_data.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/download_extra_data.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/download_extra_data.dir/rule
 .PHONY : external/serial/CMakeFiles/download_extra_data.dir/rule
 
 # Convenience name for target.
@@ -226,12 +226,12 @@ download_extra_data: external/serial/CMakeFiles/download_extra_data.dir/rule
 
 # fast build rule for target.
 download_extra_data/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/download_extra_data.dir/build.make external/serial/CMakeFiles/download_extra_data.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/download_extra_data.dir/build.make external/serial/CMakeFiles/download_extra_data.dir/build
 .PHONY : download_extra_data/fast
 
 # Convenience name for target.
 external/serial/CMakeFiles/gtest.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/gtest.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/gtest.dir/rule
 .PHONY : external/serial/CMakeFiles/gtest.dir/rule
 
 # Convenience name for target.
@@ -241,12 +241,12 @@ gtest: external/serial/CMakeFiles/gtest.dir/rule
 
 # fast build rule for target.
 gtest/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest.dir/build.make external/serial/CMakeFiles/gtest.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest.dir/build.make external/serial/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
 # Convenience name for target.
 external/serial/CMakeFiles/serial.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/serial.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/serial.dir/rule
 .PHONY : external/serial/CMakeFiles/serial.dir/rule
 
 # Convenience name for target.
@@ -256,12 +256,12 @@ serial: external/serial/CMakeFiles/serial.dir/rule
 
 # fast build rule for target.
 serial/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/build
 .PHONY : serial/fast
 
 # Convenience name for target.
 external/serial/CMakeFiles/gtest_main.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/gtest_main.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/gtest_main.dir/rule
 .PHONY : external/serial/CMakeFiles/gtest_main.dir/rule
 
 # Convenience name for target.
@@ -271,12 +271,12 @@ gtest_main: external/serial/CMakeFiles/gtest_main.dir/rule
 
 # fast build rule for target.
 gtest_main/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest_main.dir/build.make external/serial/CMakeFiles/gtest_main.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest_main.dir/build.make external/serial/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
 # Convenience name for target.
 external/serial/CMakeFiles/doxygen.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/doxygen.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/doxygen.dir/rule
 .PHONY : external/serial/CMakeFiles/doxygen.dir/rule
 
 # Convenience name for target.
@@ -286,12 +286,12 @@ doxygen: external/serial/CMakeFiles/doxygen.dir/rule
 
 # fast build rule for target.
 doxygen/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/doxygen.dir/build.make external/serial/CMakeFiles/doxygen.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/doxygen.dir/build.make external/serial/CMakeFiles/doxygen.dir/build
 .PHONY : doxygen/fast
 
 # Convenience name for target.
 external/serial/CMakeFiles/serial_example.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/serial_example.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/serial_example.dir/rule
 .PHONY : external/serial/CMakeFiles/serial_example.dir/rule
 
 # Convenience name for target.
@@ -301,7 +301,7 @@ serial_example: external/serial/CMakeFiles/serial_example.dir/rule
 
 # fast build rule for target.
 serial_example/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial_example.dir/build.make external/serial/CMakeFiles/serial_example.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial_example.dir/build.make external/serial/CMakeFiles/serial_example.dir/build
 .PHONY : serial_example/fast
 
 examples/serial_example.o: examples/serial_example.cc.o
@@ -310,7 +310,7 @@ examples/serial_example.o: examples/serial_example.cc.o
 
 # target to build an object file
 examples/serial_example.cc.o:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial_example.dir/build.make external/serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.o
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial_example.dir/build.make external/serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.o
 .PHONY : examples/serial_example.cc.o
 
 examples/serial_example.i: examples/serial_example.cc.i
@@ -319,7 +319,7 @@ examples/serial_example.i: examples/serial_example.cc.i
 
 # target to preprocess a source file
 examples/serial_example.cc.i:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial_example.dir/build.make external/serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.i
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial_example.dir/build.make external/serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.i
 .PHONY : examples/serial_example.cc.i
 
 examples/serial_example.s: examples/serial_example.cc.s
@@ -328,7 +328,7 @@ examples/serial_example.s: examples/serial_example.cc.s
 
 # target to generate assembly for a file
 examples/serial_example.cc.s:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial_example.dir/build.make external/serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.s
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial_example.dir/build.make external/serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.s
 .PHONY : examples/serial_example.cc.s
 
 src/impl/list_ports/list_ports_linux.o: src/impl/list_ports/list_ports_linux.cc.o
@@ -337,7 +337,7 @@ src/impl/list_ports/list_ports_linux.o: src/impl/list_ports/list_ports_linux.cc.
 
 # target to build an object file
 src/impl/list_ports/list_ports_linux.cc.o:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o
 .PHONY : src/impl/list_ports/list_ports_linux.cc.o
 
 src/impl/list_ports/list_ports_linux.i: src/impl/list_ports/list_ports_linux.cc.i
@@ -346,7 +346,7 @@ src/impl/list_ports/list_ports_linux.i: src/impl/list_ports/list_ports_linux.cc.
 
 # target to preprocess a source file
 src/impl/list_ports/list_ports_linux.cc.i:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.i
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.i
 .PHONY : src/impl/list_ports/list_ports_linux.cc.i
 
 src/impl/list_ports/list_ports_linux.s: src/impl/list_ports/list_ports_linux.cc.s
@@ -355,7 +355,7 @@ src/impl/list_ports/list_ports_linux.s: src/impl/list_ports/list_ports_linux.cc.
 
 # target to generate assembly for a file
 src/impl/list_ports/list_ports_linux.cc.s:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.s
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.s
 .PHONY : src/impl/list_ports/list_ports_linux.cc.s
 
 src/impl/unix.o: src/impl/unix.cc.o
@@ -364,7 +364,7 @@ src/impl/unix.o: src/impl/unix.cc.o
 
 # target to build an object file
 src/impl/unix.cc.o:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.o
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.o
 .PHONY : src/impl/unix.cc.o
 
 src/impl/unix.i: src/impl/unix.cc.i
@@ -373,7 +373,7 @@ src/impl/unix.i: src/impl/unix.cc.i
 
 # target to preprocess a source file
 src/impl/unix.cc.i:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.i
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.i
 .PHONY : src/impl/unix.cc.i
 
 src/impl/unix.s: src/impl/unix.cc.s
@@ -382,7 +382,7 @@ src/impl/unix.s: src/impl/unix.cc.s
 
 # target to generate assembly for a file
 src/impl/unix.cc.s:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.s
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.s
 .PHONY : src/impl/unix.cc.s
 
 src/serial.o: src/serial.cc.o
@@ -391,7 +391,7 @@ src/serial.o: src/serial.cc.o
 
 # target to build an object file
 src/serial.cc.o:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/serial.cc.o
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/serial.cc.o
 .PHONY : src/serial.cc.o
 
 src/serial.i: src/serial.cc.i
@@ -400,7 +400,7 @@ src/serial.i: src/serial.cc.i
 
 # target to preprocess a source file
 src/serial.cc.i:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/serial.cc.i
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/serial.cc.i
 .PHONY : src/serial.cc.i
 
 src/serial.s: src/serial.cc.s
@@ -409,7 +409,7 @@ src/serial.s: src/serial.cc.s
 
 # target to generate assembly for a file
 src/serial.cc.s:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/serial.cc.s
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/src/serial.cc.s
 .PHONY : src/serial.cc.s
 
 usr/src/gtest/src/gtest-all.o: usr/src/gtest/src/gtest-all.cc.o
@@ -418,7 +418,7 @@ usr/src/gtest/src/gtest-all.o: usr/src/gtest/src/gtest-all.cc.o
 
 # target to build an object file
 usr/src/gtest/src/gtest-all.cc.o:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest.dir/build.make external/serial/CMakeFiles/gtest.dir/usr/src/gtest/src/gtest-all.cc.o
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest.dir/build.make external/serial/CMakeFiles/gtest.dir/usr/src/gtest/src/gtest-all.cc.o
 .PHONY : usr/src/gtest/src/gtest-all.cc.o
 
 usr/src/gtest/src/gtest-all.i: usr/src/gtest/src/gtest-all.cc.i
@@ -427,7 +427,7 @@ usr/src/gtest/src/gtest-all.i: usr/src/gtest/src/gtest-all.cc.i
 
 # target to preprocess a source file
 usr/src/gtest/src/gtest-all.cc.i:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest.dir/build.make external/serial/CMakeFiles/gtest.dir/usr/src/gtest/src/gtest-all.cc.i
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest.dir/build.make external/serial/CMakeFiles/gtest.dir/usr/src/gtest/src/gtest-all.cc.i
 .PHONY : usr/src/gtest/src/gtest-all.cc.i
 
 usr/src/gtest/src/gtest-all.s: usr/src/gtest/src/gtest-all.cc.s
@@ -436,7 +436,7 @@ usr/src/gtest/src/gtest-all.s: usr/src/gtest/src/gtest-all.cc.s
 
 # target to generate assembly for a file
 usr/src/gtest/src/gtest-all.cc.s:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest.dir/build.make external/serial/CMakeFiles/gtest.dir/usr/src/gtest/src/gtest-all.cc.s
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest.dir/build.make external/serial/CMakeFiles/gtest.dir/usr/src/gtest/src/gtest-all.cc.s
 .PHONY : usr/src/gtest/src/gtest-all.cc.s
 
 usr/src/gtest/src/gtest_main.o: usr/src/gtest/src/gtest_main.cc.o
@@ -445,7 +445,7 @@ usr/src/gtest/src/gtest_main.o: usr/src/gtest/src/gtest_main.cc.o
 
 # target to build an object file
 usr/src/gtest/src/gtest_main.cc.o:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest_main.dir/build.make external/serial/CMakeFiles/gtest_main.dir/usr/src/gtest/src/gtest_main.cc.o
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest_main.dir/build.make external/serial/CMakeFiles/gtest_main.dir/usr/src/gtest/src/gtest_main.cc.o
 .PHONY : usr/src/gtest/src/gtest_main.cc.o
 
 usr/src/gtest/src/gtest_main.i: usr/src/gtest/src/gtest_main.cc.i
@@ -454,7 +454,7 @@ usr/src/gtest/src/gtest_main.i: usr/src/gtest/src/gtest_main.cc.i
 
 # target to preprocess a source file
 usr/src/gtest/src/gtest_main.cc.i:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest_main.dir/build.make external/serial/CMakeFiles/gtest_main.dir/usr/src/gtest/src/gtest_main.cc.i
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest_main.dir/build.make external/serial/CMakeFiles/gtest_main.dir/usr/src/gtest/src/gtest_main.cc.i
 .PHONY : usr/src/gtest/src/gtest_main.cc.i
 
 usr/src/gtest/src/gtest_main.s: usr/src/gtest/src/gtest_main.cc.s
@@ -463,7 +463,7 @@ usr/src/gtest/src/gtest_main.s: usr/src/gtest/src/gtest_main.cc.s
 
 # target to generate assembly for a file
 usr/src/gtest/src/gtest_main.cc.s:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest_main.dir/build.make external/serial/CMakeFiles/gtest_main.dir/usr/src/gtest/src/gtest_main.cc.s
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/CMakeFiles/gtest_main.dir/build.make external/serial/CMakeFiles/gtest_main.dir/usr/src/gtest/src/gtest_main.cc.s
 .PHONY : usr/src/gtest/src/gtest_main.cc.s
 
 # Help Target
@@ -517,6 +517,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/taco-monitor/build-pi && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /mnt/Crate/taco-monitor/build-pi && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

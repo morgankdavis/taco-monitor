@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/taco-monitor
+CMAKE_SOURCE_DIR = /mnt/Crate/taco-monitor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/taco-monitor/build-pi
+CMAKE_BINARY_DIR = /mnt/Crate/taco-monitor/build-pi
 
 # Utility rule file for clean_test_results.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/pi/taco-monitor/build-pi
 include external/serial/CMakeFiles/clean_test_results.dir/progress.make
 
 external/serial/CMakeFiles/clean_test_results:
-	cd /home/pi/taco-monitor/build-pi/external/serial && /usr/bin/python /usr/share/catkin/cmake/test/remove_test_results.py /home/pi/taco-monitor/build-pi/test_results
+	cd /mnt/Crate/taco-monitor/build-pi/external/serial && /usr/bin/python /usr/share/catkin/cmake/test/remove_test_results.py /mnt/Crate/taco-monitor/build-pi/test_results
 
 clean_test_results: external/serial/CMakeFiles/clean_test_results
 clean_test_results: external/serial/CMakeFiles/clean_test_results.dir/build.make
@@ -67,10 +67,10 @@ external/serial/CMakeFiles/clean_test_results.dir/build: clean_test_results
 .PHONY : external/serial/CMakeFiles/clean_test_results.dir/build
 
 external/serial/CMakeFiles/clean_test_results.dir/clean:
-	cd /home/pi/taco-monitor/build-pi/external/serial && $(CMAKE_COMMAND) -P CMakeFiles/clean_test_results.dir/cmake_clean.cmake
+	cd /mnt/Crate/taco-monitor/build-pi/external/serial && $(CMAKE_COMMAND) -P CMakeFiles/clean_test_results.dir/cmake_clean.cmake
 .PHONY : external/serial/CMakeFiles/clean_test_results.dir/clean
 
 external/serial/CMakeFiles/clean_test_results.dir/depend:
-	cd /home/pi/taco-monitor/build-pi && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/taco-monitor /home/pi/taco-monitor/external/serial /home/pi/taco-monitor/build-pi /home/pi/taco-monitor/build-pi/external/serial /home/pi/taco-monitor/build-pi/external/serial/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/Crate/taco-monitor/build-pi && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/Crate/taco-monitor /mnt/Crate/taco-monitor/external/serial /mnt/Crate/taco-monitor/build-pi /mnt/Crate/taco-monitor/build-pi/external/serial /mnt/Crate/taco-monitor/build-pi/external/serial/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : external/serial/CMakeFiles/clean_test_results.dir/depend
 

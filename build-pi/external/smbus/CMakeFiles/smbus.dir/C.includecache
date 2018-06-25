@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/Crate/taco-monitor/external/smbus/smbus.c
+errno.h
+-
+smbus.h
+/mnt/Crate/taco-monitor/external/smbus/smbus.h
+sys/ioctl.h
+-
+linux/types.h
+-
+linux/i2c.h
+-
+linux/i2c-dev.h
+-
+
+/mnt/Crate/taco-monitor/external/smbus/smbus.h
+linux/types.h
+-
+linux/i2c.h
+-
+

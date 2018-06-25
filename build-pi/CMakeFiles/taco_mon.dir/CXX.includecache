@@ -32,8 +32,20 @@ stdio.h
 stdint.h
 -
 
+../external/smbus/smbus.h
+linux/types.h
+-
+linux/i2c.h
+-
+
 ../include/OBDIIController.h
 memory
+-
+mutex
+-
+thread
+-
+vector
 -
 serial/serial.h
 ../include/serial/serial.h
@@ -46,21 +58,25 @@ string
 vector
 -
 
-/home/pi/taco-monitor/src/OBDIIController.cc
+/mnt/Crate/taco-monitor/src/OBDIIController.cc
 OBDIIController.h
-/home/pi/taco-monitor/src/OBDIIController.h
+/mnt/Crate/taco-monitor/src/OBDIIController.h
+algorithm
+-
 cstdio
 -
 iostream
+-
+math.h
 -
 string
 -
 unistd.h
 -
 
-/home/pi/taco-monitor/src/TacoMonitor.cc
+/mnt/Crate/taco-monitor/src/TacoMonitor.cc
 TacoMonitor.h
-/home/pi/taco-monitor/src/TacoMonitor.h
+/mnt/Crate/taco-monitor/src/TacoMonitor.h
 fcntl.h
 -
 iostream
@@ -79,10 +95,14 @@ unistd.h
 -
 wiringPi.h
 -
+linux/i2c.h
+-
+smbus.h
+/mnt/Crate/taco-monitor/src/smbus.h
 OBDIIController.h
-/home/pi/taco-monitor/src/OBDIIController.h
+/mnt/Crate/taco-monitor/src/OBDIIController.h
 
-/home/pi/taco-monitor/src/main.cc
+/mnt/Crate/taco-monitor/src/main.cc
 iostream
 -
 signal.h
@@ -90,7 +110,7 @@ signal.h
 memory
 -
 TacoMonitor.h
-/home/pi/taco-monitor/src/TacoMonitor.h
+/mnt/Crate/taco-monitor/src/TacoMonitor.h
 
 /usr/local/include/wiringPi.h
 

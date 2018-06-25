@@ -8,6 +8,7 @@ CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o: ../src/OBDIIController.cc
 
 CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: ../external/serial/include/serial/serial.h
 CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: ../external/serial/include/serial/v8stdint.h
+CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: ../external/smbus/smbus.h
 CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: ../include/OBDIIController.h
 CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: ../include/TacoMonitor.h
 CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: ../src/TacoMonitor.cc

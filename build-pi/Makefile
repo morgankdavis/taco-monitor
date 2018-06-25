@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/taco-monitor
+CMAKE_SOURCE_DIR = /mnt/Crate/taco-monitor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/taco-monitor/build-pi
+CMAKE_BINARY_DIR = /mnt/Crate/taco-monitor/build-pi
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -124,9 +124,9 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles /home/pi/taco-monitor/build-pi/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles /mnt/Crate/taco-monitor/build-pi/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -440,6 +440,19 @@ clean_test_results_serial/fast:
 	$(MAKE) -f external/serial/tests/CMakeFiles/clean_test_results_serial.dir/build.make external/serial/tests/CMakeFiles/clean_test_results_serial.dir/build
 .PHONY : clean_test_results_serial/fast
 
+#=============================================================================
+# Target rules for targets named smbus
+
+# Build rule for target.
+smbus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 smbus
+.PHONY : smbus
+
+# fast build rule for target.
+smbus/fast:
+	$(MAKE) -f external/smbus/CMakeFiles/smbus.dir/build.make external/smbus/CMakeFiles/smbus.dir/build
+.PHONY : smbus/fast
+
 src/OBDIIController.o: src/OBDIIController.cc.o
 
 .PHONY : src/OBDIIController.o
@@ -555,6 +568,7 @@ help:
 	@echo "... run_tests_serial_gtest_serial-test"
 	@echo "... run_tests_serial_gtest_serial-test-timer"
 	@echo "... clean_test_results_serial"
+	@echo "... smbus"
 	@echo "... src/OBDIIController.o"
 	@echo "... src/OBDIIController.i"
 	@echo "... src/OBDIIController.s"

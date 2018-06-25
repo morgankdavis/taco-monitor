@@ -32,7 +32,7 @@ stdio.h
 stdint.h
 -
 
-/home/pi/taco-monitor/external/serial/examples/serial_example.cc
+/mnt/Crate/taco-monitor/external/serial/examples/serial_example.cc
 string
 -
 iostream
@@ -44,5 +44,5 @@ windows.h
 unistd.h
 -
 serial/serial.h
-/home/pi/taco-monitor/external/serial/examples/serial/serial.h
+/mnt/Crate/taco-monitor/external/serial/examples/serial/serial.h
 

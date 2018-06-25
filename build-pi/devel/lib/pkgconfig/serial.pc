@@ -1,8 +1,8 @@
-prefix=/home/pi/taco-monitor/build-pi/devel
+prefix=/mnt/Crate/taco-monitor/build-pi/devel
 
 Name: serial
 Description: Description of serial
 Version: 1.2.1
-Cflags: -I/home/pi/taco-monitor/external/serial/include
-Libs: -L/home/pi/taco-monitor/build-pi/devel/lib -lserial -lrt -lpthread
+Cflags: -I/mnt/Crate/taco-monitor/external/serial/include
+Libs: -L/mnt/Crate/taco-monitor/build-pi/devel/lib -lserial -lrt -lpthread
 Requires: 

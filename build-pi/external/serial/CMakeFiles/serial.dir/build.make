@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/taco-monitor
+CMAKE_SOURCE_DIR = /mnt/Crate/taco-monitor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/taco-monitor/build-pi
+CMAKE_BINARY_DIR = /mnt/Crate/taco-monitor/build-pi
 
 # Include any dependencies generated for this target.
 include external/serial/CMakeFiles/serial.dir/depend.make
@@ -59,16 +59,16 @@ include external/serial/CMakeFiles/serial.dir/flags.make
 
 external/serial/CMakeFiles/serial.dir/src/serial.cc.o: external/serial/CMakeFiles/serial.dir/flags.make
 external/serial/CMakeFiles/serial.dir/src/serial.cc.o: ../external/serial/src/serial.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object external/serial/CMakeFiles/serial.dir/src/serial.cc.o"
-	cd /home/pi/taco-monitor/build-pi/external/serial && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/serial.dir/src/serial.cc.o -c /home/pi/taco-monitor/external/serial/src/serial.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object external/serial/CMakeFiles/serial.dir/src/serial.cc.o"
+	cd /mnt/Crate/taco-monitor/build-pi/external/serial && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/serial.dir/src/serial.cc.o -c /mnt/Crate/taco-monitor/external/serial/src/serial.cc
 
 external/serial/CMakeFiles/serial.dir/src/serial.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/serial.dir/src/serial.cc.i"
-	cd /home/pi/taco-monitor/build-pi/external/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/taco-monitor/external/serial/src/serial.cc > CMakeFiles/serial.dir/src/serial.cc.i
+	cd /mnt/Crate/taco-monitor/build-pi/external/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/Crate/taco-monitor/external/serial/src/serial.cc > CMakeFiles/serial.dir/src/serial.cc.i
 
 external/serial/CMakeFiles/serial.dir/src/serial.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/serial.dir/src/serial.cc.s"
-	cd /home/pi/taco-monitor/build-pi/external/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/taco-monitor/external/serial/src/serial.cc -o CMakeFiles/serial.dir/src/serial.cc.s
+	cd /mnt/Crate/taco-monitor/build-pi/external/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/Crate/taco-monitor/external/serial/src/serial.cc -o CMakeFiles/serial.dir/src/serial.cc.s
 
 external/serial/CMakeFiles/serial.dir/src/serial.cc.o.requires:
 
@@ -83,16 +83,16 @@ external/serial/CMakeFiles/serial.dir/src/serial.cc.o.provides.build: external/s
 
 external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.o: external/serial/CMakeFiles/serial.dir/flags.make
 external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.o: ../external/serial/src/impl/unix.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.o"
-	cd /home/pi/taco-monitor/build-pi/external/serial && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/serial.dir/src/impl/unix.cc.o -c /home/pi/taco-monitor/external/serial/src/impl/unix.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.o"
+	cd /mnt/Crate/taco-monitor/build-pi/external/serial && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/serial.dir/src/impl/unix.cc.o -c /mnt/Crate/taco-monitor/external/serial/src/impl/unix.cc
 
 external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/serial.dir/src/impl/unix.cc.i"
-	cd /home/pi/taco-monitor/build-pi/external/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/taco-monitor/external/serial/src/impl/unix.cc > CMakeFiles/serial.dir/src/impl/unix.cc.i
+	cd /mnt/Crate/taco-monitor/build-pi/external/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/Crate/taco-monitor/external/serial/src/impl/unix.cc > CMakeFiles/serial.dir/src/impl/unix.cc.i
 
 external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/serial.dir/src/impl/unix.cc.s"
-	cd /home/pi/taco-monitor/build-pi/external/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/taco-monitor/external/serial/src/impl/unix.cc -o CMakeFiles/serial.dir/src/impl/unix.cc.s
+	cd /mnt/Crate/taco-monitor/build-pi/external/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/Crate/taco-monitor/external/serial/src/impl/unix.cc -o CMakeFiles/serial.dir/src/impl/unix.cc.s
 
 external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.o.requires:
 
@@ -107,16 +107,16 @@ external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.o.provides.build: externa
 
 external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o: external/serial/CMakeFiles/serial.dir/flags.make
 external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o: ../external/serial/src/impl/list_ports/list_ports_linux.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o"
-	cd /home/pi/taco-monitor/build-pi/external/serial && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o -c /home/pi/taco-monitor/external/serial/src/impl/list_ports/list_ports_linux.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o"
+	cd /mnt/Crate/taco-monitor/build-pi/external/serial && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o -c /mnt/Crate/taco-monitor/external/serial/src/impl/list_ports/list_ports_linux.cc
 
 external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.i"
-	cd /home/pi/taco-monitor/build-pi/external/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/taco-monitor/external/serial/src/impl/list_ports/list_ports_linux.cc > CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.i
+	cd /mnt/Crate/taco-monitor/build-pi/external/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/Crate/taco-monitor/external/serial/src/impl/list_ports/list_ports_linux.cc > CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.i
 
 external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.s"
-	cd /home/pi/taco-monitor/build-pi/external/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/taco-monitor/external/serial/src/impl/list_ports/list_ports_linux.cc -o CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.s
+	cd /mnt/Crate/taco-monitor/build-pi/external/serial && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/Crate/taco-monitor/external/serial/src/impl/list_ports/list_ports_linux.cc -o CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.s
 
 external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o.requires:
 
@@ -143,8 +143,8 @@ devel/lib/libserial.so: external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.o
 devel/lib/libserial.so: external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o
 devel/lib/libserial.so: external/serial/CMakeFiles/serial.dir/build.make
 devel/lib/libserial.so: external/serial/CMakeFiles/serial.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library ../../devel/lib/libserial.so"
-	cd /home/pi/taco-monitor/build-pi/external/serial && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/serial.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library ../../devel/lib/libserial.so"
+	cd /mnt/Crate/taco-monitor/build-pi/external/serial && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/serial.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 external/serial/CMakeFiles/serial.dir/build: devel/lib/libserial.so
@@ -158,10 +158,10 @@ external/serial/CMakeFiles/serial.dir/requires: external/serial/CMakeFiles/seria
 .PHONY : external/serial/CMakeFiles/serial.dir/requires
 
 external/serial/CMakeFiles/serial.dir/clean:
-	cd /home/pi/taco-monitor/build-pi/external/serial && $(CMAKE_COMMAND) -P CMakeFiles/serial.dir/cmake_clean.cmake
+	cd /mnt/Crate/taco-monitor/build-pi/external/serial && $(CMAKE_COMMAND) -P CMakeFiles/serial.dir/cmake_clean.cmake
 .PHONY : external/serial/CMakeFiles/serial.dir/clean
 
 external/serial/CMakeFiles/serial.dir/depend:
-	cd /home/pi/taco-monitor/build-pi && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/taco-monitor /home/pi/taco-monitor/external/serial /home/pi/taco-monitor/build-pi /home/pi/taco-monitor/build-pi/external/serial /home/pi/taco-monitor/build-pi/external/serial/CMakeFiles/serial.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/Crate/taco-monitor/build-pi && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/Crate/taco-monitor /mnt/Crate/taco-monitor/external/serial /mnt/Crate/taco-monitor/build-pi /mnt/Crate/taco-monitor/build-pi/external/serial /mnt/Crate/taco-monitor/build-pi/external/serial/CMakeFiles/serial.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : external/serial/CMakeFiles/serial.dir/depend
 

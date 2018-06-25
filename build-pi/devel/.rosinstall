@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/pi/taco-monitor/build-pi/devel/setup.sh
+    local-name: /mnt/Crate/taco-monitor/build-pi/devel/setup.sh

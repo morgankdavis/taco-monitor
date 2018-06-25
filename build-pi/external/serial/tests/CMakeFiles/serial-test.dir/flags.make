@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/local/include -I/home/pi/taco-monitor/external/serial/include 
+CXX_INCLUDES = -I/usr/local/include -I/mnt/Crate/taco-monitor/external/serial/include 
 

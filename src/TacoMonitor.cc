@@ -19,6 +19,13 @@
 #include <unistd.h>
 #include <wiringPi.h>
 
+
+// for smbus
+#include <linux/i2c.h>
+#include "smbus.h" 
+
+
+
 #include "OBDIIController.h"
 
 
@@ -44,10 +51,12 @@ static void SetupPython();
 static void ExecPython(string python);
 static void TerminatePython();
 static unsigned LightLevel();
+static bool ButtonADown();
 static void DisplayString(string str);
 static void DisplaySmallString(unsigned display, string str);
 static void FillDisplay(bool fill);
 static void SetupGPIO();
+static void Sleep(unsigned milliseconds);
 
 /**************************************************************************************
      Lifecycle
@@ -68,24 +77,19 @@ int TacoMonitor::start(const vector<string>& args) {
 	SetupPython();
 	SetupGPIO();
 	
-	if (!m_obdiiController->connect()) {
-		cout << "Couldn't create OBD-II serial connection.";
-	}
+//	if (!m_obdiiController->connect()) {
+//		cout << "Couldn't create OBD-II serial connection." << endl;
+//	}
 
 	while (!m_stop) {
 		update();
-		
-//		bool b1 = false, b2 = false, b3 = false, b4 = false, b5 = false;
-//		PollButtons(b1, b2, b3, b4, b5);
-//		
-//		if (b1) cout << "b1" << endl;
-//		if (b2) cout << "b2" << endl;
-//		if (b3) cout << "b3" << endl;
-//		if (b4) cout << "b4" << endl;
-//		if (b5) cout << "b5" << endl;
 	}
 	
 	shutdown();
+	
+//	if (m_obdiiController->connected()) {
+//		m_obdiiController->updateThread().join();
+//	}
 }
 
 void TacoMonitor::stop() {
@@ -100,18 +104,27 @@ void TacoMonitor::stop() {
 
 void TacoMonitor::update() {
 	
-	auto lux = LightLevel();
-	cout << "lux: " << lux << endl;
+//	auto lux = LightLevel();
+//	cout << "lux: " << lux << endl;
 	
-	FillDisplay(true);
+//	stringstream displayStream;
+//	displayStream.width(6);
+//	displayStream << right << m_obdiiController->rpm();
+//	auto displayStr = displayStream.str();
+//	
+//	DisplayString(displayStr);
 	
-	digitalWrite(BUZZER_BCM_PIN, LOW); // low == on
-	delay(BUZZER_PERIOD/2);
+//	bool aDown = ButtonADown();
 	
-	DisplayString("DICKS");
-	
-	digitalWrite(BUZZER_BCM_PIN, HIGH);
-	delay(BUZZER_PERIOD/2);
+//	FillDisplay(true);
+//	
+//	digitalWrite(BUZZER_BCM_PIN, LOW); // low == on
+//	delay(BUZZER_PERIOD/2);
+//	
+//	DisplayString("DICKS");
+//	
+//	digitalWrite(BUZZER_BCM_PIN, HIGH);
+//	delay(BUZZER_PERIOD/2);
 }
 
 void TacoMonitor::shutdown() {
@@ -132,7 +145,9 @@ void TacoMonitor::shutdown() {
 
 void SetupPython() {
 	
-	Py_SetProgramName(L"taco_mon_python");  /* optional but recommended */
+	cout << "Starting Python..." << endl;
+	
+	Py_SetProgramName((wchar_t*)"taco_mon_python");  /* optional but recommended */
 	Py_Initialize();
 	PyRun_SimpleString("import smbus\n"
 					   "from time import sleep\n"
@@ -146,6 +161,8 @@ void ExecPython(string python) {
 
 void TerminatePython() {
 	
+	cout << "Terminating Python..." << endl;
+	
 	Py_Finalize();
 }
 
@@ -154,27 +171,29 @@ unsigned LightLevel() {
 	// https://www.controleverything.com/content/Light?sku=TSL2561_I2CS#tabs-0-product_tabset-2
 	
 	// Create I2C bus
-	int file;
-	char *bus = "/dev/i2c-0";
-	if ((file = open(bus, O_RDWR)) < 0)  {
-		printf("Failed to open the bus. \n");
-		exit(1);
+	static int file = -1;
+	if (file == -1) {
+		char *bus = (char *)"/dev/i2c-0";
+		if ((file = open(bus, O_RDWR)) < 0)  {
+			printf("Failed to open the bus. \n");
+			exit(1);
+		}
+		// Get I2C device, TSL2561 I2C address is 0x39(57)
+		ioctl(file, I2C_SLAVE, 0x39);
+		
+		// Select control register(0x00 | 0x80)
+		// Power ON mode(0x03)
+		char config[2] = {0};
+		config[0] = 0x00 | 0x80;
+		config[1] = 0x03;
+		write(file, config, 2);
+		// Select timing register(0x01 | 0x80)
+		// Nominal integration time = 402ms(0x02)
+		config[0] = 0x01 | 0x80;
+		config[1] = 0x02;
+		write(file, config, 2);
+		//sleep(1);
 	}
-	// Get I2C device, TSL2561 I2C address is 0x39(57)
-	ioctl(file, I2C_SLAVE, 0x39);
-	
-	// Select control register(0x00 | 0x80)
-	// Power ON mode(0x03)
-	char config[2] = {0};
-	config[0] = 0x00 | 0x80;
-	config[1] = 0x03;
-	write(file, config, 2);
-	// Select timing register(0x01 | 0x80)
-	// Nominal integration time = 402ms(0x02)
-	config[0] = 0x01 | 0x80;
-	config[1] = 0x02;
-	write(file, config, 2);
-	//sleep(1);
 	
 	// Read 4 bytes of data from register(0x0C | 0x80)
 	// ch0 lsb, ch0 msb, ch1 lsb, ch1 msb
@@ -197,6 +216,54 @@ unsigned LightLevel() {
 	}
 	
 	return 0;
+}
+
+
+bool ButtonADown() {
+	
+#define BTN_SHIM_I2C_ADDRESS	0x3f
+#define	REG_INPUT				0x00
+	
+#define BUTTON_A				0b00000001
+#define BUTTON_B				0b00000010
+#define BUTTON_C				0b00000100
+#define BUTTON_D				0b00001000
+#define BUTTON_E				0b00010000
+	
+	static int fd = -1;
+	char *fileName = (char *)"/dev/i2c-1";
+	
+	if (fd == -1) {
+		// Open port for reading and writing
+		if ((fd = open(fileName, O_RDWR)) < 0) {
+			printf("Failed to open the bus.\n");
+			exit(1);
+		}
+		
+		// Set the port options and set the address of the device
+		if (ioctl(fd, I2C_SLAVE, BTN_SHIM_I2C_ADDRESS) < 0) {		
+			printf("Failed to get I2C device.\n");
+			close(fd);
+			exit(1);
+		}
+	}
+	
+	//unsigned char buttons = ((i2c_smbus_read_byte_data(fd, REG_INPUT) << 24) >> 24);
+	unsigned char buttons = ~((i2c_smbus_read_byte_data(fd, REG_INPUT) << 27) >> 27);
+	
+	//cout << "states: " << hex << states << endl;
+	//printf("buttons: %d\n", buttons);
+	
+	if (buttons & BUTTON_A) cout << "A";
+	if (buttons & BUTTON_B) cout << "B";
+	if (buttons & BUTTON_C) cout << "C";
+	if (buttons & BUTTON_D) cout << "D";
+	if (buttons & BUTTON_E) cout << "E";
+	if (buttons) cout << endl;
+
+	Sleep(.02);
+	
+	return false;
 }
 
 void DisplayString(string str) {
@@ -228,15 +295,15 @@ void FillDisplay(bool fill) {
 
 void SetupGPIO() {
 	
+	cout << "Setting up GPIO..." << endl;
+	
 	wiringPiSetupGpio(); // use BCM pin numbers
 	// http://wiringpi.com/reference/
 	pinMode(BUZZER_BCM_PIN, OUTPUT);
 	digitalWrite(BUZZER_BCM_PIN, HIGH); // high == off
-	
-//	pinMode(BUTTON_1_PIN, INPUT);
-//	pinMode(BUTTON_2_PIN, INPUT);
-//	pinMode(BUTTON_3_PIN, INPUT);
-//	pinMode(BUTTON_4_PIN, INPUT);
-//	pinMode(BUTTON_5_PIN, INPUT);
 }
 
+void Sleep(unsigned milliseconds) {
+	
+	usleep(milliseconds * 1000);
+}

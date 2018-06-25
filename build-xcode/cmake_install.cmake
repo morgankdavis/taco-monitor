@@ -1,4 +1,4 @@
-# Install script for directory: /Volumes/Zero2/taco-monitor
+# Install script for directory: /Volumes/Crate/taco-monitor
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Volumes/Zero2/taco-monitor/build-xcode/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Volumes/Crate/taco-monitor/build-xcode/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -6,5 +6,5 @@ CXX_FLAGS =  -L/usr/lib/python3.5/config-3.5m-arm-linux-gnueabihf -L/usr/lib -lp
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/local/include -I/home/pi/taco-monitor/external/serial/include -I/home/pi/taco-monitor/include 
+CXX_INCLUDES = -I/usr/local/include -I/mnt/Crate/taco-monitor/external/serial/include -I/mnt/Crate/taco-monitor/external/smbus -I/mnt/Crate/taco-monitor/include 
 

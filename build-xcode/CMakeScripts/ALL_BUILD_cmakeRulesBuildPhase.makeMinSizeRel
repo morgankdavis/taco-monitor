@@ -2,9 +2,9 @@
 # Custom rules for ALL_BUILD
 .SUFFIXES: 
 all: \
-	/Volumes/Zero2/taco-monitor/build-xcode/CMakeFiles/ALL_BUILD
+	/Volumes/Crate/taco-monitor/build-xcode/CMakeFiles/ALL_BUILD
 
 
-/Volumes/Zero2/taco-monitor/build-xcode/CMakeFiles/ALL_BUILD: 
+/Volumes/Crate/taco-monitor/build-xcode/CMakeFiles/ALL_BUILD: 
 	echo ""
 	echo Build\ all\ projects

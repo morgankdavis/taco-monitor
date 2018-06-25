@@ -11,6 +11,9 @@
 #define OBDIIController_h
 
 #include <memory>
+#include <mutex>
+#include <thread>
+#include <vector>
 
 #include "serial/serial.h"
 
@@ -26,6 +29,11 @@ namespace tacomon {
 		 **************************************************************************************/
 		
 		OBDIIController();
+		OBDIIController(OBDIIController&& other) = delete; // move initialization
+		OBDIIController(const OBDIIController& other) = delete; // copy initialization
+		OBDIIController& operator= (OBDIIController&& other) = delete; // move assignment
+		OBDIIController& operator= (const OBDIIController& other) = delete; // copy assignment
+		~OBDIIController();
 		
 		/**************************************************************************************
 		     Public
@@ -33,8 +41,10 @@ namespace tacomon {
 		
 		bool connect();
 		void disconnect();
-		void printPorts() const;
-		unsigned rpm() const;
+		bool connected();
+		float voltage();
+		unsigned rpm();
+		unsigned coolantTemp();
 		
 		// private:
 		
@@ -42,12 +52,18 @@ namespace tacomon {
 		     Private
 		 **************************************************************************************/
 		
+		void updateLoop();
 		void update();
-		
-	private:
-		
-		std::shared_ptr<serial::Serial>		m_serial;
+		void writeLine(std::string line);
+		std::vector<std::string> readLines();
+
+		std::unique_ptr<serial::Serial>		m_serial;
+		bool								m_connected;
+		std::mutex							m_mtx;
+		std::thread							m_updateThread;
+		unsigned 							m_voltage;
 		unsigned 							m_rpm;
+		unsigned 							m_coolantTemp;
 	};
 }
 

@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/pi/taco-monitor/external/serial/src/impl/list_ports/list_ports_linux.cc" "/home/pi/taco-monitor/build-pi/external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o"
-  "/home/pi/taco-monitor/external/serial/src/impl/unix.cc" "/home/pi/taco-monitor/build-pi/external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.o"
-  "/home/pi/taco-monitor/external/serial/src/serial.cc" "/home/pi/taco-monitor/build-pi/external/serial/CMakeFiles/serial.dir/src/serial.cc.o"
+  "/mnt/Crate/taco-monitor/external/serial/src/impl/list_ports/list_ports_linux.cc" "/mnt/Crate/taco-monitor/build-pi/external/serial/CMakeFiles/serial.dir/src/impl/list_ports/list_ports_linux.cc.o"
+  "/mnt/Crate/taco-monitor/external/serial/src/impl/unix.cc" "/mnt/Crate/taco-monitor/build-pi/external/serial/CMakeFiles/serial.dir/src/impl/unix.cc.o"
+  "/mnt/Crate/taco-monitor/external/serial/src/serial.cc" "/mnt/Crate/taco-monitor/build-pi/external/serial/CMakeFiles/serial.dir/src/serial.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

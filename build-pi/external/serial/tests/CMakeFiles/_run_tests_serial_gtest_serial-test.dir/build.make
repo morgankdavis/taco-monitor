@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/taco-monitor
+CMAKE_SOURCE_DIR = /mnt/Crate/taco-monitor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/taco-monitor/build-pi
+CMAKE_BINARY_DIR = /mnt/Crate/taco-monitor/build-pi
 
 # Utility rule file for _run_tests_serial_gtest_serial-test.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/pi/taco-monitor/build-pi
 include external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/progress.make
 
 external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test:
-	cd /home/pi/taco-monitor/build-pi/external/serial/tests && ../../../catkin_generated/env_cached.sh /usr/bin/python /usr/share/catkin/cmake/test/run_tests.py /home/pi/taco-monitor/build-pi/test_results/serial/gtest-serial-test.xml /home/pi/taco-monitor/build-pi/devel/lib/serial/serial-test\ --gtest_output=xml:/home/pi/taco-monitor/build-pi/test_results/serial/gtest-serial-test.xml
+	cd /mnt/Crate/taco-monitor/build-pi/external/serial/tests && ../../../catkin_generated/env_cached.sh /usr/bin/python /usr/share/catkin/cmake/test/run_tests.py /mnt/Crate/taco-monitor/build-pi/test_results/serial/gtest-serial-test.xml /mnt/Crate/taco-monitor/build-pi/devel/lib/serial/serial-test\ --gtest_output=xml:/mnt/Crate/taco-monitor/build-pi/test_results/serial/gtest-serial-test.xml
 
 _run_tests_serial_gtest_serial-test: external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test
 _run_tests_serial_gtest_serial-test: external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/build.make
@@ -67,10 +67,10 @@ external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/build: 
 .PHONY : external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/build
 
 external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/clean:
-	cd /home/pi/taco-monitor/build-pi/external/serial/tests && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_serial_gtest_serial-test.dir/cmake_clean.cmake
+	cd /mnt/Crate/taco-monitor/build-pi/external/serial/tests && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_serial_gtest_serial-test.dir/cmake_clean.cmake
 .PHONY : external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/clean
 
 external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/depend:
-	cd /home/pi/taco-monitor/build-pi && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/taco-monitor /home/pi/taco-monitor/external/serial/tests /home/pi/taco-monitor/build-pi /home/pi/taco-monitor/build-pi/external/serial/tests /home/pi/taco-monitor/build-pi/external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/DependInfo.cmake --color=$(COLOR)
+	cd /mnt/Crate/taco-monitor/build-pi && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/Crate/taco-monitor /mnt/Crate/taco-monitor/external/serial/tests /mnt/Crate/taco-monitor/build-pi /mnt/Crate/taco-monitor/build-pi/external/serial/tests /mnt/Crate/taco-monitor/build-pi/external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/depend
 

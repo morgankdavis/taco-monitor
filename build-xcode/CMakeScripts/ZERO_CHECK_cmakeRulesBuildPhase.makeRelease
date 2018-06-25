@@ -2,9 +2,9 @@
 # Custom rules for ZERO_CHECK
 .SUFFIXES: 
 all: \
-	/Volumes/Zero2/taco-monitor/build-xcode/CMakeFiles/ZERO_CHECK
+	/Volumes/Crate/taco-monitor/build-xcode/CMakeFiles/ZERO_CHECK
 
 
-/Volumes/Zero2/taco-monitor/build-xcode/CMakeFiles/ZERO_CHECK: 
+/Volumes/Crate/taco-monitor/build-xcode/CMakeFiles/ZERO_CHECK: 
 	echo ""
-	make -f /Volumes/Zero2/taco-monitor/build-xcode/CMakeScripts/ReRunCMake.make
+	make -f /Volumes/Crate/taco-monitor/build-xcode/CMakeScripts/ReRunCMake.make

@@ -54,19 +54,20 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/taco-monitor
+CMAKE_SOURCE_DIR = /mnt/Crate/taco-monitor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/taco-monitor/build-pi
+CMAKE_BINARY_DIR = /mnt/Crate/taco-monitor/build-pi
 
 #=============================================================================
 # Target rules for target CMakeFiles/taco_mon.dir
 
 # All Build rule for target.
 CMakeFiles/taco_mon.dir/all: external/serial/CMakeFiles/serial.dir/all
+CMakeFiles/taco_mon.dir/all: external/smbus/CMakeFiles/smbus.dir/all
 	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/depend
 	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num=15,16,17,18 "Built target taco_mon"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=17,18,19,20 "Built target taco_mon"
 .PHONY : CMakeFiles/taco_mon.dir/all
 
 # Include target in all.
@@ -76,9 +77,9 @@ all: CMakeFiles/taco_mon.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/taco_mon.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/taco_mon.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : CMakeFiles/taco_mon.dir/rule
 
 # Convenience name for target.
@@ -133,14 +134,14 @@ external/serial/preinstall: external/serial/tests/preinstall
 external/serial/CMakeFiles/clean_test_results.dir/all:
 	$(MAKE) -f external/serial/CMakeFiles/clean_test_results.dir/build.make external/serial/CMakeFiles/clean_test_results.dir/depend
 	$(MAKE) -f external/serial/CMakeFiles/clean_test_results.dir/build.make external/serial/CMakeFiles/clean_test_results.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target clean_test_results"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target clean_test_results"
 .PHONY : external/serial/CMakeFiles/clean_test_results.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/CMakeFiles/clean_test_results.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/clean_test_results.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/CMakeFiles/clean_test_results.dir/rule
 
 # Convenience name for target.
@@ -165,14 +166,14 @@ clean: external/serial/CMakeFiles/clean_test_results.dir/clean
 external/serial/CMakeFiles/run_tests.dir/all: external/serial/tests/CMakeFiles/_run_tests_serial.dir/all
 	$(MAKE) -f external/serial/CMakeFiles/run_tests.dir/build.make external/serial/CMakeFiles/run_tests.dir/depend
 	$(MAKE) -f external/serial/CMakeFiles/run_tests.dir/build.make external/serial/CMakeFiles/run_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target run_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target run_tests"
 .PHONY : external/serial/CMakeFiles/run_tests.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/CMakeFiles/run_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/run_tests.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/CMakeFiles/run_tests.dir/rule
 
 # Convenience name for target.
@@ -197,14 +198,14 @@ clean: external/serial/CMakeFiles/run_tests.dir/clean
 external/serial/CMakeFiles/_catkin_empty_exported_target.dir/all:
 	$(MAKE) -f external/serial/CMakeFiles/_catkin_empty_exported_target.dir/build.make external/serial/CMakeFiles/_catkin_empty_exported_target.dir/depend
 	$(MAKE) -f external/serial/CMakeFiles/_catkin_empty_exported_target.dir/build.make external/serial/CMakeFiles/_catkin_empty_exported_target.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target _catkin_empty_exported_target"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target _catkin_empty_exported_target"
 .PHONY : external/serial/CMakeFiles/_catkin_empty_exported_target.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/_catkin_empty_exported_target.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/CMakeFiles/_catkin_empty_exported_target.dir/rule
 
 # Convenience name for target.
@@ -230,14 +231,14 @@ external/serial/CMakeFiles/tests.dir/all: external/serial/tests/CMakeFiles/seria
 external/serial/CMakeFiles/tests.dir/all: external/serial/tests/CMakeFiles/serial-test.dir/all
 	$(MAKE) -f external/serial/CMakeFiles/tests.dir/build.make external/serial/CMakeFiles/tests.dir/depend
 	$(MAKE) -f external/serial/CMakeFiles/tests.dir/build.make external/serial/CMakeFiles/tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target tests"
 .PHONY : external/serial/CMakeFiles/tests.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/CMakeFiles/tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/tests.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/CMakeFiles/tests.dir/rule
 
 # Convenience name for target.
@@ -262,14 +263,14 @@ clean: external/serial/CMakeFiles/tests.dir/clean
 external/serial/CMakeFiles/download_extra_data.dir/all:
 	$(MAKE) -f external/serial/CMakeFiles/download_extra_data.dir/build.make external/serial/CMakeFiles/download_extra_data.dir/depend
 	$(MAKE) -f external/serial/CMakeFiles/download_extra_data.dir/build.make external/serial/CMakeFiles/download_extra_data.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target download_extra_data"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target download_extra_data"
 .PHONY : external/serial/CMakeFiles/download_extra_data.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/CMakeFiles/download_extra_data.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/download_extra_data.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/CMakeFiles/download_extra_data.dir/rule
 
 # Convenience name for target.
@@ -294,14 +295,14 @@ clean: external/serial/CMakeFiles/download_extra_data.dir/clean
 external/serial/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f external/serial/CMakeFiles/gtest.dir/build.make external/serial/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f external/serial/CMakeFiles/gtest.dir/build.make external/serial/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num=1,2 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=1,2 "Built target gtest"
 .PHONY : external/serial/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/CMakeFiles/gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/gtest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/CMakeFiles/gtest.dir/rule
 
 # Convenience name for target.
@@ -326,7 +327,7 @@ clean: external/serial/CMakeFiles/gtest.dir/clean
 external/serial/CMakeFiles/serial.dir/all:
 	$(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/depend
 	$(MAKE) -f external/serial/CMakeFiles/serial.dir/build.make external/serial/CMakeFiles/serial.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num=5,6,7,8 "Built target serial"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=5,6,7,8 "Built target serial"
 .PHONY : external/serial/CMakeFiles/serial.dir/all
 
 # Include target in all.
@@ -336,9 +337,9 @@ all: external/serial/CMakeFiles/serial.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/CMakeFiles/serial.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/serial.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/CMakeFiles/serial.dir/rule
 
 # Convenience name for target.
@@ -363,14 +364,14 @@ clean: external/serial/CMakeFiles/serial.dir/clean
 external/serial/CMakeFiles/gtest_main.dir/all:
 	$(MAKE) -f external/serial/CMakeFiles/gtest_main.dir/build.make external/serial/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f external/serial/CMakeFiles/gtest_main.dir/build.make external/serial/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num=3,4 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=3,4 "Built target gtest_main"
 .PHONY : external/serial/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/gtest_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/CMakeFiles/gtest_main.dir/rule
 
 # Convenience name for target.
@@ -395,14 +396,14 @@ clean: external/serial/CMakeFiles/gtest_main.dir/clean
 external/serial/CMakeFiles/doxygen.dir/all:
 	$(MAKE) -f external/serial/CMakeFiles/doxygen.dir/build.make external/serial/CMakeFiles/doxygen.dir/depend
 	$(MAKE) -f external/serial/CMakeFiles/doxygen.dir/build.make external/serial/CMakeFiles/doxygen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target doxygen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target doxygen"
 .PHONY : external/serial/CMakeFiles/doxygen.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/CMakeFiles/doxygen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/doxygen.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/CMakeFiles/doxygen.dir/rule
 
 # Convenience name for target.
@@ -427,7 +428,7 @@ clean: external/serial/CMakeFiles/doxygen.dir/clean
 external/serial/CMakeFiles/serial_example.dir/all: external/serial/CMakeFiles/serial.dir/all
 	$(MAKE) -f external/serial/CMakeFiles/serial_example.dir/build.make external/serial/CMakeFiles/serial_example.dir/depend
 	$(MAKE) -f external/serial/CMakeFiles/serial_example.dir/build.make external/serial/CMakeFiles/serial_example.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num=13,14 "Built target serial_example"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=13,14 "Built target serial_example"
 .PHONY : external/serial/CMakeFiles/serial_example.dir/all
 
 # Include target in all.
@@ -437,9 +438,9 @@ all: external/serial/CMakeFiles/serial_example.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/CMakeFiles/serial_example.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/CMakeFiles/serial_example.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/CMakeFiles/serial_example.dir/rule
 
 # Convenience name for target.
@@ -494,14 +495,14 @@ external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/a
 external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/all: external/serial/tests/CMakeFiles/clean_test_results_serial.dir/all
 	$(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/depend
 	$(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target _run_tests_serial_gtest_serial-test-timer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target _run_tests_serial_gtest_serial-test-timer"
 .PHONY : external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/rule
 
 # Convenience name for target.
@@ -527,14 +528,14 @@ external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/all: external/serial
 external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/all: external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/all
 	$(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/depend
 	$(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target run_tests_serial_gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target run_tests_serial_gtest"
 .PHONY : external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/rule
 
 # Convenience name for target.
@@ -561,14 +562,14 @@ external/serial/tests/CMakeFiles/serial-test-timer.dir/all: external/serial/CMak
 external/serial/tests/CMakeFiles/serial-test-timer.dir/all: external/serial/CMakeFiles/gtest_main.dir/all
 	$(MAKE) -f external/serial/tests/CMakeFiles/serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/serial-test-timer.dir/depend
 	$(MAKE) -f external/serial/tests/CMakeFiles/serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/serial-test-timer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num=11,12 "Built target serial-test-timer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=11,12 "Built target serial-test-timer"
 .PHONY : external/serial/tests/CMakeFiles/serial-test-timer.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/tests/CMakeFiles/serial-test-timer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/serial-test-timer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/tests/CMakeFiles/serial-test-timer.dir/rule
 
 # Convenience name for target.
@@ -593,14 +594,14 @@ clean: external/serial/tests/CMakeFiles/serial-test-timer.dir/clean
 external/serial/tests/CMakeFiles/run_tests_serial.dir/all: external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/all
 	$(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial.dir/depend
 	$(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target run_tests_serial"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target run_tests_serial"
 .PHONY : external/serial/tests/CMakeFiles/run_tests_serial.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/tests/CMakeFiles/run_tests_serial.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/run_tests_serial.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/tests/CMakeFiles/run_tests_serial.dir/rule
 
 # Convenience name for target.
@@ -627,14 +628,14 @@ external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/all: ex
 external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/all: external/serial/tests/CMakeFiles/clean_test_results_serial.dir/all
 	$(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/depend
 	$(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target _run_tests_serial_gtest_serial-test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target _run_tests_serial_gtest_serial-test"
 .PHONY : external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/rule
 
 # Convenience name for target.
@@ -661,14 +662,14 @@ external/serial/tests/CMakeFiles/serial-test.dir/all: external/serial/CMakeFiles
 external/serial/tests/CMakeFiles/serial-test.dir/all: external/serial/CMakeFiles/gtest_main.dir/all
 	$(MAKE) -f external/serial/tests/CMakeFiles/serial-test.dir/build.make external/serial/tests/CMakeFiles/serial-test.dir/depend
 	$(MAKE) -f external/serial/tests/CMakeFiles/serial-test.dir/build.make external/serial/tests/CMakeFiles/serial-test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num=9,10 "Built target serial-test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=9,10 "Built target serial-test"
 .PHONY : external/serial/tests/CMakeFiles/serial-test.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/tests/CMakeFiles/serial-test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/serial-test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/tests/CMakeFiles/serial-test.dir/rule
 
 # Convenience name for target.
@@ -693,14 +694,14 @@ clean: external/serial/tests/CMakeFiles/serial-test.dir/clean
 external/serial/tests/CMakeFiles/_run_tests_serial.dir/all: external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/all
 	$(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial.dir/depend
 	$(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target _run_tests_serial"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target _run_tests_serial"
 .PHONY : external/serial/tests/CMakeFiles/_run_tests_serial.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/tests/CMakeFiles/_run_tests_serial.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/_run_tests_serial.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/tests/CMakeFiles/_run_tests_serial.dir/rule
 
 # Convenience name for target.
@@ -726,14 +727,14 @@ external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/all: external/seria
 external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/all: external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/all
 	$(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/depend
 	$(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target _run_tests_serial_gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target _run_tests_serial_gtest"
 .PHONY : external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/rule
 
 # Convenience name for target.
@@ -758,14 +759,14 @@ clean: external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/clean
 external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/all: external/serial/tests/CMakeFiles/serial-test.dir/all
 	$(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/depend
 	$(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target run_tests_serial_gtest_serial-test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target run_tests_serial_gtest_serial-test"
 .PHONY : external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/rule
 
 # Convenience name for target.
@@ -790,14 +791,14 @@ clean: external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/c
 external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/all: external/serial/tests/CMakeFiles/serial-test-timer.dir/all
 	$(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/depend
 	$(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target run_tests_serial_gtest_serial-test-timer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target run_tests_serial_gtest_serial-test-timer"
 .PHONY : external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/rule
 
 # Convenience name for target.
@@ -822,14 +823,14 @@ clean: external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer
 external/serial/tests/CMakeFiles/clean_test_results_serial.dir/all:
 	$(MAKE) -f external/serial/tests/CMakeFiles/clean_test_results_serial.dir/build.make external/serial/tests/CMakeFiles/clean_test_results_serial.dir/depend
 	$(MAKE) -f external/serial/tests/CMakeFiles/clean_test_results_serial.dir/build.make external/serial/tests/CMakeFiles/clean_test_results_serial.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target clean_test_results_serial"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num= "Built target clean_test_results_serial"
 .PHONY : external/serial/tests/CMakeFiles/clean_test_results_serial.dir/all
 
 # Build rule for subdir invocation for target.
 external/serial/tests/CMakeFiles/clean_test_results_serial.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/clean_test_results_serial.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : external/serial/tests/CMakeFiles/clean_test_results_serial.dir/rule
 
 # Convenience name for target.
@@ -844,6 +845,61 @@ external/serial/tests/CMakeFiles/clean_test_results_serial.dir/clean:
 
 # clean rule for target.
 clean: external/serial/tests/CMakeFiles/clean_test_results_serial.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory external/smbus
+
+# Convenience name for "all" pass in the directory.
+external/smbus/all: external/smbus/CMakeFiles/smbus.dir/all
+
+.PHONY : external/smbus/all
+
+# Convenience name for "clean" pass in the directory.
+external/smbus/clean: external/smbus/CMakeFiles/smbus.dir/clean
+
+.PHONY : external/smbus/clean
+
+# Convenience name for "preinstall" pass in the directory.
+external/smbus/preinstall:
+
+.PHONY : external/smbus/preinstall
+
+#=============================================================================
+# Target rules for target external/smbus/CMakeFiles/smbus.dir
+
+# All Build rule for target.
+external/smbus/CMakeFiles/smbus.dir/all:
+	$(MAKE) -f external/smbus/CMakeFiles/smbus.dir/build.make external/smbus/CMakeFiles/smbus.dir/depend
+	$(MAKE) -f external/smbus/CMakeFiles/smbus.dir/build.make external/smbus/CMakeFiles/smbus.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=15,16 "Built target smbus"
+.PHONY : external/smbus/CMakeFiles/smbus.dir/all
+
+# Include target in all.
+all: external/smbus/CMakeFiles/smbus.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+external/smbus/CMakeFiles/smbus.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 external/smbus/CMakeFiles/smbus.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
+.PHONY : external/smbus/CMakeFiles/smbus.dir/rule
+
+# Convenience name for target.
+smbus: external/smbus/CMakeFiles/smbus.dir/rule
+
+.PHONY : smbus
+
+# clean rule for target.
+external/smbus/CMakeFiles/smbus.dir/clean:
+	$(MAKE) -f external/smbus/CMakeFiles/smbus.dir/build.make external/smbus/CMakeFiles/smbus.dir/clean
+.PHONY : external/smbus/CMakeFiles/smbus.dir/clean
+
+# clean rule for target.
+clean: external/smbus/CMakeFiles/smbus.dir/clean
 
 .PHONY : clean
 

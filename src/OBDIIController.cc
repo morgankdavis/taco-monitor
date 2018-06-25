@@ -9,8 +9,10 @@
 
 #include "OBDIIController.h"
 
+#include <algorithm>
 #include <cstdio>
 #include <iostream>
+#include <math.h>
 #include <string>
 #include <unistd.h>
 
@@ -20,16 +22,19 @@ using namespace tacomon;
 using namespace serial;
 
 
-constexpr const char* PORT =			"/dev/rfcomm0";
+constexpr const char* COMM_PORT =		"/dev/rfcomm0";
 constexpr unsigned long BAUD_RATE =		115200;
-constexpr unsigned TIMEOUT = 			1000;
+constexpr unsigned TIMEOUT = 			250; // ms
 
 
 /**************************************************************************************
      Static Prototypes
  **************************************************************************************/
 
-void Sleep(unsigned milliseconds);
+static void Sleep(unsigned milliseconds);
+static string Tail(string const& source, size_t const length);
+static unsigned ParsedLineNumber(string const& line, unsigned length);
+static unsigned UnsignedFromHexString(string const& str);
 
 /**************************************************************************************
      Lifecycle
@@ -37,7 +42,42 @@ void Sleep(unsigned milliseconds);
 
 OBDIIController::OBDIIController():
 	m_serial(nullptr),
-	m_rpm(0) {
+	m_connected(false),
+	m_voltage(0),
+	m_rpm(0),
+	m_coolantTemp(0) {
+	
+}
+
+//OBDIIController::OBDIIController(OBDIIController&& other) { // move initialization
+//	lock_guard<mutex> lock(other.m_mtx);
+//	//value = std::move(other.value);
+//	//other.value = 0;
+//}
+//
+//OBDIIController::OBDIIController(const OBDIIController& other) { // copy initialization
+//	lock_guard<mutex> lock(other.m_mtx);
+//	//value = other.value;
+//}
+//
+//OBDIIController& OBDIIController::operator= (OBDIIController&& other) { // move assignment
+//	std::lock(m_mtx, other.m_mtx);
+//	lock_guard<mutex> self_lock(m_mtx, adopt_lock);
+//	lock_guard<mutex> other_lock(other.m_mtx, adopt_lock);
+////	value = move(other.value);
+////	other.value = 0;
+//	return *this;
+//}
+//
+//OBDIIController& OBDIIController::operator= (const OBDIIController& other) { // copy assignment
+//	lock(m_mtx, other.m_mtx);
+//	lock_guard<mutex> self_lock(m_mtx, adopt_lock);
+//	lock_guard<mutex> other_lock(other.m_mtx, adopt_lock);
+////	value = other.value;
+//	return *this;
+//}
+
+OBDIIController::~OBDIIController() {
 	
 }
 
@@ -47,84 +87,64 @@ OBDIIController::OBDIIController():
 
 bool OBDIIController::connect() {
 	
+	// sudo rfcomm connect rfcomm0 00:1D:A5:00:D1:91
+	
 	try {
-		m_serial = make_shared<Serial>(PORT, BAUD_RATE, Timeout::simpleTimeout(TIMEOUT));
+		cout << "Opening OBD-II serial connection..." << endl;
 		
-		cout << "Created serial device." << endl;
+		m_serial = make_unique<Serial>(COMM_PORT, BAUD_RATE, Timeout::simpleTimeout(TIMEOUT));
 		
 		if (m_serial->isOpen()) {
 			
-			cout << "Serial device connected." << endl;
-			
-			Sleep(2000);
-			
-			//		AT L 1 // linefeed on
-			//		AT H 1 // headers on
-			//		AT S 1 // slow, 5 baud initiation
-			//		AT A L // allow long (> 7 byte) messages
-			//		AT SP 0 // ATSP00 == erase stored protocol...?
-			
-			string writeStr = "";
-			string readStr = string();
+			cout << "Serial connection open." << endl;
 			
 			// 'AT L 1' -- linefeed on
 			
-			writeStr = "AT L 1\n";
-			cout << "writeStr: " << writeStr << endl;
-			size_t bytesWritten = m_serial->write(writeStr);
-			Sleep(2000);
-			size_t bytesRead =  m_serial->readline(readStr);
-			cout << "readStr: " << readStr << endl;
-			readStr = "";
+			writeLine("AT L 1");
+			auto result = readLines();
+			
+			// 'AT H 0' -- headers off
+			
+			writeLine("AT H 0");
+			result = readLines();
 
 			// 'AT S 1' -- slow, 5 baud initiation
-			
-			writeStr = "AT S 1\n";
-			cout << "writeStr: " << writeStr << endl;
-			bytesWritten = m_serial->write(writeStr);
-			Sleep(2000);
-			bytesRead =  m_serial->readline(readStr);
-			cout << "readStr: " << readStr << endl;
-			readStr = "";
-			
+
+			writeLine("AT S 1");
+			result = readLines();
+
 			// 'AT A L' -- allow long (> 7 byte) messages
-			
-			writeStr = "AT A L\n";
-			cout << "writeStr: " << writeStr << endl;
-			bytesWritten = m_serial->write(writeStr);
-			Sleep(2000);
-			bytesRead =  m_serial->readline(readStr);
-			cout << "readStr: " << readStr << endl;
-			readStr = "";
-			
+
+			writeLine("AT A L");
+			result = readLines();
+
 			// 'AT SP 0' -- ATSP00 == erase stored protocol
-			
-			writeStr = "AT SP 0\n";
-			cout << "writeStr: " << writeStr << endl;
-			bytesWritten = m_serial->write(writeStr);
-			Sleep(2000);
-			bytesRead =  m_serial->readline(readStr);
-			cout << "readStr: " << readStr << endl;
-			readStr = "";
+
+			writeLine("AT SP 0");
+			result = readLines();
 			
 			
+			// force ELM to do the handshake
 			
-			// 'AT RV' -- read voltage
+			writeLine("01 05"); // COOLANT TEMP
 			
-			writeStr = "AT RV\n";
-			cout << "writeStr: " << writeStr << endl;
-			bytesWritten = m_serial->write(writeStr);
-			Sleep(2000);
-			bytesRead =  m_serial->readline(readStr);
-			cout << "readStr: " << readStr << endl;
+			Sleep(5000);
 			
+			auto rpmLines = readLines();
+			for (auto line : rpmLines) {
+				cout << "line: " << line << endl;
+			}
 			
+			if (rpmLines[1] == "UNABLE TO CONNECT") {
+				cout << "Unable to read data." << endl;
+				return false;
+			}
 			
-			//string result = m_serial->read(writeStr()+1);
+			m_mtx.lock();
+			m_connected = true;
+			m_mtx.unlock();
 			
-			//			cout << "Iteration: " << count << ", Bytes written: ";
-			//			cout << bytes_wrote << ", Bytes read: ";
-			//			cout << result.length() << ", String read: " << result << endl;
+			m_updateThread = thread(&OBDIIController::updateLoop, this);
 			
 			return true;
 		}
@@ -139,50 +159,137 @@ bool OBDIIController::connect() {
 
 void OBDIIController::disconnect() {
 	
-	if (m_serial->isOpen()) {
-		m_serial->close();
-	}
-}
-
-void OBDIIController::printPorts() const {
+	//lock_guard<mutex> guard(m_mtx);
 	
-	vector<PortInfo> devices_found = list_ports();
-	vector<PortInfo>::iterator iter = devices_found.begin();
-	
-	while (iter != devices_found.end()) {
-		PortInfo device = *iter++;
+	if (m_mtx.lock(), m_serial->isOpen()) {
+		m_mtx.unlock();
+		cout << "Closing serial connection..." << endl;
 		
-		printf("(%s, %s, %s)\n",
-			   device.port.c_str(),
-			   device.description.c_str(),
-			   device.hardware_id.c_str() );
+		m_mtx.lock();
+		m_connected = false;
+		m_mtx.unlock();
+		cout << "Waiting for update to complete..." << endl;
+		m_updateThread.join();
+		
+		m_serial->close();
+		
+		cout << "Connection closed." << endl;
+		
+		m_serial = nullptr;
 	}
 }
 
-unsigned OBDIIController::rpm() const {
+bool OBDIIController::connected() {
+	
+	lock_guard<mutex> guard(m_mtx);
+	
+	return m_connected;
+}
+
+float OBDIIController::voltage() {
+	
+	lock_guard<mutex> guard(m_mtx);
+	
+	return m_voltage;
+}
+
+unsigned OBDIIController::rpm() {
+	
+	lock_guard<mutex> guard(m_mtx);
 	
 	return m_rpm;
+}
+
+unsigned OBDIIController::coolantTemp() {
+	
+	lock_guard<mutex> guard(m_mtx);
+	
+	return m_coolantTemp;
 }
 
 /**************************************************************************************
      Private
  **************************************************************************************/
 
-void update() {
+void OBDIIController::updateLoop() {
+	
+	while (m_mtx.lock(), m_connected) {
+		m_mtx.unlock();
+		update();
+	}
+}
+
+void OBDIIController::update() {
+
+	// voltage
+	
+	writeLine("AT RV");
+	auto voltsLine = readLines().front();
+	voltsLine.erase(remove(voltsLine.begin(), voltsLine.end(), 'V'), voltsLine.end());
+	auto volts = stof(voltsLine);
+	cout << "volts: " << volts << endl;
+	m_mtx.lock();
+	m_voltage = volts;
+	m_mtx.unlock();
+	
+	// coolant temp
+	
+	writeLine("01 05");
+	auto temp = ParsedLineNumber(readLines().front(), 1) - 40;
+	cout << "temp: " << temp << " deg C" << endl;
+	m_mtx.lock();
+	m_coolantTemp = temp;
+	m_mtx.unlock();
 	
 	// rpm
 	
-//	while (count < 10) {
-//		size_t bytes_wrote = my_serial.write(test_string);
-//		
-//		string result = my_serial.read(test_string.length()+1);
-//		
-//		cout << "Iteration: " << count << ", Bytes written: ";
-//		cout << bytes_wrote << ", Bytes read: ";
-//		cout << result.length() << ", String read: " << result << endl;
-//		
-//		count += 1;
-//	}
+	writeLine("01 0C");
+	auto rpm = lroundf(((float)ParsedLineNumber(readLines().front(), 2)) / 4.0);
+	cout << "rpm: " << rpm << endl;
+	m_mtx.lock();
+	m_rpm = rpm;
+	m_mtx.unlock();
+}
+
+void OBDIIController::writeLine(string line) {
+	
+	lock_guard<mutex> guard(m_mtx);
+	
+	if (m_serial->isOpen()) {
+		auto writeStr = line + "\n\r";
+		cout << "-> '" << line << "'" << endl;
+		m_serial->write(writeStr);
+	}
+	else {
+		cout << "Serial connection not open." << endl;
+	}
+}
+
+vector<string> OBDIIController::readLines() {
+	
+	lock_guard<mutex> guard(m_mtx);
+	
+	auto result = vector<string>();
+	
+	if (m_serial->isOpen()) {
+		auto readLines = m_serial->readlines();
+		auto tail = vector<string>(readLines.begin()+2, readLines.end());
+		
+		for (string line : tail) {
+
+			line.erase(remove(line.begin(), line.end(), '\n'), line.end());
+
+			if (line.length() >= 2) {
+				cout << line << endl;
+				result.push_back(line);
+			}
+		}
+	}
+	else {
+		cout << "Serial connection not open." << endl;
+	}
+	
+	return result;
 }
 
 /**************************************************************************************
@@ -190,5 +297,32 @@ void update() {
  **************************************************************************************/
 
 void Sleep(unsigned milliseconds) {
+	
 	usleep(milliseconds * 1000);
+}
+
+string Tail(string const& source, size_t const length) {
+	
+	if (length >= source.size()) {
+		return source;
+	}
+	
+	return source.substr(source.size() - length);
+}
+
+unsigned ParsedLineNumber(string const& line, unsigned length) {
+
+	auto lineCopy = line;
+	lineCopy.erase(remove(lineCopy.begin(), lineCopy.end(), ' '), lineCopy.end());
+	auto tail = Tail(lineCopy, length * 2 + 1);
+	return UnsignedFromHexString(tail);
+}
+
+unsigned UnsignedFromHexString(string const& str) {
+	
+	unsigned result;   
+	stringstream ss;
+	ss << hex << str;
+	ss >> result;
+	return result;
 }

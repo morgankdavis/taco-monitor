@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/taco-monitor
+# Install script for directory: /mnt/Crate/taco-monitor
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/pi/taco-monitor/build-pi/external/serial/cmake_install.cmake")
+  include("/mnt/Crate/taco-monitor/build-pi/external/serial/cmake_install.cmake")
+  include("/mnt/Crate/taco-monitor/build-pi/external/smbus/cmake_install.cmake")
 
 endif()
 
@@ -46,5 +47,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/pi/taco-monitor/build-pi/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/Crate/taco-monitor/build-pi/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

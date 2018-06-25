@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/taco-monitor
+CMAKE_SOURCE_DIR = /mnt/Crate/taco-monitor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/taco-monitor/build-pi
+CMAKE_BINARY_DIR = /mnt/Crate/taco-monitor/build-pi
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -124,14 +124,14 @@ install/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/taco-monitor/build-pi && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles /home/pi/taco-monitor/build-pi/external/serial/tests/CMakeFiles/progress.marks
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/taco-monitor/build-pi/CMakeFiles 0
+	cd /mnt/Crate/taco-monitor/build-pi && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles /mnt/Crate/taco-monitor/build-pi/external/serial/tests/CMakeFiles/progress.marks
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Crate/taco-monitor/build-pi/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/clean
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/clean
 .PHONY : clean
 
 # The main clean target
@@ -141,22 +141,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/preinstall
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/preinstall
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/taco-monitor/build-pi && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /mnt/Crate/taco-monitor/build-pi && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/rule
 .PHONY : external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/rule
 
 # Convenience name for target.
@@ -166,12 +166,12 @@ _run_tests_serial_gtest_serial-test-timer: external/serial/tests/CMakeFiles/_run
 
 # fast build rule for target.
 _run_tests_serial_gtest_serial-test-timer/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test-timer.dir/build
 .PHONY : _run_tests_serial_gtest_serial-test-timer/fast
 
 # Convenience name for target.
 external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/rule
 .PHONY : external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/rule
 
 # Convenience name for target.
@@ -181,12 +181,12 @@ run_tests_serial_gtest: external/serial/tests/CMakeFiles/run_tests_serial_gtest.
 
 # fast build rule for target.
 run_tests_serial_gtest/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial_gtest.dir/build
 .PHONY : run_tests_serial_gtest/fast
 
 # Convenience name for target.
 external/serial/tests/CMakeFiles/serial-test-timer.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/serial-test-timer.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/serial-test-timer.dir/rule
 .PHONY : external/serial/tests/CMakeFiles/serial-test-timer.dir/rule
 
 # Convenience name for target.
@@ -196,12 +196,12 @@ serial-test-timer: external/serial/tests/CMakeFiles/serial-test-timer.dir/rule
 
 # fast build rule for target.
 serial-test-timer/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/serial-test-timer.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/serial-test-timer.dir/build
 .PHONY : serial-test-timer/fast
 
 # Convenience name for target.
 external/serial/tests/CMakeFiles/run_tests_serial.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/run_tests_serial.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/run_tests_serial.dir/rule
 .PHONY : external/serial/tests/CMakeFiles/run_tests_serial.dir/rule
 
 # Convenience name for target.
@@ -211,12 +211,12 @@ run_tests_serial: external/serial/tests/CMakeFiles/run_tests_serial.dir/rule
 
 # fast build rule for target.
 run_tests_serial/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial.dir/build
 .PHONY : run_tests_serial/fast
 
 # Convenience name for target.
 external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/rule
 .PHONY : external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/rule
 
 # Convenience name for target.
@@ -226,12 +226,12 @@ _run_tests_serial_gtest_serial-test: external/serial/tests/CMakeFiles/_run_tests
 
 # fast build rule for target.
 _run_tests_serial_gtest_serial-test/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial_gtest_serial-test.dir/build
 .PHONY : _run_tests_serial_gtest_serial-test/fast
 
 # Convenience name for target.
 external/serial/tests/CMakeFiles/serial-test.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/serial-test.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/serial-test.dir/rule
 .PHONY : external/serial/tests/CMakeFiles/serial-test.dir/rule
 
 # Convenience name for target.
@@ -241,12 +241,12 @@ serial-test: external/serial/tests/CMakeFiles/serial-test.dir/rule
 
 # fast build rule for target.
 serial-test/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test.dir/build.make external/serial/tests/CMakeFiles/serial-test.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test.dir/build.make external/serial/tests/CMakeFiles/serial-test.dir/build
 .PHONY : serial-test/fast
 
 # Convenience name for target.
 external/serial/tests/CMakeFiles/_run_tests_serial.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/_run_tests_serial.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/_run_tests_serial.dir/rule
 .PHONY : external/serial/tests/CMakeFiles/_run_tests_serial.dir/rule
 
 # Convenience name for target.
@@ -256,12 +256,12 @@ _run_tests_serial: external/serial/tests/CMakeFiles/_run_tests_serial.dir/rule
 
 # fast build rule for target.
 _run_tests_serial/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial.dir/build
 .PHONY : _run_tests_serial/fast
 
 # Convenience name for target.
 external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/rule
 .PHONY : external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/rule
 
 # Convenience name for target.
@@ -271,12 +271,12 @@ _run_tests_serial_gtest: external/serial/tests/CMakeFiles/_run_tests_serial_gtes
 
 # fast build rule for target.
 _run_tests_serial_gtest/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/build.make external/serial/tests/CMakeFiles/_run_tests_serial_gtest.dir/build
 .PHONY : _run_tests_serial_gtest/fast
 
 # Convenience name for target.
 external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/rule
 .PHONY : external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/rule
 
 # Convenience name for target.
@@ -286,12 +286,12 @@ run_tests_serial_gtest_serial-test: external/serial/tests/CMakeFiles/run_tests_s
 
 # fast build rule for target.
 run_tests_serial_gtest_serial-test/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test.dir/build
 .PHONY : run_tests_serial_gtest_serial-test/fast
 
 # Convenience name for target.
 external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/rule
 .PHONY : external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/rule
 
 # Convenience name for target.
@@ -301,12 +301,12 @@ run_tests_serial_gtest_serial-test-timer: external/serial/tests/CMakeFiles/run_t
 
 # fast build rule for target.
 run_tests_serial_gtest_serial-test-timer/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/run_tests_serial_gtest_serial-test-timer.dir/build
 .PHONY : run_tests_serial_gtest_serial-test-timer/fast
 
 # Convenience name for target.
 external/serial/tests/CMakeFiles/clean_test_results_serial.dir/rule:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/clean_test_results_serial.dir/rule
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f CMakeFiles/Makefile2 external/serial/tests/CMakeFiles/clean_test_results_serial.dir/rule
 .PHONY : external/serial/tests/CMakeFiles/clean_test_results_serial.dir/rule
 
 # Convenience name for target.
@@ -316,7 +316,7 @@ clean_test_results_serial: external/serial/tests/CMakeFiles/clean_test_results_s
 
 # fast build rule for target.
 clean_test_results_serial/fast:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/clean_test_results_serial.dir/build.make external/serial/tests/CMakeFiles/clean_test_results_serial.dir/build
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/clean_test_results_serial.dir/build.make external/serial/tests/CMakeFiles/clean_test_results_serial.dir/build
 .PHONY : clean_test_results_serial/fast
 
 unit/unix_timer_tests.o: unit/unix_timer_tests.cc.o
@@ -325,7 +325,7 @@ unit/unix_timer_tests.o: unit/unix_timer_tests.cc.o
 
 # target to build an object file
 unit/unix_timer_tests.cc.o:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.o
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.o
 .PHONY : unit/unix_timer_tests.cc.o
 
 unit/unix_timer_tests.i: unit/unix_timer_tests.cc.i
@@ -334,7 +334,7 @@ unit/unix_timer_tests.i: unit/unix_timer_tests.cc.i
 
 # target to preprocess a source file
 unit/unix_timer_tests.cc.i:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.i
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.i
 .PHONY : unit/unix_timer_tests.cc.i
 
 unit/unix_timer_tests.s: unit/unix_timer_tests.cc.s
@@ -343,7 +343,7 @@ unit/unix_timer_tests.s: unit/unix_timer_tests.cc.s
 
 # target to generate assembly for a file
 unit/unix_timer_tests.cc.s:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.s
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test-timer.dir/build.make external/serial/tests/CMakeFiles/serial-test-timer.dir/unit/unix_timer_tests.cc.s
 .PHONY : unit/unix_timer_tests.cc.s
 
 unix_serial_tests.o: unix_serial_tests.cc.o
@@ -352,7 +352,7 @@ unix_serial_tests.o: unix_serial_tests.cc.o
 
 # target to build an object file
 unix_serial_tests.cc.o:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test.dir/build.make external/serial/tests/CMakeFiles/serial-test.dir/unix_serial_tests.cc.o
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test.dir/build.make external/serial/tests/CMakeFiles/serial-test.dir/unix_serial_tests.cc.o
 .PHONY : unix_serial_tests.cc.o
 
 unix_serial_tests.i: unix_serial_tests.cc.i
@@ -361,7 +361,7 @@ unix_serial_tests.i: unix_serial_tests.cc.i
 
 # target to preprocess a source file
 unix_serial_tests.cc.i:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test.dir/build.make external/serial/tests/CMakeFiles/serial-test.dir/unix_serial_tests.cc.i
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test.dir/build.make external/serial/tests/CMakeFiles/serial-test.dir/unix_serial_tests.cc.i
 .PHONY : unix_serial_tests.cc.i
 
 unix_serial_tests.s: unix_serial_tests.cc.s
@@ -370,7 +370,7 @@ unix_serial_tests.s: unix_serial_tests.cc.s
 
 # target to generate assembly for a file
 unix_serial_tests.cc.s:
-	cd /home/pi/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test.dir/build.make external/serial/tests/CMakeFiles/serial-test.dir/unix_serial_tests.cc.s
+	cd /mnt/Crate/taco-monitor/build-pi && $(MAKE) -f external/serial/tests/CMakeFiles/serial-test.dir/build.make external/serial/tests/CMakeFiles/serial-test.dir/unix_serial_tests.cc.s
 .PHONY : unix_serial_tests.cc.s
 
 # Help Target
@@ -413,6 +413,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/taco-monitor/build-pi && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /mnt/Crate/taco-monitor/build-pi && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC   -shared -Wl,-soname,libsmbus.so -o libsmbus.so CMakeFiles/smbus.dir/smbus.c.o  -L/usr/local/lib 

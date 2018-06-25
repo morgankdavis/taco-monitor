@@ -1,1 +1,1 @@
-/usr/bin/c++      CMakeFiles/serial_example.dir/examples/serial_example.cc.o  -o ../../devel/lib/serial/serial_example  -L/usr/local/lib -Wl,-rpath,/usr/local/lib:/home/pi/taco-monitor/build-pi/devel/lib -rdynamic ../../devel/lib/libserial.so -lrt -lpthread 
+/usr/bin/c++      CMakeFiles/serial_example.dir/examples/serial_example.cc.o  -o ../../devel/lib/serial/serial_example  -L/usr/local/lib -Wl,-rpath,/usr/local/lib:/mnt/Crate/taco-monitor/build-pi/devel/lib -rdynamic ../../devel/lib/libserial.so -lrt -lpthread 

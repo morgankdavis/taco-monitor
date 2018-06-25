@@ -1,11 +1,6 @@
 # taco-monitor
 
 
-Helpful info:
-http://www.instructables.com/id/OBD-Pi/
-https://lifehacker.com/everything-you-need-to-set-up-bluetooth-on-the-raspberr-1768482065
-
-
 Depends:
 
 WiringPi:
@@ -18,16 +13,18 @@ sudo apt-get install i2c-tools
 Python 3 Dev:
 sudo apt-get install python3-dev
 
-pyODB:
-sudo apt-get install pyobd
-
 Bluetooth:
 sudo apt-get install pi-bluetooth
 
+Button shim:
+sudo apt-get install python3-buttonshim
+sudo pip install evdev
+
 For 'serial' library
-sudo apt install catkin
+sudo apt-get install catkin
 
-
+Python interop:
+sudo apt-get install libboost-tools-dev libboost-python-dev
 
 Setup pcf8523 RTC:
 https://learn.adafruit.com/adding-a-real-time-clock-to-raspberry-pi/set-up-and-test-i2c

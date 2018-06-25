@@ -4,4 +4,4 @@
 external/serial/CMakeFiles/serial_example.dir/examples/serial_example.cc.o
  ../external/serial/include/serial/serial.h
  ../external/serial/include/serial/v8stdint.h
- /home/pi/taco-monitor/external/serial/examples/serial_example.cc
+ /mnt/Crate/taco-monitor/external/serial/examples/serial_example.cc

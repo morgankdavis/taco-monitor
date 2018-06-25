@@ -5,9 +5,10 @@
 # it emulates the modifications of the setup script without recurring computations
 
 # new environment variables
-export CMAKE_PREFIX_PATH="/home/pi/taco-monitor/build-pi/devel"
-export LD_LIBRARY_PATH="/home/pi/taco-monitor/build-pi/devel/lib"
-export PKG_CONFIG_PATH="/home/pi/taco-monitor/build-pi/devel/lib/pkgconfig"
+export CMAKE_PREFIX_PATH="/mnt/Crate/taco-monitor/build-pi/devel"
+export LD_LIBRARY_PATH=""
+export PKG_CONFIG_PATH=""
+export PWD="/mnt/Crate/taco-monitor/build-pi"
 export PYTHONPATH=""
 
 # modified environment variables

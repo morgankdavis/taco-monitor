@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/taco-monitor/external/serial/tests
+# Install script for directory: /mnt/Crate/taco-monitor/external/serial/tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
