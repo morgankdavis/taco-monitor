@@ -11,6 +11,10 @@
 #define SensorHub_h
 
 
+#include <mutex>
+#include <thread>
+
+
 namespace tacomon {
 
 	class SensorHub {
@@ -32,6 +36,9 @@ namespace tacomon {
 		     Public
 		 **************************************************************************************/
 
+		unsigned ambientLight();
+		float ambientTemperature();
+		void shutdown();
 		
 		// private:
 		
@@ -39,6 +46,14 @@ namespace tacomon {
 		     Private
 		 **************************************************************************************/
 
+		void updateLoop();
+		
+		std::mutex			m_mtx;
+		std::thread			m_updateThread;
+		bool				m_stop;
+		
+		unsigned 			m_ambientLight;
+		float				m_ambientTemperature;
 	};
 }
 

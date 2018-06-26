@@ -84,7 +84,7 @@ void InputManager::shutdown() {
 	m_mtx.lock();
 	m_stop = true;
 	m_mtx.unlock();
-	cout << "Waiting for poll loop to complete..." << endl;
+	cout << "Waiting for button poll loop to complete..." << endl;
 	m_updateThread.join();
 }
 
@@ -150,13 +150,13 @@ InputManager::BUTTON ButtonShimDown() {
 	if (fd == -1) {
 		// Open port for reading and writing
 		if ((fd = open(fileName, O_RDWR)) < 0) {
-			printf("Failed to open the bus.\n");
+			printf("Failed to open button shim I2C bus.\n");
 			exit(1);
 		}
 		
 		// Set the port options and set the address of the device
 		if (ioctl(fd, I2C_SLAVE, I2C_ADDRESS) < 0) {		
-			printf("Failed to get I2C device.\n");
+			printf("Failed to get button shim I2C device port.\n");
 			close(fd);
 			exit(1);
 		}

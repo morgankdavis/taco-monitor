@@ -63,6 +63,10 @@ serial/serial.h
 ../include/serial/serial.h
 
 ../include/SensorHub.h
+mutex
+-
+thread
+-
 
 ../include/TacoMonitor.h
 memory
@@ -117,6 +121,20 @@ unistd.h
 /mnt/Crate/taco-monitor/src/SensorHub.cc
 SensorHub.h
 /mnt/Crate/taco-monitor/src/SensorHub.h
+fcntl.h
+-
+iostream
+-
+linux/i2c-dev.h
+-
+stdio.h
+-
+sys/ioctl.h
+-
+unistd.h
+-
+smbus.h
+/mnt/Crate/taco-monitor/src/smbus.h
 
 /mnt/Crate/taco-monitor/src/TacoMonitor.cc
 TacoMonitor.h
@@ -145,6 +163,8 @@ InputManager.h
 /mnt/Crate/taco-monitor/src/InputManager.h
 OBDIIController.h
 /mnt/Crate/taco-monitor/src/OBDIIController.h
+SensorHub.h
+/mnt/Crate/taco-monitor/src/SensorHub.h
 
 /mnt/Crate/taco-monitor/src/main.cc
 iostream

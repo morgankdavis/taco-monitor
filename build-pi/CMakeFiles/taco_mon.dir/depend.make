@@ -16,6 +16,7 @@ CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o: ../external/serial/include/ser
 CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o: ../include/OBDIIController.h
 CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o: ../src/OBDIIController.cc
 
+CMakeFiles/taco_mon.dir/src/SensorHub.cc.o: ../external/smbus/smbus.h
 CMakeFiles/taco_mon.dir/src/SensorHub.cc.o: ../include/SensorHub.h
 CMakeFiles/taco_mon.dir/src/SensorHub.cc.o: ../src/SensorHub.cc
 
@@ -24,6 +25,7 @@ CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: ../external/serial/include/serial/
 CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: ../external/smbus/smbus.h
 CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: ../include/InputManager.h
 CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: ../include/OBDIIController.h
+CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: ../include/SensorHub.h
 CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: ../include/TacoMonitor.h
 CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: ../src/TacoMonitor.cc
 CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: /usr/local/include/wiringPi.h

@@ -21,6 +21,7 @@ namespace tacomon {
 	
 	class InputManager;
 	class OBDIIController;
+	class SensorHub;
 	
 
 	class TacoMonitor {
@@ -47,6 +48,7 @@ namespace tacomon {
 		
 		std::shared_ptr<InputManager>		m_inputManager;
 		std::shared_ptr<OBDIIController>	m_obdiiController;
+		std::shared_ptr<SensorHub>			m_sensorHub;
 		
 		bool								m_stop;
 	};

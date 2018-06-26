@@ -19,10 +19,11 @@
 #include <unistd.h>
 #include <wiringPi.h>
 
-#include "smbus.h" 
+#include "smbus.h"
 
 #include "InputManager.h"
 #include "OBDIIController.h"
+#include "SensorHub.h"
 
 
 // we want a signal pin that is HIGH on boot, so the buzzer does not sound.
@@ -39,6 +40,13 @@
 using namespace std;
 using namespace tacomon;
 
+
+/**************************************************************************************
+     Types
+ **************************************************************************************/
+
+
+
 /**************************************************************************************
      Static Prototypes
  **************************************************************************************/
@@ -46,7 +54,6 @@ using namespace tacomon;
 static void SetupPython();
 static void ExecPython(string python);
 static void TerminatePython();
-static unsigned LightLevel();
 static void DisplayString(string str);
 static void DisplaySmallString(unsigned display, string str);
 static void FillDisplay(bool fill);
@@ -60,6 +67,7 @@ static void Sleep(unsigned milliseconds);
 TacoMonitor::TacoMonitor():
 	m_inputManager(make_shared<InputManager>()),
 	m_obdiiController(make_shared<OBDIIController>()),
+	m_sensorHub(make_shared<SensorHub>()),
 	m_stop(false) {
 	
 }
@@ -76,6 +84,8 @@ int TacoMonitor::start(const vector<string>& args) {
 //	if (!m_obdiiController->connect()) {
 //		cout << "Couldn't create OBD-II serial connection." << endl;
 //	}
+	
+	cout << "Ready." << endl;
 
 	while (!m_stop) {
 		update();
@@ -101,10 +111,18 @@ void TacoMonitor::stop() {
 void TacoMonitor::update() {
 
 	if (m_inputManager->buttonDown(InputManager::BUTTON::A)) {
-		DisplayString("     A");
+		//DisplayString("     A");
+		
+		char tempStr[32];
+		sprintf(tempStr, "T %.1f", m_sensorHub->ambientTemperature() * (9.0/5.0) + 32);
+		DisplayString(tempStr);
 	}
 	if (m_inputManager->buttonDown(InputManager::BUTTON::B)) {
-		DisplayString("    B");
+		//DisplayString("    B");
+		
+		char luxStr[32];
+		sprintf(luxStr, "L %d", m_sensorHub->ambientLight());
+		DisplayString(luxStr);
 	}
 	if (m_inputManager->buttonDown(InputManager::BUTTON::C)) {
 		DisplayString("   C");
@@ -155,6 +173,7 @@ void TacoMonitor::shutdown() {
 	DisplayString("");
 	
 	m_inputManager->shutdown();
+	m_sensorHub->shutdown();
 	
 	TerminatePython();
 	
@@ -186,54 +205,6 @@ void TerminatePython() {
 	cout << "Terminating Python..." << endl;
 	
 	Py_Finalize();
-}
-
-unsigned LightLevel() {
-	// This code is designed to work with the TSL2561_I2CS I2C Mini Module available from ControlEverything.com.
-	// https://www.controleverything.com/content/Light?sku=TSL2561_I2CS#tabs-0-product_tabset-2
-	
-	// Create I2C bus
-	static int file = -1;
-	if (file == -1) {
-		char *bus = (char *)"/dev/i2c-0";
-		if ((file = open(bus, O_RDWR)) < 0)  {
-			printf("Failed to open the bus. \n");
-			exit(1);
-		}
-		// Get I2C device, TSL2561 I2C address is 0x39(57)
-		ioctl(file, I2C_SLAVE, 0x39);
-		
-		// Select control register(0x00 | 0x80)
-		// Power ON mode(0x03)
-		char config[2] = {0};
-		config[0] = 0x00 | 0x80;
-		config[1] = 0x03;
-		write(file, config, 2);
-		// Select timing register(0x01 | 0x80)
-		// Nominal integration time = 402ms(0x02)
-		config[0] = 0x01 | 0x80;
-		config[1] = 0x02;
-		write(file, config, 2);
-		//sleep(1);
-	}
-	
-	// Read 4 bytes of data from register(0x0C | 0x80)
-	// ch0 lsb, ch0 msb, ch1 lsb, ch1 msb
-	char reg[1] = {0x0C | 0x80};
-	write(file, reg, 1);
-	char data[4] = {0};
-	if (read(file, data, 4) != 4) {
-		printf("Erorr : Input/output Erorr \n");
-	}
-	else {
-		float full = (data[1] * 256 + data[0]);
-		float inf = (data[3] * 256 + data[2]);
-		float vis = full - inf;
-		
-		return vis;
-	}
-	
-	return 0;
 }
 
 void DisplayString(string str) {
