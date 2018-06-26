@@ -31,10 +31,10 @@ constexpr unsigned TIMEOUT = 			250; // ms
      Static Prototypes
  **************************************************************************************/
 
-static void Sleep(unsigned milliseconds);
 static string Tail(string const& source, size_t const length);
 static unsigned ParsedLineNumber(string const& line, unsigned length);
 static unsigned UnsignedFromHexString(string const& str);
+static void Sleep(unsigned milliseconds);
 
 /**************************************************************************************
      Lifecycle
@@ -296,11 +296,6 @@ vector<string> OBDIIController::readLines() {
      Static
  **************************************************************************************/
 
-void Sleep(unsigned milliseconds) {
-	
-	usleep(milliseconds * 1000);
-}
-
 string Tail(string const& source, size_t const length) {
 	
 	if (length >= source.size()) {
@@ -325,4 +320,9 @@ unsigned UnsignedFromHexString(string const& str) {
 	ss << hex << str;
 	ss >> result;
 	return result;
+}
+
+void Sleep(unsigned milliseconds) {
+	
+	usleep(milliseconds * 1000);
 }

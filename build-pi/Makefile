@@ -453,6 +453,87 @@ smbus/fast:
 	$(MAKE) -f external/smbus/CMakeFiles/smbus.dir/build.make external/smbus/CMakeFiles/smbus.dir/build
 .PHONY : smbus/fast
 
+src/Beeper.o: src/Beeper.cc.o
+
+.PHONY : src/Beeper.o
+
+# target to build an object file
+src/Beeper.cc.o:
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/Beeper.cc.o
+.PHONY : src/Beeper.cc.o
+
+src/Beeper.i: src/Beeper.cc.i
+
+.PHONY : src/Beeper.i
+
+# target to preprocess a source file
+src/Beeper.cc.i:
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/Beeper.cc.i
+.PHONY : src/Beeper.cc.i
+
+src/Beeper.s: src/Beeper.cc.s
+
+.PHONY : src/Beeper.s
+
+# target to generate assembly for a file
+src/Beeper.cc.s:
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/Beeper.cc.s
+.PHONY : src/Beeper.cc.s
+
+src/DisplayController.o: src/DisplayController.cc.o
+
+.PHONY : src/DisplayController.o
+
+# target to build an object file
+src/DisplayController.cc.o:
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/DisplayController.cc.o
+.PHONY : src/DisplayController.cc.o
+
+src/DisplayController.i: src/DisplayController.cc.i
+
+.PHONY : src/DisplayController.i
+
+# target to preprocess a source file
+src/DisplayController.cc.i:
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/DisplayController.cc.i
+.PHONY : src/DisplayController.cc.i
+
+src/DisplayController.s: src/DisplayController.cc.s
+
+.PHONY : src/DisplayController.s
+
+# target to generate assembly for a file
+src/DisplayController.cc.s:
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/DisplayController.cc.s
+.PHONY : src/DisplayController.cc.s
+
+src/InputManager.o: src/InputManager.cc.o
+
+.PHONY : src/InputManager.o
+
+# target to build an object file
+src/InputManager.cc.o:
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/InputManager.cc.o
+.PHONY : src/InputManager.cc.o
+
+src/InputManager.i: src/InputManager.cc.i
+
+.PHONY : src/InputManager.i
+
+# target to preprocess a source file
+src/InputManager.cc.i:
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/InputManager.cc.i
+.PHONY : src/InputManager.cc.i
+
+src/InputManager.s: src/InputManager.cc.s
+
+.PHONY : src/InputManager.s
+
+# target to generate assembly for a file
+src/InputManager.cc.s:
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/InputManager.cc.s
+.PHONY : src/InputManager.cc.s
+
 src/OBDIIController.o: src/OBDIIController.cc.o
 
 .PHONY : src/OBDIIController.o
@@ -479,6 +560,33 @@ src/OBDIIController.s: src/OBDIIController.cc.s
 src/OBDIIController.cc.s:
 	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/OBDIIController.cc.s
 .PHONY : src/OBDIIController.cc.s
+
+src/SensorHub.o: src/SensorHub.cc.o
+
+.PHONY : src/SensorHub.o
+
+# target to build an object file
+src/SensorHub.cc.o:
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/SensorHub.cc.o
+.PHONY : src/SensorHub.cc.o
+
+src/SensorHub.i: src/SensorHub.cc.i
+
+.PHONY : src/SensorHub.i
+
+# target to preprocess a source file
+src/SensorHub.cc.i:
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/SensorHub.cc.i
+.PHONY : src/SensorHub.cc.i
+
+src/SensorHub.s: src/SensorHub.cc.s
+
+.PHONY : src/SensorHub.s
+
+# target to generate assembly for a file
+src/SensorHub.cc.s:
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/SensorHub.cc.s
+.PHONY : src/SensorHub.cc.s
 
 src/TacoMonitor.o: src/TacoMonitor.cc.o
 
@@ -569,9 +677,21 @@ help:
 	@echo "... run_tests_serial_gtest_serial-test-timer"
 	@echo "... clean_test_results_serial"
 	@echo "... smbus"
+	@echo "... src/Beeper.o"
+	@echo "... src/Beeper.i"
+	@echo "... src/Beeper.s"
+	@echo "... src/DisplayController.o"
+	@echo "... src/DisplayController.i"
+	@echo "... src/DisplayController.s"
+	@echo "... src/InputManager.o"
+	@echo "... src/InputManager.i"
+	@echo "... src/InputManager.s"
 	@echo "... src/OBDIIController.o"
 	@echo "... src/OBDIIController.i"
 	@echo "... src/OBDIIController.s"
+	@echo "... src/SensorHub.o"
+	@echo "... src/SensorHub.i"
+	@echo "... src/SensorHub.s"
 	@echo "... src/TacoMonitor.o"
 	@echo "... src/TacoMonitor.i"
 	@echo "... src/TacoMonitor.s"

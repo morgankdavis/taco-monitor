@@ -38,6 +38,18 @@ linux/types.h
 linux/i2c.h
 -
 
+../include/Beeper.h
+
+../include/DisplayController.h
+
+../include/InputManager.h
+mutex
+-
+set
+-
+thread
+-
+
 ../include/OBDIIController.h
 memory
 -
@@ -50,6 +62,8 @@ vector
 serial/serial.h
 ../include/serial/serial.h
 
+../include/SensorHub.h
+
 ../include/TacoMonitor.h
 memory
 -
@@ -57,6 +71,32 @@ string
 -
 vector
 -
+
+/mnt/Crate/taco-monitor/src/Beeper.cc
+Beeper.h
+/mnt/Crate/taco-monitor/src/Beeper.h
+
+/mnt/Crate/taco-monitor/src/DisplayController.cc
+DisplayController.h
+/mnt/Crate/taco-monitor/src/DisplayController.h
+
+/mnt/Crate/taco-monitor/src/InputManager.cc
+InputManager.h
+/mnt/Crate/taco-monitor/src/InputManager.h
+fcntl.h
+-
+iostream
+-
+linux/i2c-dev.h
+-
+stdio.h
+-
+sys/ioctl.h
+-
+unistd.h
+-
+smbus.h
+/mnt/Crate/taco-monitor/src/smbus.h
 
 /mnt/Crate/taco-monitor/src/OBDIIController.cc
 OBDIIController.h
@@ -73,6 +113,10 @@ string
 -
 unistd.h
 -
+
+/mnt/Crate/taco-monitor/src/SensorHub.cc
+SensorHub.h
+/mnt/Crate/taco-monitor/src/SensorHub.h
 
 /mnt/Crate/taco-monitor/src/TacoMonitor.cc
 TacoMonitor.h
@@ -95,10 +139,10 @@ unistd.h
 -
 wiringPi.h
 -
-linux/i2c.h
--
 smbus.h
 /mnt/Crate/taco-monitor/src/smbus.h
+InputManager.h
+/mnt/Crate/taco-monitor/src/InputManager.h
 OBDIIController.h
 /mnt/Crate/taco-monitor/src/OBDIIController.h
 

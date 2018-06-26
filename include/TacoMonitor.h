@@ -19,6 +19,7 @@
 namespace tacomon {
 	
 	
+	class InputManager;
 	class OBDIIController;
 	
 
@@ -44,6 +45,7 @@ namespace tacomon {
 		void update();
 		void shutdown();
 		
+		std::shared_ptr<InputManager>		m_inputManager;
 		std::shared_ptr<OBDIIController>	m_obdiiController;
 		
 		bool								m_stop;

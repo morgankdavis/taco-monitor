@@ -19,13 +19,9 @@
 #include <unistd.h>
 #include <wiringPi.h>
 
-
-// for smbus
-#include <linux/i2c.h>
 #include "smbus.h" 
 
-
-
+#include "InputManager.h"
 #include "OBDIIController.h"
 
 
@@ -51,7 +47,6 @@ static void SetupPython();
 static void ExecPython(string python);
 static void TerminatePython();
 static unsigned LightLevel();
-static bool ButtonADown();
 static void DisplayString(string str);
 static void DisplaySmallString(unsigned display, string str);
 static void FillDisplay(bool fill);
@@ -63,6 +58,7 @@ static void Sleep(unsigned milliseconds);
  **************************************************************************************/
 
 TacoMonitor::TacoMonitor():
+	m_inputManager(make_shared<InputManager>()),
 	m_obdiiController(make_shared<OBDIIController>()),
 	m_stop(false) {
 	
@@ -103,7 +99,31 @@ void TacoMonitor::stop() {
  **************************************************************************************/
 
 void TacoMonitor::update() {
+
+	if (m_inputManager->buttonDown(InputManager::BUTTON::A)) {
+		DisplayString("     A");
+	}
+	if (m_inputManager->buttonDown(InputManager::BUTTON::B)) {
+		DisplayString("    B");
+	}
+	if (m_inputManager->buttonDown(InputManager::BUTTON::C)) {
+		DisplayString("   C");
+	}
+	if (m_inputManager->buttonDown(InputManager::BUTTON::D)) {
+		DisplayString("  D");
+	}
+	if (m_inputManager->buttonDown(InputManager::BUTTON::E)) {
+		digitalWrite(BUZZER_BCM_PIN, LOW); // low == on
+		DisplayString(" E");
+	}
+	else {
+		digitalWrite(BUZZER_BCM_PIN, HIGH); // low == on
+	}
 	
+	if (!m_inputManager->buttonsDown().size()) {
+		DisplayString("");
+	}
+
 //	auto lux = LightLevel();
 //	cout << "lux: " << lux << endl;
 	
@@ -133,6 +153,8 @@ void TacoMonitor::shutdown() {
 	digitalWrite(BUZZER_BCM_PIN, HIGH);
 	
 	DisplayString("");
+	
+	m_inputManager->shutdown();
 	
 	TerminatePython();
 	
@@ -204,66 +226,14 @@ unsigned LightLevel() {
 		printf("Erorr : Input/output Erorr \n");
 	}
 	else {
-		// Convert the data
-		float ch0 = (data[1] * 256 + data[0]);
-		float ch1 = (data[3] * 256 + data[2]);
+		float full = (data[1] * 256 + data[0]);
+		float inf = (data[3] * 256 + data[2]);
+		float vis = full - inf;
 		
-		// Output data to screen
-//		printf("Full Spectrum(IR + Visible) : %.2f lux \n", ch0);
-//		printf("Infrared Value : %.2f lux \n", ch1);
-//		printf("Visible Value : %.2f lux \n", (ch0 - ch1));
-		return ch0 - ch1;
+		return vis;
 	}
 	
 	return 0;
-}
-
-
-bool ButtonADown() {
-	
-#define BTN_SHIM_I2C_ADDRESS	0x3f
-#define	REG_INPUT				0x00
-	
-#define BUTTON_A				0b00000001
-#define BUTTON_B				0b00000010
-#define BUTTON_C				0b00000100
-#define BUTTON_D				0b00001000
-#define BUTTON_E				0b00010000
-	
-	static int fd = -1;
-	char *fileName = (char *)"/dev/i2c-1";
-	
-	if (fd == -1) {
-		// Open port for reading and writing
-		if ((fd = open(fileName, O_RDWR)) < 0) {
-			printf("Failed to open the bus.\n");
-			exit(1);
-		}
-		
-		// Set the port options and set the address of the device
-		if (ioctl(fd, I2C_SLAVE, BTN_SHIM_I2C_ADDRESS) < 0) {		
-			printf("Failed to get I2C device.\n");
-			close(fd);
-			exit(1);
-		}
-	}
-	
-	//unsigned char buttons = ((i2c_smbus_read_byte_data(fd, REG_INPUT) << 24) >> 24);
-	unsigned char buttons = ~((i2c_smbus_read_byte_data(fd, REG_INPUT) << 27) >> 27);
-	
-	//cout << "states: " << hex << states << endl;
-	//printf("buttons: %d\n", buttons);
-	
-	if (buttons & BUTTON_A) cout << "A";
-	if (buttons & BUTTON_B) cout << "B";
-	if (buttons & BUTTON_C) cout << "C";
-	if (buttons & BUTTON_D) cout << "D";
-	if (buttons & BUTTON_E) cout << "E";
-	if (buttons) cout << endl;
-
-	Sleep(.02);
-	
-	return false;
 }
 
 void DisplayString(string str) {

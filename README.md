@@ -31,3 +31,7 @@ https://learn.adafruit.com/adding-a-real-time-clock-to-raspberry-pi/set-up-and-t
 
 Set timezone:
 sudo cp /usr/share/zoneinfo/US/Pacific /etc/localtime
+
+APA102 (button thim light, unused):
+https://github.com/DirkWillem/libapa102
+Info: https://cpldcpu.wordpress.com/2014/08/27/apa102/

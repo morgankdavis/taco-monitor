@@ -4,7 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/mnt/Crate/taco-monitor/src/Beeper.cc" "/mnt/Crate/taco-monitor/build-pi/CMakeFiles/taco_mon.dir/src/Beeper.cc.o"
+  "/mnt/Crate/taco-monitor/src/DisplayController.cc" "/mnt/Crate/taco-monitor/build-pi/CMakeFiles/taco_mon.dir/src/DisplayController.cc.o"
+  "/mnt/Crate/taco-monitor/src/InputManager.cc" "/mnt/Crate/taco-monitor/build-pi/CMakeFiles/taco_mon.dir/src/InputManager.cc.o"
   "/mnt/Crate/taco-monitor/src/OBDIIController.cc" "/mnt/Crate/taco-monitor/build-pi/CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o"
+  "/mnt/Crate/taco-monitor/src/SensorHub.cc" "/mnt/Crate/taco-monitor/build-pi/CMakeFiles/taco_mon.dir/src/SensorHub.cc.o"
   "/mnt/Crate/taco-monitor/src/TacoMonitor.cc" "/mnt/Crate/taco-monitor/build-pi/CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o"
   "/mnt/Crate/taco-monitor/src/main.cc" "/mnt/Crate/taco-monitor/build-pi/CMakeFiles/taco_mon.dir/src/main.cc.o"
   )

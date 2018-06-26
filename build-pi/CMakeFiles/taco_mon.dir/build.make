@@ -57,9 +57,81 @@ include CMakeFiles/taco_mon.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/taco_mon.dir/flags.make
 
+CMakeFiles/taco_mon.dir/src/Beeper.cc.o: CMakeFiles/taco_mon.dir/flags.make
+CMakeFiles/taco_mon.dir/src/Beeper.cc.o: ../src/Beeper.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/taco_mon.dir/src/Beeper.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/taco_mon.dir/src/Beeper.cc.o -c /mnt/Crate/taco-monitor/src/Beeper.cc
+
+CMakeFiles/taco_mon.dir/src/Beeper.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/taco_mon.dir/src/Beeper.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/Crate/taco-monitor/src/Beeper.cc > CMakeFiles/taco_mon.dir/src/Beeper.cc.i
+
+CMakeFiles/taco_mon.dir/src/Beeper.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/taco_mon.dir/src/Beeper.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/Crate/taco-monitor/src/Beeper.cc -o CMakeFiles/taco_mon.dir/src/Beeper.cc.s
+
+CMakeFiles/taco_mon.dir/src/Beeper.cc.o.requires:
+
+.PHONY : CMakeFiles/taco_mon.dir/src/Beeper.cc.o.requires
+
+CMakeFiles/taco_mon.dir/src/Beeper.cc.o.provides: CMakeFiles/taco_mon.dir/src/Beeper.cc.o.requires
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/Beeper.cc.o.provides.build
+.PHONY : CMakeFiles/taco_mon.dir/src/Beeper.cc.o.provides
+
+CMakeFiles/taco_mon.dir/src/Beeper.cc.o.provides.build: CMakeFiles/taco_mon.dir/src/Beeper.cc.o
+
+
+CMakeFiles/taco_mon.dir/src/DisplayController.cc.o: CMakeFiles/taco_mon.dir/flags.make
+CMakeFiles/taco_mon.dir/src/DisplayController.cc.o: ../src/DisplayController.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/taco_mon.dir/src/DisplayController.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/taco_mon.dir/src/DisplayController.cc.o -c /mnt/Crate/taco-monitor/src/DisplayController.cc
+
+CMakeFiles/taco_mon.dir/src/DisplayController.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/taco_mon.dir/src/DisplayController.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/Crate/taco-monitor/src/DisplayController.cc > CMakeFiles/taco_mon.dir/src/DisplayController.cc.i
+
+CMakeFiles/taco_mon.dir/src/DisplayController.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/taco_mon.dir/src/DisplayController.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/Crate/taco-monitor/src/DisplayController.cc -o CMakeFiles/taco_mon.dir/src/DisplayController.cc.s
+
+CMakeFiles/taco_mon.dir/src/DisplayController.cc.o.requires:
+
+.PHONY : CMakeFiles/taco_mon.dir/src/DisplayController.cc.o.requires
+
+CMakeFiles/taco_mon.dir/src/DisplayController.cc.o.provides: CMakeFiles/taco_mon.dir/src/DisplayController.cc.o.requires
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/DisplayController.cc.o.provides.build
+.PHONY : CMakeFiles/taco_mon.dir/src/DisplayController.cc.o.provides
+
+CMakeFiles/taco_mon.dir/src/DisplayController.cc.o.provides.build: CMakeFiles/taco_mon.dir/src/DisplayController.cc.o
+
+
+CMakeFiles/taco_mon.dir/src/InputManager.cc.o: CMakeFiles/taco_mon.dir/flags.make
+CMakeFiles/taco_mon.dir/src/InputManager.cc.o: ../src/InputManager.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/taco_mon.dir/src/InputManager.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/taco_mon.dir/src/InputManager.cc.o -c /mnt/Crate/taco-monitor/src/InputManager.cc
+
+CMakeFiles/taco_mon.dir/src/InputManager.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/taco_mon.dir/src/InputManager.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/Crate/taco-monitor/src/InputManager.cc > CMakeFiles/taco_mon.dir/src/InputManager.cc.i
+
+CMakeFiles/taco_mon.dir/src/InputManager.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/taco_mon.dir/src/InputManager.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/Crate/taco-monitor/src/InputManager.cc -o CMakeFiles/taco_mon.dir/src/InputManager.cc.s
+
+CMakeFiles/taco_mon.dir/src/InputManager.cc.o.requires:
+
+.PHONY : CMakeFiles/taco_mon.dir/src/InputManager.cc.o.requires
+
+CMakeFiles/taco_mon.dir/src/InputManager.cc.o.provides: CMakeFiles/taco_mon.dir/src/InputManager.cc.o.requires
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/InputManager.cc.o.provides.build
+.PHONY : CMakeFiles/taco_mon.dir/src/InputManager.cc.o.provides
+
+CMakeFiles/taco_mon.dir/src/InputManager.cc.o.provides.build: CMakeFiles/taco_mon.dir/src/InputManager.cc.o
+
+
 CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o: CMakeFiles/taco_mon.dir/flags.make
 CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o: ../src/OBDIIController.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o -c /mnt/Crate/taco-monitor/src/OBDIIController.cc
 
 CMakeFiles/taco_mon.dir/src/OBDIIController.cc.i: cmake_force
@@ -81,9 +153,33 @@ CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o.provides: CMakeFiles/taco_mon.d
 CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o.provides.build: CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o
 
 
+CMakeFiles/taco_mon.dir/src/SensorHub.cc.o: CMakeFiles/taco_mon.dir/flags.make
+CMakeFiles/taco_mon.dir/src/SensorHub.cc.o: ../src/SensorHub.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/taco_mon.dir/src/SensorHub.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/taco_mon.dir/src/SensorHub.cc.o -c /mnt/Crate/taco-monitor/src/SensorHub.cc
+
+CMakeFiles/taco_mon.dir/src/SensorHub.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/taco_mon.dir/src/SensorHub.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/Crate/taco-monitor/src/SensorHub.cc > CMakeFiles/taco_mon.dir/src/SensorHub.cc.i
+
+CMakeFiles/taco_mon.dir/src/SensorHub.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/taco_mon.dir/src/SensorHub.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/Crate/taco-monitor/src/SensorHub.cc -o CMakeFiles/taco_mon.dir/src/SensorHub.cc.s
+
+CMakeFiles/taco_mon.dir/src/SensorHub.cc.o.requires:
+
+.PHONY : CMakeFiles/taco_mon.dir/src/SensorHub.cc.o.requires
+
+CMakeFiles/taco_mon.dir/src/SensorHub.cc.o.provides: CMakeFiles/taco_mon.dir/src/SensorHub.cc.o.requires
+	$(MAKE) -f CMakeFiles/taco_mon.dir/build.make CMakeFiles/taco_mon.dir/src/SensorHub.cc.o.provides.build
+.PHONY : CMakeFiles/taco_mon.dir/src/SensorHub.cc.o.provides
+
+CMakeFiles/taco_mon.dir/src/SensorHub.cc.o.provides.build: CMakeFiles/taco_mon.dir/src/SensorHub.cc.o
+
+
 CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: CMakeFiles/taco_mon.dir/flags.make
 CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o: ../src/TacoMonitor.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o -c /mnt/Crate/taco-monitor/src/TacoMonitor.cc
 
 CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.i: cmake_force
@@ -107,7 +203,7 @@ CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o.provides.build: CMakeFiles/taco_mon
 
 CMakeFiles/taco_mon.dir/src/main.cc.o: CMakeFiles/taco_mon.dir/flags.make
 CMakeFiles/taco_mon.dir/src/main.cc.o: ../src/main.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/taco_mon.dir/src/main.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/taco_mon.dir/src/main.cc.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/taco_mon.dir/src/main.cc.o -c /mnt/Crate/taco-monitor/src/main.cc
 
 CMakeFiles/taco_mon.dir/src/main.cc.i: cmake_force
@@ -131,21 +227,29 @@ CMakeFiles/taco_mon.dir/src/main.cc.o.provides.build: CMakeFiles/taco_mon.dir/sr
 
 # Object files for target taco_mon
 taco_mon_OBJECTS = \
+"CMakeFiles/taco_mon.dir/src/Beeper.cc.o" \
+"CMakeFiles/taco_mon.dir/src/DisplayController.cc.o" \
+"CMakeFiles/taco_mon.dir/src/InputManager.cc.o" \
 "CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o" \
+"CMakeFiles/taco_mon.dir/src/SensorHub.cc.o" \
 "CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o" \
 "CMakeFiles/taco_mon.dir/src/main.cc.o"
 
 # External object files for target taco_mon
 taco_mon_EXTERNAL_OBJECTS =
 
+taco_mon: CMakeFiles/taco_mon.dir/src/Beeper.cc.o
+taco_mon: CMakeFiles/taco_mon.dir/src/DisplayController.cc.o
+taco_mon: CMakeFiles/taco_mon.dir/src/InputManager.cc.o
 taco_mon: CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o
+taco_mon: CMakeFiles/taco_mon.dir/src/SensorHub.cc.o
 taco_mon: CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o
 taco_mon: CMakeFiles/taco_mon.dir/src/main.cc.o
 taco_mon: CMakeFiles/taco_mon.dir/build.make
 taco_mon: devel/lib/libserial.so
 taco_mon: external/smbus/libsmbus.so
 taco_mon: CMakeFiles/taco_mon.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable taco_mon"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/Crate/taco-monitor/build-pi/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable taco_mon"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/taco_mon.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -153,7 +257,11 @@ CMakeFiles/taco_mon.dir/build: taco_mon
 
 .PHONY : CMakeFiles/taco_mon.dir/build
 
+CMakeFiles/taco_mon.dir/requires: CMakeFiles/taco_mon.dir/src/Beeper.cc.o.requires
+CMakeFiles/taco_mon.dir/requires: CMakeFiles/taco_mon.dir/src/DisplayController.cc.o.requires
+CMakeFiles/taco_mon.dir/requires: CMakeFiles/taco_mon.dir/src/InputManager.cc.o.requires
 CMakeFiles/taco_mon.dir/requires: CMakeFiles/taco_mon.dir/src/OBDIIController.cc.o.requires
+CMakeFiles/taco_mon.dir/requires: CMakeFiles/taco_mon.dir/src/SensorHub.cc.o.requires
 CMakeFiles/taco_mon.dir/requires: CMakeFiles/taco_mon.dir/src/TacoMonitor.cc.o.requires
 CMakeFiles/taco_mon.dir/requires: CMakeFiles/taco_mon.dir/src/main.cc.o.requires
 

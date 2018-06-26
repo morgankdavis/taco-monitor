@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		0F7A81D3948B4A12AB51A377 /* ZERO_CHECK */ = {
+		17DAFD11247F43D3BDFAC7DF /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 51E3D2B470234FA2BE290372 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = B9B8A15FBF5D41BDBE668EEF /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
-				4B4B8578147E45798268E384 /* CMake Rules */,
+				0E7577D9BBB04EEE99B89151 /* CMake Rules */,
 			);
 			dependencies = (
 			);
 			name = ZERO_CHECK;
 			productName = ZERO_CHECK;
 		};
-		1CE3E7BFB82046BC9A18FF58 /* ALL_BUILD */ = {
+		4E53A92AD96C4942A3A922CA /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 59EFB5DC8B174AF98F0C672D /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = 449D994917EC4174B5FCB4F9 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
-				E19F9AE5B6624A4BBD1C9E85 /* CMake Rules */,
+				6568C504ACCF4952A33B7510 /* CMake Rules */,
 			);
 			dependencies = (
-				8443530AA4324D9EA863154C /* PBXTargetDependency */,
-				B358D1A1406247FE94B1C646 /* PBXTargetDependency */,
+				2F45658F28964EEEAC44C5D3 /* PBXTargetDependency */,
+				C7605F151E90410CA6C4619B /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
@@ -34,243 +34,237 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		087BCADBF5B049B48136F277 /* /Volumes/Crate/taco-monitor/include/TacoMonitor.h */ = {isa = PBXBuildFile; fileRef = 1E23B8B3BB0C40429730E825 /* /Volumes/Crate/taco-monitor/include/TacoMonitor.h */; };
-		599F165AFBC74737BD3A494F /* /Volumes/Crate/taco-monitor/src/TacoMonitor.cc */ = {isa = PBXBuildFile; fileRef = ABDEDC5DE2E84D43A63071B2 /* /Volumes/Crate/taco-monitor/src/TacoMonitor.cc */; };
-		8C5EF63A5CD949E580C24AEB /* /Volumes/Crate/taco-monitor/src/OBDIIController.cc */ = {isa = PBXBuildFile; fileRef = 8B0C56014B56403A82E5212A /* /Volumes/Crate/taco-monitor/src/OBDIIController.cc */; };
-		C949EE99BF214602A5AE8BA8 /* /Volumes/Crate/taco-monitor/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 158DBC4B036F47D0960A1DC2 /* /Volumes/Crate/taco-monitor/CMakeLists.txt */; };
-		F1D681C6454E49EEABEDF677 /* /Volumes/Crate/taco-monitor/include/OBDIIController.h */ = {isa = PBXBuildFile; fileRef = 614E392DF7264F7F92793D40 /* /Volumes/Crate/taco-monitor/include/OBDIIController.h */; };
-		FAE7B71A5FC14CF99517C1BC /* /Volumes/Crate/taco-monitor/src/main.cc */ = {isa = PBXBuildFile; fileRef = 4F600CC9A1E34FA8A39B2FB6 /* /Volumes/Crate/taco-monitor/src/main.cc */; };
+		0C8C9AE1B23A43FAA084D663 /* /Volumes/Crate/taco-monitor/src/OBDIIController.cc */ = {isa = PBXBuildFile; fileRef = 1AB0A47226394C1FB1DBE29E /* /Volumes/Crate/taco-monitor/src/OBDIIController.cc */; };
+		148EE89F02154DFC8E235DA4 /* /Volumes/Crate/taco-monitor/include/SensorHub.h */ = {isa = PBXBuildFile; fileRef = 8EF1F080D88F4E8589999B01 /* /Volumes/Crate/taco-monitor/include/SensorHub.h */; };
+		152000B3DD344391B7AC993B /* /Volumes/Crate/taco-monitor/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 2FB2B390CBB54BC7AC7D6DF4 /* /Volumes/Crate/taco-monitor/CMakeLists.txt */; };
+		180FC87E6057417893D7035B /* /Volumes/Crate/taco-monitor/include/Beeper.h */ = {isa = PBXBuildFile; fileRef = ED2606A9CFF8450D91215832 /* /Volumes/Crate/taco-monitor/include/Beeper.h */; };
+		194EDE2FE23644DC9C32AEB0 /* /Volumes/Crate/taco-monitor/include/OBDIIController.h */ = {isa = PBXBuildFile; fileRef = B75E8759F78A4623B1E03209 /* /Volumes/Crate/taco-monitor/include/OBDIIController.h */; };
+		201E5A92D3174CA0883603E1 /* /Volumes/Crate/taco-monitor/src/InputManager.cc */ = {isa = PBXBuildFile; fileRef = B5837E2E54664216B64576C9 /* /Volumes/Crate/taco-monitor/src/InputManager.cc */; };
+		24E4A09E618E47F5B2B5DEDC /* /Volumes/Crate/taco-monitor/src/SensorHub.cc */ = {isa = PBXBuildFile; fileRef = 24B1C1CC766347E0B7FD4B99 /* /Volumes/Crate/taco-monitor/src/SensorHub.cc */; };
+		49CF9874F4504895B29170C0 /* /Volumes/Crate/taco-monitor/include/TacoMonitor.h */ = {isa = PBXBuildFile; fileRef = 3F92D78B345B4E05A9DAF608 /* /Volumes/Crate/taco-monitor/include/TacoMonitor.h */; };
+		4A063CEC3CAB463EB2C92A2E /* /Volumes/Crate/taco-monitor/src/Beeper.cc */ = {isa = PBXBuildFile; fileRef = 7AB05699A26C4EBCB7741367 /* /Volumes/Crate/taco-monitor/src/Beeper.cc */; };
+		61E0D4D6526E49F18D5C82B3 /* /Volumes/Crate/taco-monitor/src/DisplayController.cc */ = {isa = PBXBuildFile; fileRef = AC13589D09114F6280DA3205 /* /Volumes/Crate/taco-monitor/src/DisplayController.cc */; };
+		68F2F0144C0F4599951B921F /* /Volumes/Crate/taco-monitor/src/TacoMonitor.cc */ = {isa = PBXBuildFile; fileRef = DF2FE2D7D4B846298A716EFE /* /Volumes/Crate/taco-monitor/src/TacoMonitor.cc */; };
+		791A08AF090C4ADD95E32145 /* /Volumes/Crate/taco-monitor/include/InputManager.h */ = {isa = PBXBuildFile; fileRef = B35FD6D7BFA34EF3B95DCC19 /* /Volumes/Crate/taco-monitor/include/InputManager.h */; };
+		866DA020C31F42B7BF640A26 /* /Volumes/Crate/taco-monitor/src/main.cc */ = {isa = PBXBuildFile; fileRef = 505604F93D54476A91D23005 /* /Volumes/Crate/taco-monitor/src/main.cc */; };
+		B867C1D891C3427AA01E1524 /* /Volumes/Crate/taco-monitor/include/DisplayController.h */ = {isa = PBXBuildFile; fileRef = 41AC4661A4084E489E9D60D7 /* /Volumes/Crate/taco-monitor/include/DisplayController.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildStyle section */
-		4E370F8BBCAF403BAA1ECCA6 /* MinSizeRel */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = MinSizeRel;
-		};
-		67362342A9A546A5A98B053E /* RelWithDebInfo */ = {
+		3C91283326254266A7243A7D /* RelWithDebInfo */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = RelWithDebInfo;
 		};
-		815AD30572DF499090FF706E /* Debug */ = {
+		C62D77E996544E96B2041F24 /* Debug */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = Debug;
 		};
-		8DCA9F111A4A4118ABAC6620 /* Release */ = {
+		F6843A7257E6407BAD72BDE5 /* Release */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = Release;
 		};
+		FF8DC5124A2D471DADC2662F /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
 /* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
-		3FF11B8F513B48758141BF61 /* PBXContainerItemProxy */ = {
+		4D6868D4A60C427AB89CFBC3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 95D4F3EC06254CABB4FAD9AB /* Project object */;
+			containerPortal = C066F20FD1C846CCBFDC091C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0F7A81D3948B4A12AB51A377;
+			remoteGlobalIDString = 17DAFD11247F43D3BDFAC7DF;
 			remoteInfo = ZERO_CHECK;
 		};
-		872E528CC57644349CB1AEA1 /* PBXContainerItemProxy */ = {
+		80084824DC934C6E96CC76CF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 95D4F3EC06254CABB4FAD9AB /* Project object */;
+			containerPortal = C066F20FD1C846CCBFDC091C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 747DFFD871B7490E967B777E;
+			remoteGlobalIDString = C8F1024CB6B34DD7932A40E1;
 			remoteInfo = taco_mon;
 		};
-		91679EE0CDF7403C82E49ECA /* PBXContainerItemProxy */ = {
+		B6D35BBD3FB24AB49F127D79 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 95D4F3EC06254CABB4FAD9AB /* Project object */;
+			containerPortal = C066F20FD1C846CCBFDC091C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0F7A81D3948B4A12AB51A377;
+			remoteGlobalIDString = 17DAFD11247F43D3BDFAC7DF;
 			remoteInfo = ZERO_CHECK;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1503AF87F1F84CF2904FB3B8 /* /Volumes/Crate/taco-monitor/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		158DBC4B036F47D0960A1DC2 /* /Volumes/Crate/taco-monitor/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		1E23B8B3BB0C40429730E825 /* /Volumes/Crate/taco-monitor/include/TacoMonitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = TacoMonitor.h; path = include/TacoMonitor.h; sourceTree = SOURCE_ROOT; };
-		3594F70B987F47BBA4084D46 /* taco_mon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = taco_mon; sourceTree = BUILT_PRODUCTS_DIR; };
-		474905E1EE884F1998C792F0 /* /Volumes/Crate/taco-monitor/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		4F600CC9A1E34FA8A39B2FB6 /* /Volumes/Crate/taco-monitor/src/main.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cc; path = src/main.cc; sourceTree = SOURCE_ROOT; };
-		614E392DF7264F7F92793D40 /* /Volumes/Crate/taco-monitor/include/OBDIIController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OBDIIController.h; path = include/OBDIIController.h; sourceTree = SOURCE_ROOT; };
-		8B0C56014B56403A82E5212A /* /Volumes/Crate/taco-monitor/src/OBDIIController.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = OBDIIController.cc; path = src/OBDIIController.cc; sourceTree = SOURCE_ROOT; };
-		ABDEDC5DE2E84D43A63071B2 /* /Volumes/Crate/taco-monitor/src/TacoMonitor.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = TacoMonitor.cc; path = src/TacoMonitor.cc; sourceTree = SOURCE_ROOT; };
+		07CF51C61F604DE9A0141A8C /* /Volumes/Crate/taco-monitor/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		1AB0A47226394C1FB1DBE29E /* /Volumes/Crate/taco-monitor/src/OBDIIController.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = OBDIIController.cc; path = src/OBDIIController.cc; sourceTree = SOURCE_ROOT; };
+		24B1C1CC766347E0B7FD4B99 /* /Volumes/Crate/taco-monitor/src/SensorHub.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = SensorHub.cc; path = src/SensorHub.cc; sourceTree = SOURCE_ROOT; };
+		2FB2B390CBB54BC7AC7D6DF4 /* /Volumes/Crate/taco-monitor/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		336E76B95B444F899502F6AE /* /Volumes/Crate/taco-monitor/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		3F92D78B345B4E05A9DAF608 /* /Volumes/Crate/taco-monitor/include/TacoMonitor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = TacoMonitor.h; path = include/TacoMonitor.h; sourceTree = SOURCE_ROOT; };
+		41AC4661A4084E489E9D60D7 /* /Volumes/Crate/taco-monitor/include/DisplayController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = DisplayController.h; path = include/DisplayController.h; sourceTree = SOURCE_ROOT; };
+		505604F93D54476A91D23005 /* /Volumes/Crate/taco-monitor/src/main.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cc; path = src/main.cc; sourceTree = SOURCE_ROOT; };
+		7AB05699A26C4EBCB7741367 /* /Volumes/Crate/taco-monitor/src/Beeper.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Beeper.cc; path = src/Beeper.cc; sourceTree = SOURCE_ROOT; };
+		8EF1F080D88F4E8589999B01 /* /Volumes/Crate/taco-monitor/include/SensorHub.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SensorHub.h; path = include/SensorHub.h; sourceTree = SOURCE_ROOT; };
+		AC13589D09114F6280DA3205 /* /Volumes/Crate/taco-monitor/src/DisplayController.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = DisplayController.cc; path = src/DisplayController.cc; sourceTree = SOURCE_ROOT; };
+		B35FD6D7BFA34EF3B95DCC19 /* /Volumes/Crate/taco-monitor/include/InputManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = InputManager.h; path = include/InputManager.h; sourceTree = SOURCE_ROOT; };
+		B5837E2E54664216B64576C9 /* /Volumes/Crate/taco-monitor/src/InputManager.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = InputManager.cc; path = src/InputManager.cc; sourceTree = SOURCE_ROOT; };
+		B75E8759F78A4623B1E03209 /* /Volumes/Crate/taco-monitor/include/OBDIIController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OBDIIController.h; path = include/OBDIIController.h; sourceTree = SOURCE_ROOT; };
+		DF2FE2D7D4B846298A716EFE /* /Volumes/Crate/taco-monitor/src/TacoMonitor.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = TacoMonitor.cc; path = src/TacoMonitor.cc; sourceTree = SOURCE_ROOT; };
+		E77F9C5F40F7485E8DA5EDE4 /* taco_mon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = taco_mon; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED2606A9CFF8450D91215832 /* /Volumes/Crate/taco-monitor/include/Beeper.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Beeper.h; path = include/Beeper.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		1E18A999685C4B24A9B73311 /* ZERO_CHECK */ = {
+		03B7F24433EC45D7A34CE9D2 /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
-				8D30214DF6FA4A269FBE75C1 /* CMake Rules */,
-				1503AF87F1F84CF2904FB3B8 /* /Volumes/Crate/taco-monitor/CMakeLists.txt */,
-			);
-			name = ZERO_CHECK;
-			sourceTree = "<group>";
-		};
-		2FE888BC330E48DCAD43858D /* ALL_BUILD */ = {
-			isa = PBXGroup;
-			children = (
-				392489EA4A174198B03E6FD0 /* CMake Rules */,
-				474905E1EE884F1998C792F0 /* /Volumes/Crate/taco-monitor/CMakeLists.txt */,
-			);
-			name = ALL_BUILD;
-			sourceTree = "<group>";
-		};
-		392489EA4A174198B03E6FD0 /* CMake Rules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		72B1EBDDAC704D20A87BB444 = {
-			isa = PBXGroup;
-			children = (
-				88606BCFCCE44FED8C9C191A /* taco_mon */,
-				2FE888BC330E48DCAD43858D /* ALL_BUILD */,
-				1E18A999685C4B24A9B73311 /* ZERO_CHECK */,
-				F3152D474C304B4DA0C5E344 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		88606BCFCCE44FED8C9C191A /* taco_mon */ = {
-			isa = PBXGroup;
-			children = (
-				BCBC68DDEA694CF79948295F /* Header Files */,
-				A72D31531FAF4045933838BB /* Source Files */,
-				158DBC4B036F47D0960A1DC2 /* /Volumes/Crate/taco-monitor/CMakeLists.txt */,
-			);
-			name = taco_mon;
-			sourceTree = "<group>";
-		};
-		8D30214DF6FA4A269FBE75C1 /* CMake Rules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		A72D31531FAF4045933838BB /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				8B0C56014B56403A82E5212A /* /Volumes/Crate/taco-monitor/src/OBDIIController.cc */,
-				ABDEDC5DE2E84D43A63071B2 /* /Volumes/Crate/taco-monitor/src/TacoMonitor.cc */,
-				4F600CC9A1E34FA8A39B2FB6 /* /Volumes/Crate/taco-monitor/src/main.cc */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		BCBC68DDEA694CF79948295F /* Header Files */ = {
-			isa = PBXGroup;
-			children = (
-				614E392DF7264F7F92793D40 /* /Volumes/Crate/taco-monitor/include/OBDIIController.h */,
-				1E23B8B3BB0C40429730E825 /* /Volumes/Crate/taco-monitor/include/TacoMonitor.h */,
+				ED2606A9CFF8450D91215832 /* /Volumes/Crate/taco-monitor/include/Beeper.h */,
+				41AC4661A4084E489E9D60D7 /* /Volumes/Crate/taco-monitor/include/DisplayController.h */,
+				B35FD6D7BFA34EF3B95DCC19 /* /Volumes/Crate/taco-monitor/include/InputManager.h */,
+				B75E8759F78A4623B1E03209 /* /Volumes/Crate/taco-monitor/include/OBDIIController.h */,
+				8EF1F080D88F4E8589999B01 /* /Volumes/Crate/taco-monitor/include/SensorHub.h */,
+				3F92D78B345B4E05A9DAF608 /* /Volumes/Crate/taco-monitor/include/TacoMonitor.h */,
 			);
 			name = "Header Files";
 			sourceTree = "<group>";
 		};
-		F3152D474C304B4DA0C5E344 /* Products */ = {
+		1B69A60DF6704934997B6934 /* ALL_BUILD */ = {
 			isa = PBXGroup;
 			children = (
-				3594F70B987F47BBA4084D46 /* taco_mon */,
+				A1867990D9AB46EABE908405 /* CMake Rules */,
+				07CF51C61F604DE9A0141A8C /* /Volumes/Crate/taco-monitor/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		5D0A383B91424C9EB9D65131 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				7AB05699A26C4EBCB7741367 /* /Volumes/Crate/taco-monitor/src/Beeper.cc */,
+				AC13589D09114F6280DA3205 /* /Volumes/Crate/taco-monitor/src/DisplayController.cc */,
+				B5837E2E54664216B64576C9 /* /Volumes/Crate/taco-monitor/src/InputManager.cc */,
+				1AB0A47226394C1FB1DBE29E /* /Volumes/Crate/taco-monitor/src/OBDIIController.cc */,
+				24B1C1CC766347E0B7FD4B99 /* /Volumes/Crate/taco-monitor/src/SensorHub.cc */,
+				DF2FE2D7D4B846298A716EFE /* /Volumes/Crate/taco-monitor/src/TacoMonitor.cc */,
+				505604F93D54476A91D23005 /* /Volumes/Crate/taco-monitor/src/main.cc */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		799F8711F4914A6EA5CC6F5C /* taco_mon */ = {
+			isa = PBXGroup;
+			children = (
+				03B7F24433EC45D7A34CE9D2 /* Header Files */,
+				5D0A383B91424C9EB9D65131 /* Source Files */,
+				2FB2B390CBB54BC7AC7D6DF4 /* /Volumes/Crate/taco-monitor/CMakeLists.txt */,
+			);
+			name = taco_mon;
+			sourceTree = "<group>";
+		};
+		A1867990D9AB46EABE908405 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		BB1615BDF659422E8BD75734 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				D917B162D9F54A01B7248AFC /* CMake Rules */,
+				336E76B95B444F899502F6AE /* /Volumes/Crate/taco-monitor/CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		CCB3C3A69A894270850029B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E77F9C5F40F7485E8DA5EDE4 /* taco_mon */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D917B162D9F54A01B7248AFC /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		F822822089AD46D294FFA91F = {
+			isa = PBXGroup;
+			children = (
+				799F8711F4914A6EA5CC6F5C /* taco_mon */,
+				1B69A60DF6704934997B6934 /* ALL_BUILD */,
+				BB1615BDF659422E8BD75734 /* ZERO_CHECK */,
+				CCB3C3A69A894270850029B7 /* Products */,
+			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		747DFFD871B7490E967B777E /* taco_mon */ = {
+		C8F1024CB6B34DD7932A40E1 /* taco_mon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 51AD2D4D67764C67A73DE32F /* Build configuration list for PBXNativeTarget "taco_mon" */;
+			buildConfigurationList = 3A8C353669204A47B07B44F0 /* Build configuration list for PBXNativeTarget "taco_mon" */;
 			buildPhases = (
-				69ED247589A04835B12C4198 /* Sources */,
+				7AA3B7DB2CF2456B95B0D29D /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6EA8E11D67EF496CB776050A /* PBXTargetDependency */,
+				68EE35B80AFE46A0A2FA4A34 /* PBXTargetDependency */,
 			);
 			name = taco_mon;
 			productName = taco_mon;
-			productReference = 3594F70B987F47BBA4084D46 /* taco_mon */;
+			productReference = E77F9C5F40F7485E8DA5EDE4 /* taco_mon */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		95D4F3EC06254CABB4FAD9AB /* Project object */ = {
+		C066F20FD1C846CCBFDC091C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 0930;
 			};
-			buildConfigurationList = 8E213C5CFAFB4025A8ABF88D /* Build configuration list for PBXProject "taco-monitor" */;
+			buildConfigurationList = 4ABFB555251B400FACF96C75 /* Build configuration list for PBXProject "taco-monitor" */;
 			buildSettings = {
 			};
 			buildStyles = (
-				815AD30572DF499090FF706E /* Debug */,
-				8DCA9F111A4A4118ABAC6620 /* Release */,
-				4E370F8BBCAF403BAA1ECCA6 /* MinSizeRel */,
-				67362342A9A546A5A98B053E /* RelWithDebInfo */,
+				C62D77E996544E96B2041F24 /* Debug */,
+				F6843A7257E6407BAD72BDE5 /* Release */,
+				FF8DC5124A2D471DADC2662F /* MinSizeRel */,
+				3C91283326254266A7243A7D /* RelWithDebInfo */,
 			);
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
-			mainGroup = 72B1EBDDAC704D20A87BB444;
+			mainGroup = F822822089AD46D294FFA91F;
 			projectDirPath = ../;
 			projectRoot = "";
 			targets = (
-				1CE3E7BFB82046BC9A18FF58 /* ALL_BUILD */,
-				0F7A81D3948B4A12AB51A377 /* ZERO_CHECK */,
-				747DFFD871B7490E967B777E /* taco_mon */,
+				4E53A92AD96C4942A3A922CA /* ALL_BUILD */,
+				17DAFD11247F43D3BDFAC7DF /* ZERO_CHECK */,
+				C8F1024CB6B34DD7932A40E1 /* taco_mon */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0BAAA730C78E434EA7886A1F = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
-			showEnvVarsInLog = 0;
-		};
-		3942DB54952A49F7AEE733E6 = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
-			showEnvVarsInLog = 0;
-		};
-		4B4B8578147E45798268E384 /* CMake Rules */ = {
+		0E7577D9BBB04EEE99B89151 /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -281,7 +275,7 @@ exit 0";
 			shellScript = "make -C /Volumes/Crate/taco-monitor/build-xcode -f /Volumes/Crate/taco-monitor/build-xcode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
-		E19F9AE5B6624A4BBD1C9E85 /* CMake Rules */ = {
+		6568C504ACCF4952A33B7510 /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -292,41 +286,96 @@ exit 0";
 			shellScript = "make -C /Volumes/Crate/taco-monitor/build-xcode -f /Volumes/Crate/taco-monitor/build-xcode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
+		65C3C7E6DC5B48DDA75E2535 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		8EA1F8D2E68246BEAEE50351 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		69ED247589A04835B12C4198 /* Sources */ = {
+		7AA3B7DB2CF2456B95B0D29D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C5EF63A5CD949E580C24AEB /* /Volumes/Crate/taco-monitor/src/OBDIIController.cc */,
-				599F165AFBC74737BD3A494F /* /Volumes/Crate/taco-monitor/src/TacoMonitor.cc */,
-				FAE7B71A5FC14CF99517C1BC /* /Volumes/Crate/taco-monitor/src/main.cc */,
+				4A063CEC3CAB463EB2C92A2E /* /Volumes/Crate/taco-monitor/src/Beeper.cc */,
+				61E0D4D6526E49F18D5C82B3 /* /Volumes/Crate/taco-monitor/src/DisplayController.cc */,
+				201E5A92D3174CA0883603E1 /* /Volumes/Crate/taco-monitor/src/InputManager.cc */,
+				0C8C9AE1B23A43FAA084D663 /* /Volumes/Crate/taco-monitor/src/OBDIIController.cc */,
+				24E4A09E618E47F5B2B5DEDC /* /Volumes/Crate/taco-monitor/src/SensorHub.cc */,
+				68F2F0144C0F4599951B921F /* /Volumes/Crate/taco-monitor/src/TacoMonitor.cc */,
+				866DA020C31F42B7BF640A26 /* /Volumes/Crate/taco-monitor/src/main.cc */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6EA8E11D67EF496CB776050A /* PBXTargetDependency */ = {
+		2F45658F28964EEEAC44C5D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0F7A81D3948B4A12AB51A377 /* ZERO_CHECK */;
-			targetProxy = 3FF11B8F513B48758141BF61 /* PBXContainerItemProxy */;
+			target = 17DAFD11247F43D3BDFAC7DF /* ZERO_CHECK */;
+			targetProxy = B6D35BBD3FB24AB49F127D79 /* PBXContainerItemProxy */;
 		};
-		8443530AA4324D9EA863154C /* PBXTargetDependency */ = {
+		68EE35B80AFE46A0A2FA4A34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 747DFFD871B7490E967B777E /* taco_mon */;
-			targetProxy = 872E528CC57644349CB1AEA1 /* PBXContainerItemProxy */;
+			target = 17DAFD11247F43D3BDFAC7DF /* ZERO_CHECK */;
+			targetProxy = 4D6868D4A60C427AB89CFBC3 /* PBXContainerItemProxy */;
 		};
-		B358D1A1406247FE94B1C646 /* PBXTargetDependency */ = {
+		C7605F151E90410CA6C4619B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0F7A81D3948B4A12AB51A377 /* ZERO_CHECK */;
-			targetProxy = 91679EE0CDF7403C82E49ECA /* PBXContainerItemProxy */;
+			target = C8F1024CB6B34DD7932A40E1 /* taco_mon */;
+			targetProxy = 80084824DC934C6E96CC76CF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		02394127B4B84721BAEAAC66 /* Release */ = {
+		0BCB8C35054A4344A98039C9 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Volumes/Crate/taco-monitor/external/serial/include","/Volumes/Crate/taco-monitor/external/smbus","/Volumes/Crate/taco-monitor/include");
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		0DD124C2A1564950B3C60C38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -347,7 +396,7 @@ exit 0";
 			};
 			name = Release;
 		};
-		09019690B93B4139911D8B97 /* MinSizeRel */ = {
+		1F191ACD445B4E7FA01C2FA4 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -373,33 +422,7 @@ exit 0";
 			};
 			name = MinSizeRel;
 		};
-		0D57DB900CD249BC83A8ED64 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include,"/Volumes/Crate/taco-monitor/external/serial/include","/Volumes/Crate/taco-monitor/external/smbus","/Volumes/Crate/taco-monitor/include");
-				INSTALL_PATH = "";
-				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
-				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib";
-				OTHER_CPLUSPLUSFLAGS = " -L/usr/lib/python3.5/config-3.5m-arm-linux-gnueabihf -L/usr/lib -lpython3.5m -lpthread -ldl  -lutil -lm  -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions        -DNDEBUG '-std=gnu++14'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lserial -lwiringPi -lsmbus";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = taco_mon;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		1CB7C20639474705A62E634C /* Debug */ = {
+		2E6AEE5F0A7B4ECE8036763E /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -418,44 +441,9 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = Debug;
-		};
-		2ED3C6D2336847FB8264B773 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include,"/Volumes/Crate/taco-monitor/external/serial/include","/Volumes/Crate/taco-monitor/external/smbus","/Volumes/Crate/taco-monitor/include");
-				INSTALL_PATH = "";
-				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
-				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib";
-				OTHER_CPLUSPLUSFLAGS = " -L/usr/lib/python3.5/config-3.5m-arm-linux-gnueabihf -L/usr/lib -lpython3.5m -lpthread -ldl  -lutil -lm  -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions     -DNDEBUG '-std=gnu++14'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lserial -lwiringPi -lsmbus";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = taco_mon;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		31A76E20AC5D48FEAD5B3529 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk;
-				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode/build";
-			};
 			name = MinSizeRel;
 		};
-		5F28C3CFAF5745FD8A49443A /* Debug */ = {
+		418CE64DED8D413E8F1EC27C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -481,109 +469,16 @@ exit 0";
 			};
 			name = Debug;
 		};
-		62F7A43454C24E68A5086F3A /* Debug */ = {
+		4849E75A8F774C828F4D2B64 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk;
 				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode/build";
 			};
-			name = Debug;
-		};
-		6D06808B52D741A899C015B7 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk;
-				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode/build";
-			};
-			name = RelWithDebInfo;
-		};
-		84C2F174D85447B082E75F39 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include,"/Volumes/Crate/taco-monitor/external/serial/include","/Volumes/Crate/taco-monitor/external/smbus","/Volumes/Crate/taco-monitor/include");
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		86A486D0BD174432BC48DF2F /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include,"/Volumes/Crate/taco-monitor/external/serial/include","/Volumes/Crate/taco-monitor/external/smbus","/Volumes/Crate/taco-monitor/include");
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
 			name = MinSizeRel;
 		};
-		86D318D4598E496C854E5D79 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include,"/Volumes/Crate/taco-monitor/external/serial/include","/Volumes/Crate/taco-monitor/external/smbus","/Volumes/Crate/taco-monitor/include");
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		B336F469843B42EB80280036 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include,"/Volumes/Crate/taco-monitor/external/serial/include","/Volumes/Crate/taco-monitor/external/smbus","/Volumes/Crate/taco-monitor/include");
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		C528D2D9DF964372A8BCD4C1 /* Debug */ = {
+		65B978BCB58E4BF3A760F0DE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -604,16 +499,119 @@ exit 0";
 			};
 			name = Debug;
 		};
-		D401CCB86CA541828C8F642A /* Release */ = {
+		7B3E640466F945E6A531D77B /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Volumes/Crate/taco-monitor/external/serial/include","/Volumes/Crate/taco-monitor/external/smbus","/Volumes/Crate/taco-monitor/include");
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib";
+				OTHER_CPLUSPLUSFLAGS = " -L/usr/lib/python3.5/config-3.5m-arm-linux-gnueabihf -L/usr/lib -lpython3.5m -lpthread -ldl  -lutil -lm  -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions        -DNDEBUG '-std=gnu++14'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lserial -lwiringPi -lsmbus";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = taco_mon;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		7BDE0F86CB224C11B9DFD3C8 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Volumes/Crate/taco-monitor/external/serial/include","/Volumes/Crate/taco-monitor/external/smbus","/Volumes/Crate/taco-monitor/include");
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		8BA8B49DEC83455194983189 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk;
 				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode/build";
+			};
+			name = RelWithDebInfo;
+		};
+		97B925A0F8AB4718A233B115 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Volumes/Crate/taco-monitor/external/serial/include","/Volumes/Crate/taco-monitor/external/smbus","/Volumes/Crate/taco-monitor/include");
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		A58DF1A7AEC14E988C82C77F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk;
+				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode/build";
+			};
+			name = Debug;
+		};
+		DCF4D40418D64AB79CCBB744 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Volumes/Crate/taco-monitor/external/serial/include","/Volumes/Crate/taco-monitor/external/smbus","/Volumes/Crate/taco-monitor/include");
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib";
+				OTHER_CPLUSPLUSFLAGS = " -L/usr/lib/python3.5/config-3.5m-arm-linux-gnueabihf -L/usr/lib -lpython3.5m -lpthread -ldl  -lutil -lm  -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions     -DNDEBUG '-std=gnu++14'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lserial -lwiringPi -lsmbus";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = taco_mon;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
 			name = Release;
 		};
-		FD5F4E2DDB14408EB4C5BECE /* Release */ = {
+		DD1587A4DF314538998E6B22 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -631,57 +629,87 @@ exit 0";
 				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		E5F3D07661D14D4FB29A0876 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Volumes/Crate/taco-monitor/external/serial/include","/Volumes/Crate/taco-monitor/external/smbus","/Volumes/Crate/taco-monitor/include");
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		EDECD1F24C9B420496554B4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk;
+				SYMROOT = "/Volumes/Crate/taco-monitor/build-xcode/build";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		51AD2D4D67764C67A73DE32F /* Build configuration list for PBXNativeTarget "taco_mon" */ = {
+		3A8C353669204A47B07B44F0 /* Build configuration list for PBXNativeTarget "taco_mon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5F28C3CFAF5745FD8A49443A /* Debug */,
-				2ED3C6D2336847FB8264B773 /* Release */,
-				09019690B93B4139911D8B97 /* MinSizeRel */,
-				0D57DB900CD249BC83A8ED64 /* RelWithDebInfo */,
+				418CE64DED8D413E8F1EC27C /* Debug */,
+				DCF4D40418D64AB79CCBB744 /* Release */,
+				1F191ACD445B4E7FA01C2FA4 /* MinSizeRel */,
+				7B3E640466F945E6A531D77B /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		51E3D2B470234FA2BE290372 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		449D994917EC4174B5FCB4F9 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C528D2D9DF964372A8BCD4C1 /* Debug */,
-				02394127B4B84721BAEAAC66 /* Release */,
-				86D318D4598E496C854E5D79 /* MinSizeRel */,
-				B336F469843B42EB80280036 /* RelWithDebInfo */,
+				E5F3D07661D14D4FB29A0876 /* Debug */,
+				DD1587A4DF314538998E6B22 /* Release */,
+				2E6AEE5F0A7B4ECE8036763E /* MinSizeRel */,
+				0BCB8C35054A4344A98039C9 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		59EFB5DC8B174AF98F0C672D /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		4ABFB555251B400FACF96C75 /* Build configuration list for PBXProject "taco-monitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1CB7C20639474705A62E634C /* Debug */,
-				FD5F4E2DDB14408EB4C5BECE /* Release */,
-				86A486D0BD174432BC48DF2F /* MinSizeRel */,
-				84C2F174D85447B082E75F39 /* RelWithDebInfo */,
+				A58DF1A7AEC14E988C82C77F /* Debug */,
+				EDECD1F24C9B420496554B4D /* Release */,
+				4849E75A8F774C828F4D2B64 /* MinSizeRel */,
+				8BA8B49DEC83455194983189 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		8E213C5CFAFB4025A8ABF88D /* Build configuration list for PBXProject "taco-monitor" */ = {
+		B9B8A15FBF5D41BDBE668EEF /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				62F7A43454C24E68A5086F3A /* Debug */,
-				D401CCB86CA541828C8F642A /* Release */,
-				31A76E20AC5D48FEAD5B3529 /* MinSizeRel */,
-				6D06808B52D741A899C015B7 /* RelWithDebInfo */,
+				65B978BCB58E4BF3A760F0DE /* Debug */,
+				0DD124C2A1564950B3C60C38 /* Release */,
+				97B925A0F8AB4718A233B115 /* MinSizeRel */,
+				7BDE0F86CB224C11B9DFD3C8 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 95D4F3EC06254CABB4FAD9AB /* Project object */;
+	rootObject = C066F20FD1C846CCBFDC091C /* Project object */;
 }
