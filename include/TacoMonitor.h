@@ -43,13 +43,26 @@ namespace tacomon {
 		
 	private:
 		
+		/**************************************************************************************
+		     Private
+		 **************************************************************************************/
+
+		enum class DISPLAY_MODE : int {
+			CLOCK = 			0,
+			RPM = 				1,
+			SPEED = 			2,
+			COOLANT_TEMP = 		3,
+			BATTERY_VOLTAGE =	4,
+			AMBIENT_TEMP = 		5
+		};
+		
 		void update();
 		void shutdown();
 		
 		std::shared_ptr<InputManager>		m_inputManager;
 		std::shared_ptr<OBDIIController>	m_obdiiController;
 		std::shared_ptr<SensorHub>			m_sensorHub;
-		
+		DISPLAY_MODE						m_displayMode;
 		bool								m_stop;
 	};
 }

@@ -131,7 +131,7 @@ void InputManager::updateLoop() {
 			}
 		}
 		
-		Sleep(25);
+		Sleep(10);
 	}
 }
 

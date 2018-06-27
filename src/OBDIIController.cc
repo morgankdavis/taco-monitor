@@ -45,7 +45,8 @@ OBDIIController::OBDIIController():
 	m_connected(false),
 	m_voltage(0),
 	m_rpm(0),
-	m_coolantTemp(0) {
+	m_coolantTemp(0),
+	m_speed(0) {
 	
 }
 
@@ -158,9 +159,7 @@ bool OBDIIController::connect() {
 }
 
 void OBDIIController::disconnect() {
-	
-	//lock_guard<mutex> guard(m_mtx);
-	
+
 	if (m_mtx.lock(), m_serial->isOpen()) {
 		m_mtx.unlock();
 		cout << "Closing serial connection..." << endl;
@@ -207,6 +206,13 @@ unsigned OBDIIController::coolantTemp() {
 	return m_coolantTemp;
 }
 
+unsigned OBDIIController::speed() {
+	
+	lock_guard<mutex> guard(m_mtx);
+	
+	return m_speed;
+}
+
 /**************************************************************************************
      Private
  **************************************************************************************/
@@ -227,33 +233,42 @@ void OBDIIController::update() {
 	auto voltsLine = readLines().front();
 	voltsLine.erase(remove(voltsLine.begin(), voltsLine.end(), 'V'), voltsLine.end());
 	auto volts = stof(voltsLine);
-	cout << "volts: " << volts << endl;
+	//cout << "volts: " << volts << endl;
 	m_mtx.lock();
 	m_voltage = volts;
-	m_mtx.unlock();
-	
-	// coolant temp
-	
-	writeLine("01 05");
-	auto temp = ParsedLineNumber(readLines().front(), 1) - 40;
-	cout << "temp: " << temp << " deg C" << endl;
-	m_mtx.lock();
-	m_coolantTemp = temp;
 	m_mtx.unlock();
 	
 	// rpm
 	
 	writeLine("01 0C");
 	auto rpm = lroundf(((float)ParsedLineNumber(readLines().front(), 2)) / 4.0);
-	cout << "rpm: " << rpm << endl;
+	//cout << "rpm: " << rpm << endl;
 	m_mtx.lock();
 	m_rpm = rpm;
+	m_mtx.unlock();
+	
+	// speed
+	
+	writeLine("01 0D");
+	auto kph = ParsedLineNumber(readLines().front(), 1);
+	//cout << "kph: " << kph << endl;
+	m_mtx.lock();
+	m_speed = kph;
+	m_mtx.unlock();
+	
+	// coolant temp
+	
+	writeLine("01 05");
+	auto temp = ParsedLineNumber(readLines().front(), 1) - 40;
+	//cout << "temp: " << temp << " deg C" << endl;
+	m_mtx.lock();
+	m_coolantTemp = temp;
 	m_mtx.unlock();
 }
 
 void OBDIIController::writeLine(string line) {
 	
-	lock_guard<mutex> guard(m_mtx);
+	//lock_guard<mutex> guard(m_mtx);
 	
 	if (m_serial->isOpen()) {
 		auto writeStr = line + "\n\r";
@@ -267,7 +282,7 @@ void OBDIIController::writeLine(string line) {
 
 vector<string> OBDIIController::readLines() {
 	
-	lock_guard<mutex> guard(m_mtx);
+	//lock_guard<mutex> guard(m_mtx);
 	
 	auto result = vector<string>();
 	

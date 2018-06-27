@@ -44,7 +44,8 @@ namespace tacomon {
 		bool connected();
 		float voltage();
 		unsigned rpm();
-		unsigned coolantTemp();
+		unsigned coolantTemp(); // deg c
+		unsigned speed(); // kph
 		
 		// private:
 		
@@ -64,6 +65,7 @@ namespace tacomon {
 		unsigned 							m_voltage;
 		unsigned 							m_rpm;
 		unsigned 							m_coolantTemp;
+		unsigned 							m_speed;
 	};
 }
 

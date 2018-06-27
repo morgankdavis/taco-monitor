@@ -9,9 +9,12 @@
 
 #include "TacoMonitor.h"
 
+#include <ctime>
 #include <fcntl.h>
+#include <iomanip>
 #include <iostream>
 #include <linux/i2c-dev.h>
+#include <math.h>
 #include <python3.5/Python.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,12 +45,6 @@ using namespace tacomon;
 
 
 /**************************************************************************************
-     Types
- **************************************************************************************/
-
-
-
-/**************************************************************************************
      Static Prototypes
  **************************************************************************************/
 
@@ -58,6 +55,7 @@ static void DisplayString(string str);
 static void DisplaySmallString(unsigned display, string str);
 static void FillDisplay(bool fill);
 static void SetupGPIO();
+static string TimeString();
 static void Sleep(unsigned milliseconds);
 
 /**************************************************************************************
@@ -68,6 +66,7 @@ TacoMonitor::TacoMonitor():
 	m_inputManager(make_shared<InputManager>()),
 	m_obdiiController(make_shared<OBDIIController>()),
 	m_sensorHub(make_shared<SensorHub>()),
+	m_displayMode(DISPLAY_MODE::CLOCK),
 	m_stop(false) {
 	
 }
@@ -81,9 +80,12 @@ int TacoMonitor::start(const vector<string>& args) {
 	SetupPython();
 	SetupGPIO();
 	
-//	if (!m_obdiiController->connect()) {
-//		cout << "Couldn't create OBD-II serial connection." << endl;
-//	}
+	if (!m_obdiiController->connect()) {
+		cout << "Couldn't create OBD-II serial connection." << endl;
+		
+		DisplayString("OBDERR");
+		Sleep(5000);
+	}
 	
 	cout << "Ready." << endl;
 
@@ -92,10 +94,6 @@ int TacoMonitor::start(const vector<string>& args) {
 	}
 	
 	shutdown();
-	
-//	if (m_obdiiController->connected()) {
-//		m_obdiiController->updateThread().join();
-//	}
 }
 
 void TacoMonitor::stop() {
@@ -109,51 +107,81 @@ void TacoMonitor::stop() {
  **************************************************************************************/
 
 void TacoMonitor::update() {
-
-	if (m_inputManager->buttonDown(InputManager::BUTTON::A)) {
-		//DisplayString("     A");
-		
-		char tempStr[32];
-		sprintf(tempStr, "T %.1f", m_sensorHub->ambientTemperature() * (9.0/5.0) + 32);
-		DisplayString(tempStr);
-	}
-	if (m_inputManager->buttonDown(InputManager::BUTTON::B)) {
-		//DisplayString("    B");
-		
-		char luxStr[32];
-		sprintf(luxStr, "L %d", m_sensorHub->ambientLight());
-		DisplayString(luxStr);
-	}
-	if (m_inputManager->buttonDown(InputManager::BUTTON::C)) {
-		DisplayString("   C");
-	}
-	if (m_inputManager->buttonDown(InputManager::BUTTON::D)) {
-		DisplayString("  D");
-	}
-	if (m_inputManager->buttonDown(InputManager::BUTTON::E)) {
-		digitalWrite(BUZZER_BCM_PIN, LOW); // low == on
-		DisplayString(" E");
-	}
-	else {
-		digitalWrite(BUZZER_BCM_PIN, HIGH); // low == on
-	}
 	
-	if (!m_inputManager->buttonsDown().size()) {
-		DisplayString("");
+	if (m_inputManager->buttonPressed(InputManager::BUTTON::A)) {
+		auto modeRaw = static_cast<underlying_type<DISPLAY_MODE>::type>(m_displayMode);
+		++modeRaw;
+		if (modeRaw > static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::AMBIENT_TEMP)) {
+			modeRaw = static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::CLOCK);
+		}
+		m_displayMode = static_cast<DISPLAY_MODE>(modeRaw);
+	}
+	else if (m_inputManager->buttonPressed(InputManager::BUTTON::B)) {
+		auto modeRaw = static_cast<underlying_type<DISPLAY_MODE>::type>(m_displayMode);
+		--modeRaw;
+		if (modeRaw < static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::CLOCK)) {
+			modeRaw = static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::AMBIENT_TEMP);
+		}
+		m_displayMode = static_cast<DISPLAY_MODE>(modeRaw);
 	}
 
-//	auto lux = LightLevel();
-//	cout << "lux: " << lux << endl;
+	string displayStr = "";
 	
-//	stringstream displayStream;
-//	displayStream.width(6);
-//	displayStream << right << m_obdiiController->rpm();
-//	auto displayStr = displayStream.str();
-//	
-//	DisplayString(displayStr);
+	switch (m_displayMode) {
+		
+		case DISPLAY_MODE::CLOCK: {
+			stringstream displayStream;
+			displayStream.width(6);
+			displayStream << right << TimeString();
+			displayStr = displayStream.str();
+			break; }
+		
+		case DISPLAY_MODE::RPM: {
+			stringstream displayStream;
+			displayStream.width(6);
+			displayStream << right << m_obdiiController->rpm();
+			displayStr = displayStream.str();
+			displayStr.replace(0, 1, "R");
+			break; }
+		
+		case DISPLAY_MODE::SPEED: {
+			auto speedMPH = lroundf(m_obdiiController->speed() * 0.6213);
+			stringstream displayStream;
+			displayStream.width(6);
+			displayStream << right << speedMPH;
+			displayStr = displayStream.str();
+			displayStr.replace(0, 1, "S");
+			break; }
+		
+		case DISPLAY_MODE::COOLANT_TEMP: {
+			auto tempF = lroundf(m_obdiiController->coolantTemp() * (9.0/5.0) + 32);
+			stringstream displayStream;
+			displayStream.width(6);
+			displayStream << right << tempF;
+			displayStr = displayStream.str();
+			displayStr.replace(0, 1, "W");
+			break; }
+		
+		case DISPLAY_MODE::BATTERY_VOLTAGE: {
+			stringstream displayStream;
+			displayStream.width(6);
+			displayStream << right << fixed << setprecision(1) << m_obdiiController->voltage();
+			displayStr = displayStream.str();
+			displayStr.replace(0, 1, "V");
+			break; }
+		
+		case DISPLAY_MODE::AMBIENT_TEMP: {
+			auto tempF = lroundf(m_sensorHub->ambientTemperature() * (9.0/5.0) + 32);
+			stringstream displayStream;
+			displayStream.width(6);
+			displayStream << right << fixed << setprecision(1) << tempF;
+			displayStr = displayStream.str();
+			displayStr.replace(0, 1, "A");
+			break; }
+	}
 	
-//	bool aDown = ButtonADown();
-	
+	DisplayString(displayStr);
+
 //	FillDisplay(true);
 //	
 //	digitalWrite(BUZZER_BCM_PIN, LOW); // low == on
@@ -163,11 +191,14 @@ void TacoMonitor::update() {
 //	
 //	digitalWrite(BUZZER_BCM_PIN, HIGH);
 //	delay(BUZZER_PERIOD/2);
+	
+	Sleep(50);
 }
 
 void TacoMonitor::shutdown() {
 	cout << "TacoMonitor::shutdown()" << endl;
 	
+	DisplayString("");
 	digitalWrite(BUZZER_BCM_PIN, HIGH);
 	
 	DisplayString("");
@@ -232,6 +263,20 @@ void FillDisplay(bool fill) {
 			"fill(%s)\n" \
 			"show()\n", (fill ? "1" : "0"));
 	ExecPython(execStr);
+}
+
+string TimeString() {
+	
+	time_t rawtime;
+	struct tm* timeinfo;
+	char buffer[80];
+	
+	time (&rawtime);
+	timeinfo = localtime(&rawtime);
+	
+	strftime(buffer, sizeof(buffer), "%l:%M", timeinfo);
+	
+	return string(buffer);
 }
 
 void SetupGPIO() {
