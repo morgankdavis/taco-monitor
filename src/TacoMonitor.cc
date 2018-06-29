@@ -10,10 +10,12 @@
 #include "TacoMonitor.h"
 
 #include <ctime>
+#include <iomanip>
 #include <iostream>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include "Beeper.h"
 #include "DisplayController.h"

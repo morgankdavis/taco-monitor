@@ -45,9 +45,6 @@ DisplayManager::alert()
 Write mode to file
 Trip timer - start write to filekillall
 Dead-reconing trip timer?
-APA102 turn off/change colors
-	https://github.com/DirkWillem/libapa102
-	https://github.com/cyborg00222/APA102-Raspberry-Pi
 Set the clock 
 
 
