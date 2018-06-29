@@ -1,4 +1,91 @@
-TODO
 
-	ButtonManager
-	MenuManager?
+PID Description                  Number of bytes  Scale   Offset   Units
+                                 returned
+05  Engine Coolant Temperature   1 byte           1       -40      oC
+0A  Fuel Pressure                1 byte           3                kPa
+0B  Intake Manifold Pressure     1 byte           1                kPa
+0C  Engine RPM                   2 bytes          0.25             rpm
+0D  Vehicle speed                1 byte           1                km/h
+0E  Timing advance               1 byte           0.5     -64      degrees  
+0F  Intake air temperature       1 byte           1       -40      oC
+10  MAF air flow rate            2 bytes          0.01             g/s
+11  Throttle position            1 byte           0.3922           %
+1F  Run time since engine start  2 bytes          1                s
+23  Fuel Pressure (diesel)       1 byte           3                kPa
+2F  Fuel Level Input             1 byte           0.3922           %
+33  Barometric pressure	         1 byte           1                kPa
+46  Ambient air temperature      1 byte           1       -40      oC
+
+
+
+-------
+46 - Ambient air temperature?
+	X - NO DATA
+F0 - fuel consumption?
+	41 F0 82 00 
+03 - fuel system status?
+	41 03 02 00 
+11 - Throttle position
+	41 11 1A 
+0A - Fuel pressure
+	41 A0 04 01 
+0F - Intake air temperature
+	41 0F 3F -> 73.4 F
+-------
+
+
+
+
+
+DisplayManager
+Beeper
+Brightness for DisplayManager
+DisplayManager::display()
+DisplayManager::alert()
+Write mode to file
+Trip timer - start write to filekillall
+Dead-reconing trip timer?
+APA102 turn off/change colors
+	https://github.com/DirkWillem/libapa102
+	https://github.com/cyborg00222/APA102-Raspberry-Pi
+
+
+
+Alarms:
+
+Coolant temp
+Battery voltage - running & not running
+Redline - 5500 http://www.customtacos.com/forum/22-off-topic/4897-2-4l-2rz-redline-max-torque-max-hp.html
+Fuel system status
+Codes
+
+
+
+Crash backtrace:
+https://oroboro.com/stack-trace-on-crash/
+
+
+
+
+Press two buttons at the same time for static IP
+
+(Go to DHCP)
+
+sudo ifconfig eth0 0.0.0.0 0.0.0.0
+sudo dhclient
+
+
+
+
+C++ concurrency:
+https://baptiste-wicht.com/posts/2012/07/c11-concurrency-tutorial-part-4-atomic-type.html
+
+Atomics:
+http://www.modernescpp.com/index.php/the-atomic-boolean
+
+Python inter-op:
+https://www.boost.org/doc/libs/1_49_0/libs/python/doc/tutorial/doc/html/python/hello.html
+
+BUTTON SHIM SOURCE:
+https://github.com/pimoroni/button-shim/blob/master/library/buttonshim/__init__.py
+

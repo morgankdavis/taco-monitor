@@ -19,6 +19,8 @@
 namespace tacomon {
 	
 	
+	class Beeper;
+	class DisplayController;
 	class InputManager;
 	class OBDIIController;
 	class SensorHub;
@@ -53,17 +55,20 @@ namespace tacomon {
 			SPEED = 			2,
 			COOLANT_TEMP = 		3,
 			BATTERY_VOLTAGE =	4,
-			AMBIENT_TEMP = 		5
+			AMBIENT_TEMP = 		5,
+			RUNTIME = 			6
 		};
 		
 		void update();
 		void shutdown();
 		
-		std::shared_ptr<InputManager>		m_inputManager;
-		std::shared_ptr<OBDIIController>	m_obdiiController;
-		std::shared_ptr<SensorHub>			m_sensorHub;
-		DISPLAY_MODE						m_displayMode;
-		bool								m_stop;
+		std::shared_ptr<InputManager>			m_inputManager;
+		std::shared_ptr<OBDIIController>		m_obdiiController;
+		std::shared_ptr<SensorHub>				m_sensorHub;
+		std::shared_ptr<Beeper>					m_beeper;
+		std::shared_ptr<DisplayController>		m_displayController;
+		DISPLAY_MODE							m_displayMode;
+		bool									m_stop;
 	};
 }
 

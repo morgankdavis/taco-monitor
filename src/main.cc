@@ -86,6 +86,7 @@ void signalHandler(int signum) {
 	
 	cout << "Caught signal: " << signum << endl;
 	switch (signum) {
+		case SIGTERM:
 		case SIGABRT:
 		case SIGINT:
 			tacoMonitor->stop();
@@ -108,6 +109,7 @@ int main(int argc, const char* argv[]) {
 	}
 	
 	// termination
+	signal(SIGTERM, signalHandler);
 	signal(SIGABRT, signalHandler);
 	signal(SIGINT, signalHandler);
 	// errors

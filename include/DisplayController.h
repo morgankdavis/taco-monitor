@@ -11,7 +11,15 @@
 #define DisplayController_h
 
 
+#include <memory>
+#include <string>
+
+
 namespace tacomon {
+	
+	
+	class Beeper;
+	
 
 	class DisplayController {
 		
@@ -21,7 +29,7 @@ namespace tacomon {
 		     Lifecycle
 		 **************************************************************************************/
 		
-		DisplayController();
+		DisplayController(std::shared_ptr<Beeper> beeper);
 		DisplayController(DisplayController&& other) = delete; // move initialization
 		DisplayController(const DisplayController& other) = delete; // copy initialization
 		DisplayController& operator= (DisplayController&& other) = delete; // move assignment
@@ -32,13 +40,28 @@ namespace tacomon {
 		     Public
 		 **************************************************************************************/
 
+		void display(std::string str);
+		void alert(std::string str);
 		
-		// private:
+		void brightness(float percent);
+		float brightness() const;
+		
+		std::string displayString() const;
+		
+		bool alerting() const;
+		
+		void shutdown();
+		
+	private:
 		
 		/**************************************************************************************
 		     Private
 		 **************************************************************************************/
 		
+		std::shared_ptr<Beeper> 		m_beeper;
+		float							m_brightness;
+		std::string						m_displayString;
+		bool							m_alerting;
 	};
 }
 

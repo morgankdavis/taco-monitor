@@ -10,6 +10,7 @@
 #include "OBDIIController.h"
 
 #include <algorithm>
+#include <chrono>
 #include <cstdio>
 #include <iostream>
 #include <math.h>
@@ -22,9 +23,14 @@ using namespace tacomon;
 using namespace serial;
 
 
-constexpr const char* COMM_PORT =		"/dev/rfcomm0";
-constexpr unsigned long BAUD_RATE =		115200;
-constexpr unsigned TIMEOUT = 			250; // ms
+constexpr const char* COMM_PORT =				"/dev/rfcomm0";
+constexpr unsigned long BAUD_RATE =				115200;
+constexpr unsigned TIMEOUT = 					250; // ms
+
+constexpr float VOLTAGE_UPDATE_PERIOD =			120; // seconds
+constexpr float RPM_UPDATE_PERIOD =				0;
+constexpr float COOLANT_TEMP_UPDATE_PERIOD =	10;
+constexpr float SPEED_UPDATE_PERIOD =			0;
 
 
 /**************************************************************************************
@@ -34,6 +40,7 @@ constexpr unsigned TIMEOUT = 			250; // ms
 static string Tail(string const& source, size_t const length);
 static unsigned ParsedLineNumber(string const& line, unsigned length);
 static unsigned UnsignedFromHexString(string const& str);
+static float Time();
 static void Sleep(unsigned milliseconds);
 
 /**************************************************************************************
@@ -45,7 +52,7 @@ OBDIIController::OBDIIController():
 	m_connected(false),
 	m_voltage(0),
 	m_rpm(0),
-	m_coolantTemp(0),
+	m_coolantTemp(1000),
 	m_speed(0) {
 	
 }
@@ -129,7 +136,7 @@ bool OBDIIController::connect() {
 			
 			writeLine("01 05"); // COOLANT TEMP
 			
-			Sleep(5000);
+			Sleep(7000);
 			
 			auto rpmLines = readLines();
 			for (auto line : rpmLines) {
@@ -226,44 +233,85 @@ void OBDIIController::updateLoop() {
 }
 
 void OBDIIController::update() {
-
+	
+	float time = Time();
+	
 	// voltage
 	
-	writeLine("AT RV");
-	auto voltsLine = readLines().front();
-	voltsLine.erase(remove(voltsLine.begin(), voltsLine.end(), 'V'), voltsLine.end());
-	auto volts = stof(voltsLine);
-	//cout << "volts: " << volts << endl;
-	m_mtx.lock();
-	m_voltage = volts;
-	m_mtx.unlock();
+	static float voltageUpdateTime = -1;
+	time = Time();
+	if ((voltageUpdateTime == -1) || (time - voltageUpdateTime > VOLTAGE_UPDATE_PERIOD)) {
+		
+		cout << "--- VOLTAGE ---" << endl;
+		
+		writeLine("AT RV");
+		auto voltsLine = readLines().front();
+		voltsLine.erase(remove(voltsLine.begin(), voltsLine.end(), 'V'), voltsLine.end());
+		auto volts = stof(voltsLine);
+		//cout << "volts: " << volts << endl;
+		m_mtx.lock();
+		m_voltage = volts;
+		m_mtx.unlock();
+		
+		voltageUpdateTime = time;
+	}
 	
 	// rpm
 	
-	writeLine("01 0C");
-	auto rpm = lroundf(((float)ParsedLineNumber(readLines().front(), 2)) / 4.0);
-	//cout << "rpm: " << rpm << endl;
-	m_mtx.lock();
-	m_rpm = rpm;
-	m_mtx.unlock();
+	static float rpmUpdateTime = -1;
+	time = Time();
+	if ((rpmUpdateTime == -1) || (time - rpmUpdateTime > RPM_UPDATE_PERIOD)) {
+		
+		cout << "--- RPM ---" << endl;
+		
+		writeLine("01 0C");
+		auto rpm = lroundf(((float)ParsedLineNumber(readLines().front(), 2)) / 4.0);
+		//cout << "rpm: " << rpm << endl;
+		m_mtx.lock();
+		m_rpm = rpm;
+		m_mtx.unlock();
+		
+		rpmUpdateTime = time;
+	}
 	
 	// speed
 	
-	writeLine("01 0D");
-	auto kph = ParsedLineNumber(readLines().front(), 1);
-	//cout << "kph: " << kph << endl;
-	m_mtx.lock();
-	m_speed = kph;
-	m_mtx.unlock();
+	static float speedUpdateTime = -1;
+	time = Time();
+	if ((speedUpdateTime == -1) || (time - speedUpdateTime > SPEED_UPDATE_PERIOD)) {
+		
+		cout << "--- SPEED ---" << endl;
+		
+		writeLine("01 0D");
+		auto kph = ParsedLineNumber(readLines().front(), 1);
+		//cout << "kph: " << kph << endl;
+		m_mtx.lock();
+		m_speed = kph;
+		m_mtx.unlock();
+		
+		speedUpdateTime = time;
+	}
 	
 	// coolant temp
 	
-	writeLine("01 05");
-	auto temp = ParsedLineNumber(readLines().front(), 1) - 40;
-	//cout << "temp: " << temp << " deg C" << endl;
-	m_mtx.lock();
-	m_coolantTemp = temp;
-	m_mtx.unlock();
+	static float coolantTempUpdateTime = -1;
+	time = Time();
+	if ((coolantTempUpdateTime == -1) || (time - coolantTempUpdateTime > COOLANT_TEMP_UPDATE_PERIOD)) {
+		
+		cout << "--- COOLANT TEMP ---" << endl;
+		
+		writeLine("01 05");
+		auto temp = ParsedLineNumber(readLines().front(), 1) - 40;
+		//cout << "temp: " << temp << " deg C" << endl;
+		m_mtx.lock();
+		m_coolantTemp = temp;
+		m_mtx.unlock();
+		
+		coolantTempUpdateTime = time;
+	}
+	
+	
+	cout << endl << endl;
 }
 
 void OBDIIController::writeLine(string line) {
@@ -335,6 +383,13 @@ unsigned UnsignedFromHexString(string const& str) {
 	ss << hex << str;
 	ss >> result;
 	return result;
+}
+
+float Time() {
+
+	static auto startDate = chrono::high_resolution_clock::now();
+	auto nowDate = chrono::high_resolution_clock::now();
+	return (chrono::duration<float>(nowDate - startDate)).count();
 }
 
 void Sleep(unsigned milliseconds) {

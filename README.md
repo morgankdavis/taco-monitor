@@ -34,4 +34,5 @@ sudo cp /usr/share/zoneinfo/US/Pacific /etc/localtime
 
 APA102 (button thim light, unused):
 https://github.com/DirkWillem/libapa102
+https://github.com/cyborg00222/APA102-Raspberry-Pi
 Info: https://cpldcpu.wordpress.com/2014/08/27/apa102/

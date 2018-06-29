@@ -47,7 +47,7 @@ namespace tacomon {
 		unsigned coolantTemp(); // deg c
 		unsigned speed(); // kph
 		
-		// private:
+	private:
 		
 		/**************************************************************************************
 		     Private

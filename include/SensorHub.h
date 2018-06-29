@@ -40,7 +40,7 @@ namespace tacomon {
 		float ambientTemperature();
 		void shutdown();
 		
-		// private:
+	private:
 		
 		/**************************************************************************************
 		     Private

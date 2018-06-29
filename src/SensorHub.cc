@@ -36,11 +36,12 @@ static void Sleep(unsigned milliseconds);
  **************************************************************************************/
 
 SensorHub::SensorHub():
+	m_updateThread(thread(&SensorHub::updateLoop, this)),
 	m_stop(nullptr),
 	m_ambientLight(0),
 	m_ambientTemperature(0) {
 	
-		m_updateThread = thread(&SensorHub::updateLoop, this);
+		//m_updateThread = thread(&SensorHub::updateLoop, this);
 }
 
 SensorHub::~SensorHub() {
@@ -159,19 +160,7 @@ float AmbientTemperature() {
 	
 	static const char *BUS_LOCATION = "/dev/i2c-0";
 	static const unsigned char I2C_ADDR = 0x77;
-	
-//	static short int ac1;
-//	static short int ac2; 
-//	static short int ac3; 
-//	static unsigned short int ac4;
-//	static unsigned short int ac5; // +
-//	static unsigned short int ac6; // +
-//	static short int b1; 
-//	static short int b2;
-//	static short int mb;
-//	static short int mc;
-//	static short int md; // +
-	
+
 	struct Utils {
 		
 		static int ReadInt(int fd, unsigned char address) {
