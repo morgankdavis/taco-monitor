@@ -28,6 +28,7 @@ static void ExecPython(string python);
 static void TerminatePython();
 static void DisplayString(string str);
 static void FillDisplay(bool fill);
+static void TurnOffButtonShimPixel();
 
 
 /**************************************************************************************
@@ -41,6 +42,7 @@ DisplayController::DisplayController(shared_ptr<Beeper> beeper):
 	m_alerting(false) {
 	
 		StartPython();
+		TurnOffButtonShimPixel();
 }
 
 DisplayController::~DisplayController() {
@@ -103,6 +105,7 @@ void StartPython() {
 	Py_Initialize();
 	PyRun_SimpleString("import smbus\n"
 					   "from time import sleep\n"
+					   "from buttonshim import set_pixel\n"
 					   "from microdotphat import clear, set_brightness, show, write_string, draw_tiny, fill, WIDTH, HEIGHT\n");
 }
 
@@ -134,4 +137,14 @@ void FillDisplay(bool fill) {
 			"fill(%s)\n" \
 			"show()\n", (fill ? "1" : "0"));
 	ExecPython(execStr);
+}
+
+void TurnOffButtonShimPixel() {
+
+	// this is hacky, but since this class owns the Python interpreter we'll do it here
+	// sometimes the APA102 LED on the Pimoroni Button Shim lights up at power on... (?) Turn it off.
+
+	char execStr[1024];
+        sprintf(execStr, "set_pixel(0, 0, 0)");
+        ExecPython(execStr);
 }
