@@ -164,7 +164,7 @@ void TacoMonitor::update() {
 	
 	bool alerting = false;
 	bool rpmAlerting = false;
-	if (rpm > REDLINE) {
+	if (m_obdiiController->connected() && rpm > REDLINE) {
 		cout << "--- REDLINE ---" << endl;
 		alerting = true;
 		rpmAlerting = true;
