@@ -59,9 +59,9 @@ namespace tacomon {
 			COOLANT_TEMP = 			3,
 			BATTERY_VOLTAGE =		4,
 			AMBIENT_TEMP = 			5,
-			RUNTIME = 				6,
+//			RUNTIME = 				6,
 #ifdef DEBUGGING
-			AMBIENT_BRIGHTNESS= 	7
+			AMBIENT_BRIGHTNESS= 	6
 #endif
 		};
 		
