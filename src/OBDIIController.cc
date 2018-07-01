@@ -241,14 +241,11 @@ void OBDIIController::update() {
 	static float voltageUpdateTime = -1;
 	time = Time();
 	if ((voltageUpdateTime == -1) || (time - voltageUpdateTime > VOLTAGE_UPDATE_PERIOD)) {
-		
-		cout << "--- VOLTAGE ---" << endl;
-		
+
 		writeLine("AT RV");
 		auto voltsLine = readLines().front();
 		voltsLine.erase(remove(voltsLine.begin(), voltsLine.end(), 'V'), voltsLine.end());
 		auto volts = stof(voltsLine);
-		//cout << "volts: " << volts << endl;
 		m_mtx.lock();
 		m_voltage = volts;
 		m_mtx.unlock();
@@ -261,9 +258,7 @@ void OBDIIController::update() {
 	static float rpmUpdateTime = -1;
 	time = Time();
 	if ((rpmUpdateTime == -1) || (time - rpmUpdateTime > RPM_UPDATE_PERIOD)) {
-		
-		cout << "--- RPM ---" << endl;
-		
+
 		writeLine("01 0C");
 		auto rpm = lroundf(((float)ParsedLineNumber(readLines().front(), 2)) / 4.0);
 		//cout << "rpm: " << rpm << endl;
@@ -279,9 +274,7 @@ void OBDIIController::update() {
 	static float speedUpdateTime = -1;
 	time = Time();
 	if ((speedUpdateTime == -1) || (time - speedUpdateTime > SPEED_UPDATE_PERIOD)) {
-		
-		cout << "--- SPEED ---" << endl;
-		
+
 		writeLine("01 0D");
 		auto kph = ParsedLineNumber(readLines().front(), 1);
 		//cout << "kph: " << kph << endl;
@@ -297,9 +290,7 @@ void OBDIIController::update() {
 	static float coolantTempUpdateTime = -1;
 	time = Time();
 	if ((coolantTempUpdateTime == -1) || (time - coolantTempUpdateTime > COOLANT_TEMP_UPDATE_PERIOD)) {
-		
-		cout << "--- COOLANT TEMP ---" << endl;
-		
+
 		writeLine("01 05");
 		auto temp = ParsedLineNumber(readLines().front(), 1) - 40;
 		//cout << "temp: " << temp << " deg C" << endl;

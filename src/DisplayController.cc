@@ -12,8 +12,6 @@
 #include <iostream>
 #include <python3.5/Python.h>
 
-//#include "Beeper.h"
-
 
 using namespace std;
 using namespace tacomon;
@@ -35,11 +33,9 @@ static void TurnOffButtonShimPixel();
      Lifecycle
  **************************************************************************************/
 
-DisplayController::DisplayController()://shared_ptr<Beeper> beeper):
-	//m_beeper(beeper),
+DisplayController::DisplayController():
 	m_brightness(1.0),
-m_displayString("") {//,
-	//m_alerting(false) {
+	m_displayString("") {
 	
 		StartPython();
 		TurnOffButtonShimPixel();
@@ -56,7 +52,6 @@ DisplayController::~DisplayController() {
 void DisplayController::display(std::string str) {
 	
 	m_displayString = str;
-	//m_alerting = false;
 	DisplayString(str);
 }
 
@@ -64,12 +59,6 @@ void DisplayController::fill() {
 	
 	FillDisplay(true);
 }
-
-//void DisplayController::alert(std::string str) {
-//	
-//	m_displayString = str;
-//	m_alerting = true;
-//}
 
 void DisplayController::brightness(float percent) {
 	m_brightness = percent;
@@ -83,20 +72,11 @@ string DisplayController::displayString() const {
 	return m_displayString;
 }
 
-//bool DisplayController::alerting() const {
-//	return m_alerting;
-//}
-
 void DisplayController::shutdown() {
 	
 	DisplayString("");
 	TerminatePython();
 }
-
-/**************************************************************************************
-     Private
- **************************************************************************************/
-
 
 /**************************************************************************************
      Static

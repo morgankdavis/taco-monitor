@@ -38,7 +38,7 @@ using namespace tacomon;
 //constexpr float MIN_VOLTAGE_ACC =		11.0; // volts
 
 constexpr unsigned REDLINE =			2000; // rpm
-constexpr unsigned MAX_COOLANT_TEMP =	100; // deg F
+constexpr unsigned MAX_COOLANT_TEMP =	160; // deg F
 constexpr float MIN_VOLTAGE_RUNNING =	13.4; // volts
 constexpr float MIN_VOLTAGE_ACC =		11.0; // volts
 
@@ -175,12 +175,12 @@ void TacoMonitor::update() {
 		alerting = true;
 		presentationDisplayMode = DISPLAY_MODE::COOLANT_TEMP;
 	}
-	else if (!alerting && (m_obdiiController->connected() && (rpm > 10) && coolantTempF > MIN_VOLTAGE_RUNNING)) {
+	else if (!alerting && (m_obdiiController->connected() && (rpm > 10) && batteryVoltage < MIN_VOLTAGE_RUNNING)) {
 		cout << "--- RUNNING VOLTAGE ---" << endl;
 		alerting = true;
 		presentationDisplayMode = DISPLAY_MODE::BATTERY_VOLTAGE;
 	}
-	else if (!alerting && (m_obdiiController->connected() && (rpm <= 10) && coolantTempF > MIN_VOLTAGE_ACC)) {
+	else if (!alerting && (m_obdiiController->connected() && (rpm <= 10) && batteryVoltage < MIN_VOLTAGE_ACC)) {
 		cout << "--- ACC VOLTAGE ---" << endl;
 		alerting = true;
 		presentationDisplayMode = DISPLAY_MODE::BATTERY_VOLTAGE;
@@ -235,7 +235,7 @@ void TacoMonitor::update() {
 			m_beeper->off();
 		}
 		
-			switch (presentationDisplayMode) {
+		switch (presentationDisplayMode) {
 					
 			case DISPLAY_MODE::CLOCK: {
 				stringstream displayStream;
@@ -275,7 +275,7 @@ void TacoMonitor::update() {
 				sprintf(voltsStr, "%.1f", batteryVoltage);
 				displayStream << voltsStr;
 				displayStr = displayStream.str();
-				displayStr.replace(0, 1, "V");
+				displayStr.replace(0, 1, "B");
 				break; }
 				
 			case DISPLAY_MODE::AMBIENT_TEMP: {
@@ -308,16 +308,6 @@ void TacoMonitor::update() {
 	else {
 		Sleep(50);
 	}
-
-//	FillDisplay(true);
-//	
-//	digitalWrite(BUZZER_BCM_PIN, LOW); // low == on
-//	delay(BUZZER_PERIOD/2);
-//	
-//	DisplayString("DICKS");
-//	
-//	digitalWrite(BUZZER_BCM_PIN, HIGH);
-//	delay(BUZZER_PERIOD/2);
 }
 
 void TacoMonitor::shutdown() {
