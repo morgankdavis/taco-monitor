@@ -69,7 +69,7 @@ TacoMonitor::TacoMonitor():
 	m_obdiiController(make_shared<OBDIIController>()),
 	m_sensorHub(make_shared<SensorHub>()),
 	m_beeper(make_shared<Beeper>()),
-	m_displayController(make_shared<DisplayController>(m_beeper)),
+	m_displayController(make_shared<DisplayController>()),
 	m_displayMode(DISPLAY_MODE::CLOCK),
 	m_stop(false) {
 	
@@ -185,6 +185,14 @@ void TacoMonitor::update() {
 		case ALERT_PHASE::LABEL:
 			alertPhase = ALERT_PHASE::BEEP;
 			break;
+	}
+	
+	// set brightness
+	if (alerting) {
+		m_displayController->brightness(1.0);
+	}
+	else {
+		m_displayController->brightness(0.5);
 	}
 
 	if (alerting && alertPhase == ALERT_PHASE::BEEP) {
