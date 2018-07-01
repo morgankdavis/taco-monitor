@@ -40,7 +40,7 @@ constexpr float MIN_VOLTAGE_ACC =		11.0; // volts
 constexpr float MIN_AMBIENT_LIGHT = 	50; // lux
 #endif
 
-constexpr unsigned ALERT_PERIOD =		2000; // ms
+constexpr unsigned ALERT_PERIOD =		1000; // ms
 
 /**************************************************************************************
      Types
