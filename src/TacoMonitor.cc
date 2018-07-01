@@ -112,16 +112,25 @@ void TacoMonitor::update() {
 	if (m_inputManager->buttonPressed(InputManager::BUTTON::A)) {
 		auto modeRaw = static_cast<underlying_type<DISPLAY_MODE>::type>(m_displayMode);
 		++modeRaw;
+#ifdef DEBUGGING
+		if (modeRaw > static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::AMBIENT_BRIGHTNESS)) {
+#else
 		if (modeRaw > static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::RUNTIME)) {
+#endif
 			modeRaw = static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::CLOCK);
 		}
+
 		m_displayMode = static_cast<DISPLAY_MODE>(modeRaw);
 	}
 	else if (m_inputManager->buttonPressed(InputManager::BUTTON::B)) {
 		auto modeRaw = static_cast<underlying_type<DISPLAY_MODE>::type>(m_displayMode);
 		--modeRaw;
 		if (modeRaw < static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::CLOCK)) {
+#ifdef DEBUGGING
+			modeRaw = static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::AMBIENT_BRIGHTNESS);
+#else
 			modeRaw = static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::RUNTIME);
+#endif
 		}
 		m_displayMode = static_cast<DISPLAY_MODE>(modeRaw);
 	}
