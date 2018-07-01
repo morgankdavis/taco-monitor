@@ -146,36 +146,26 @@ void TacoMonitor::update() {
 	auto ambientTempF = lroundf(m_sensorHub->ambientTemperature() * (9.0/5.0) + 32);
 	
 	auto lux = m_sensorHub->ambientLight();
-	
-//	constexpr unsigned REDLINE =			5450; // rpm
-//	constexpr unsigned MAX_COOLANT_TEMP =	195; // deg F
-//	constexpr float MIN_VOLTAGE_RUNNING =	13.0; // volts
-//	constexpr float MIN_VOLTAGE_ACC =		11.0; // volts
-	
-	
-	
-	string displayStr = "";
-	
-	
+
+		
 	// check alarms, in order of severity
 	// 1. redline
 	// 2. coolant temp
 	// 3. battery voltage
-//	bool alerting = false;
-	
+
 	static ALERT_PHASE alertPhase = ALERT_PHASE::OFF;
 	
 	bool alerting = false;
 	if (rpm > REDLINE) {
 		alerting = true;
 	}
-	else if (!alerting && coolantTempF > MAX_COOLANT_TEMP) {
+	else if (!alerting && (m_obdiiController->connected() && coolantTempF > MAX_COOLANT_TEMP)) {
 		alerting = true;
 	}
-	else if (!alerting && rpm && coolantTempF > MIN_VOLTAGE_RUNNING) {
+	else if (!alerting && (m_obdiiController->connected() && rpm && coolantTempF > MIN_VOLTAGE_RUNNING)) {
 		alerting = true;
 	}
-	else if (!alerting && !rpm && coolantTempF > MIN_VOLTAGE_ACC) {
+	else if (!alerting && (m_obdiiController->connected() && !rpm && coolantTempF > MIN_VOLTAGE_ACC)) {
 		alerting = true;
 	}
 #ifdef DEBUGGING
@@ -210,6 +200,7 @@ void TacoMonitor::update() {
 	}
 	else {
 		m_beeper->off();
+		string displayStr = "";
 		
 		switch (m_displayMode) {
 				

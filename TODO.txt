@@ -41,6 +41,7 @@ F0 - fuel consumption?
 Brightness
 Alerts
 Write mode to file
+Fix crash on close
 
 Trip timer - start write to file
 Dead-reconing trip distance?
