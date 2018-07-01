@@ -32,8 +32,8 @@ namespace tacomon {
 		     Public
 		 **************************************************************************************/
 		
-		void start();
-		void stop();
+		void on();
+		void off();
 		
 		bool beeping() const;
 		

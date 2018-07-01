@@ -37,14 +37,13 @@ F0 - fuel consumption?
 
 
 
-DisplayManager
-Beeper
-Brightness for DisplayManager
-DisplayManager::display()
-DisplayManager::alert()
+
+Brightness
+Alerts
 Write mode to file
-Trip timer - start write to filekillall
-Dead-reconing trip timer?
+
+Trip timer - start write to file
+Dead-reconing trip distance?
 Set the clock 
 
 
@@ -54,8 +53,8 @@ Alarms:
 Coolant temp
 Battery voltage - running & not running
 Redline - 5500 http://www.customtacos.com/forum/22-off-topic/4897-2-4l-2rz-redline-max-torque-max-hp.html
-Fuel system status
-Codes
+Fuel system status?
+Codes?
 
 
 

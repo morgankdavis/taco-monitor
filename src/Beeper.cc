@@ -51,12 +51,12 @@ Beeper::~Beeper() {
      Public
  **************************************************************************************/
 
-void Beeper::start() {
+void Beeper::on() {
 	
 	digitalWrite(BUZZER_BCM_PIN, LOW);
 }
 
-void Beeper::stop() {
+void Beeper::off() {
 	
 	digitalWrite(BUZZER_BCM_PIN, HIGH);
 }

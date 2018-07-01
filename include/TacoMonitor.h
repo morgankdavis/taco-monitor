@@ -16,6 +16,9 @@
 #include <vector>
 
 
+#define DEBUGGING
+
+
 namespace tacomon {
 	
 	
@@ -50,13 +53,16 @@ namespace tacomon {
 		 **************************************************************************************/
 
 		enum class DISPLAY_MODE : int {
-			CLOCK = 			0,
-			RPM = 				1,
-			SPEED = 			2,
-			COOLANT_TEMP = 		3,
-			BATTERY_VOLTAGE =	4,
-			AMBIENT_TEMP = 		5,
-			RUNTIME = 			6
+			CLOCK = 				0,
+			RPM = 					1,
+			SPEED = 				2,
+			COOLANT_TEMP = 			3,
+			BATTERY_VOLTAGE =		4,
+			AMBIENT_TEMP = 			5,
+			RUNTIME = 				6,
+#ifdef DEBUGGING
+			AMBIENT_BRIGHTNESS= 	7
+#endif
 		};
 		
 		void update();

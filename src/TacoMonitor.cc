@@ -29,9 +29,34 @@ using namespace tacomon;
 
 
 /**************************************************************************************
+     Constants
+ **************************************************************************************/
+
+constexpr unsigned REDLINE =			5450; // rpm
+constexpr unsigned MAX_COOLANT_TEMP =	195; // deg F
+constexpr float MIN_VOLTAGE_RUNNING =	13.0; // volts
+constexpr float MIN_VOLTAGE_ACC =		11.0; // volts
+#ifdef DEBUGGING
+constexpr float MIN_AMBIENT_LIGHT = 	50; // lux
+#endif
+
+constexpr unsigned ALERT_PERIOD =		2000; // ms
+
+/**************************************************************************************
+     Types
+ **************************************************************************************/
+
+enum class ALERT_PHASE {
+	OFF,
+	BEEP,
+	LABEL
+};
+
+/**************************************************************************************
      Static Prototypes
  **************************************************************************************/
 
+static float Time();
 static string TimeString();
 static void Sleep(unsigned milliseconds);
 
@@ -83,7 +108,7 @@ void TacoMonitor::stop() {
  **************************************************************************************/
 
 void TacoMonitor::update() {
-	
+
 	if (m_inputManager->buttonPressed(InputManager::BUTTON::A)) {
 		auto modeRaw = static_cast<underlying_type<DISPLAY_MODE>::type>(m_displayMode);
 		++modeRaw;
@@ -100,74 +125,147 @@ void TacoMonitor::update() {
 		}
 		m_displayMode = static_cast<DISPLAY_MODE>(modeRaw);
 	}
-
+	
+	auto rpm = m_obdiiController->rpm();
+	auto speedMPH = lroundf(m_obdiiController->speed() * 0.6213);
+	auto coolantTempC = m_obdiiController->coolantTemp();
+	auto coolantTempF = 0;
+	if (coolantTempC != 1000) { // 1000 == not initialized
+		coolantTempF = lroundf(coolantTempC * (9.0/5.0) + 32);
+	}
+	auto batteryVoltage = m_obdiiController->voltage();
+	auto ambientTempF = lroundf(m_sensorHub->ambientTemperature() * (9.0/5.0) + 32);
+	
+	auto lux = m_sensorHub->ambientLight();
+	
+//	constexpr unsigned REDLINE =			5450; // rpm
+//	constexpr unsigned MAX_COOLANT_TEMP =	195; // deg F
+//	constexpr float MIN_VOLTAGE_RUNNING =	13.0; // volts
+//	constexpr float MIN_VOLTAGE_ACC =		11.0; // volts
+	
+	
+	
 	string displayStr = "";
 	
-	switch (m_displayMode) {
-		
-		case DISPLAY_MODE::CLOCK: {
-			stringstream displayStream;
-			displayStream.width(6);
-			displayStream << right << TimeString();
-			displayStr = displayStream.str();
-			break; }
-		
-		case DISPLAY_MODE::RPM: {
-			stringstream displayStream;
-			displayStream.width(6);
-			displayStream << right << m_obdiiController->rpm();
-			displayStr = displayStream.str();
-			displayStr.replace(0, 1, "R");
-			break; }
-		
-		case DISPLAY_MODE::SPEED: {
-			auto speedMPH = lroundf(m_obdiiController->speed() * 0.6213);
-			stringstream displayStream;
-			displayStream.width(6);
-			displayStream << right << speedMPH;
-			displayStr = displayStream.str();
-			displayStr.replace(0, 1, "S");
-			break; }
-		
-		case DISPLAY_MODE::COOLANT_TEMP: {
-			auto tempC = m_obdiiController->coolantTemp();
-			auto tempF = 0;
-			if (tempC != 1000) { // 1000 == not initialized
-				tempF = lroundf(tempC * (9.0/5.0) + 32);
-			}
-			stringstream displayStream;
-			displayStream.width(6);
-			displayStream << right << tempF;
-			displayStr = displayStream.str();
-			displayStr.replace(0, 1, "C");
-			break; }
-		
-		case DISPLAY_MODE::BATTERY_VOLTAGE: {
-			stringstream displayStream;
-			displayStream.width(6);
-			char voltsStr[32];
-			sprintf(voltsStr, "%.1f", m_obdiiController->voltage());
-			displayStream << voltsStr;
-			//displayStream << right << fixed << setprecision(1) << m_obdiiController->voltage();
-			displayStr = displayStream.str();
-			displayStr.replace(0, 1, "V");
-			break; }
-		
-		case DISPLAY_MODE::AMBIENT_TEMP: {
-			auto tempF = lroundf(m_sensorHub->ambientTemperature() * (9.0/5.0) + 32);
-			stringstream displayStream;
-			displayStream.width(6);
-			displayStream << right << fixed << setprecision(1) << tempF;
-			displayStr = displayStream.str();
-			displayStr.replace(0, 1, "A");
-			break; }
-			
-		case DISPLAY_MODE::RUNTIME: {
-			displayStr = "RUN";
-			break; }
-	}
 	
-	m_displayController->display(displayStr);
+	// check alarms, in order of severity
+	// 1. redline
+	// 2. coolant temp
+	// 3. battery voltage
+//	bool alerting = false;
+	
+	static ALERT_PHASE alertPhase = ALERT_PHASE::OFF;
+	
+	bool alerting = false;
+	if (rpm > REDLINE) {
+		alerting = true;
+	}
+	else if (!alerting && coolantTempF > MAX_COOLANT_TEMP) {
+		alerting = true;
+	}
+	else if (!alerting && rpm && coolantTempF > MIN_VOLTAGE_RUNNING) {
+		alerting = true;
+	}
+	else if (!alerting && !rpm && coolantTempF > MIN_VOLTAGE_ACC) {
+		alerting = true;
+	}
+#ifdef DEBUGGING
+	else if (!alerting && lux < MIN_AMBIENT_LIGHT) {
+		alerting = true;
+	}
+#endif
+	
+	switch (alertPhase) {
+		case ALERT_PHASE::OFF:
+			if (alerting) alertPhase = ALERT_PHASE::BEEP;
+			break;
+		case ALERT_PHASE::BEEP:
+			alertPhase = ALERT_PHASE::LABEL;
+			break;
+		case ALERT_PHASE::LABEL:
+			alertPhase = ALERT_PHASE::BEEP;
+			break;
+	}
+
+	if (alerting && alertPhase == ALERT_PHASE::BEEP) {
+		m_beeper->on();
+		m_displayController->fill();
+	}
+	else {
+		m_beeper->off();
+		
+		switch (m_displayMode) {
+				
+			case DISPLAY_MODE::CLOCK: {
+				stringstream displayStream;
+				displayStream.width(6);
+				displayStream << right << TimeString();
+				displayStr = displayStream.str();
+				break; }
+				
+			case DISPLAY_MODE::RPM: {
+				stringstream displayStream;
+				displayStream.width(6);
+				displayStream << right << rpm;
+				displayStr = displayStream.str();
+				displayStr.replace(0, 1, "R");
+				break; }
+				
+			case DISPLAY_MODE::SPEED: {
+				stringstream displayStream;
+				displayStream.width(6);
+				displayStream << right << speedMPH;
+				displayStr = displayStream.str();
+				displayStr.replace(0, 1, "S");
+				break; }
+				
+			case DISPLAY_MODE::COOLANT_TEMP: {
+				
+				
+				stringstream displayStream;
+				displayStream.width(6);
+				displayStream << right << coolantTempF;
+				displayStr = displayStream.str();
+				displayStr.replace(0, 1, "C");
+				break; }
+				
+			case DISPLAY_MODE::BATTERY_VOLTAGE: {
+				stringstream displayStream;
+				displayStream.width(6);
+				char voltsStr[32];
+				sprintf(voltsStr, "%.1f", batteryVoltage);
+				displayStream << voltsStr;
+				//displayStream << right << fixed << setprecision(1) << m_obdiiController->voltage();
+				displayStr = displayStream.str();
+				displayStr.replace(0, 1, "V");
+				break; }
+				
+			case DISPLAY_MODE::AMBIENT_TEMP: {
+				stringstream displayStream;
+				displayStream.width(6);
+				displayStream << right << fixed << setprecision(1) << ambientTempF;
+				displayStr = displayStream.str();
+				displayStr.replace(0, 1, "A");
+				break; }
+				
+			case DISPLAY_MODE::RUNTIME: {
+				displayStr = "RUN";
+				break; }
+				
+			case DISPLAY_MODE::AMBIENT_BRIGHTNESS: {
+				displayStr = "RUN";
+				break; }
+		}
+		
+		m_displayController->display(displayStr);
+	}
+
+	if (alerting) {
+		Sleep(lroundf((float)ALERT_PERIOD/2.0));
+	}
+	else {
+		Sleep(50);
+	}
 
 //	FillDisplay(true);
 //	
@@ -178,8 +276,6 @@ void TacoMonitor::update() {
 //	
 //	digitalWrite(BUZZER_BCM_PIN, HIGH);
 //	delay(BUZZER_PERIOD/2);
-	
-	Sleep(50);
 }
 
 void TacoMonitor::shutdown() {
@@ -194,6 +290,13 @@ void TacoMonitor::shutdown() {
 /**************************************************************************************
      Static
  **************************************************************************************/
+
+float Time() {
+	
+	static auto startDate = chrono::high_resolution_clock::now();
+	auto nowDate = chrono::high_resolution_clock::now();
+	return (chrono::duration<float>(nowDate - startDate)).count();
+}
 
 string TimeString() {
 	
