@@ -90,8 +90,10 @@ int TacoMonitor::start(const vector<string>& args) {
 	if (!m_obdiiController->connect()) {
 		cout << "Couldn't create OBD-II serial connection." << endl;
 		
+		m_beeper->on();
 		m_displayController->display("OBDERR");
 		Sleep(5000);
+		m_beeper->off();
 	}
 	
 	cout << "Ready." << endl;
