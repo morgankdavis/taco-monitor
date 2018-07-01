@@ -157,23 +157,31 @@ void TacoMonitor::update() {
 	
 	bool alerting = false;
 	if (rpm > REDLINE) {
+		cout << "--- REDLINE ---" << endl;
 		alerting = true;
 	}
 	else if (!alerting && (m_obdiiController->connected() && coolantTempF > MAX_COOLANT_TEMP)) {
+		cout << "--- COOLANT TEMP ---" << endl;
 		alerting = true;
 	}
 	else if (!alerting && (m_obdiiController->connected() && rpm && coolantTempF > MIN_VOLTAGE_RUNNING)) {
+		cout << "--- RUNNING VOLTAGE ---" << endl;
 		alerting = true;
 	}
 	else if (!alerting && (m_obdiiController->connected() && !rpm && coolantTempF > MIN_VOLTAGE_ACC)) {
+		cout << "--- ACC VOLTAGE ---" << endl;
 		alerting = true;
 	}
 #ifdef DEBUGGING
 	else if (!alerting && lux < MIN_AMBIENT_LIGHT) {
+		cout << "--- AMBIENT LIGHT ---" << endl;
 		alerting = true;
 	}
 #endif
-	
+	else {
+		alertPhase = ALERT_PHASE::OFF;
+	}
+		
 	switch (alertPhase) {
 		case ALERT_PHASE::OFF:
 			if (alerting) alertPhase = ALERT_PHASE::BEEP;
@@ -261,7 +269,11 @@ void TacoMonitor::update() {
 				break; }
 				
 			case DISPLAY_MODE::AMBIENT_BRIGHTNESS: {
-				displayStr = "RUN";
+				stringstream displayStream;
+				displayStream.width(6);
+				displayStream << lux;
+				displayStr = displayStream.str();
+				displayStr.replace(0, 1, "L");
 				break; }
 		}
 		
