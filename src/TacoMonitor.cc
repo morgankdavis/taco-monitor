@@ -156,27 +156,7 @@ void TacoMonitor::update() {
 	auto ambientTempF = lroundf(m_sensorHub->ambientTemperature() * (9.0/5.0) + 32);
 	
 	auto lux = m_sensorHub->ambientLight();
-		
-		
-		
-		// TEMPORARY
-		
-		stringstream displayStream;
-		displayStream.width(6);
-		char voltsStr[32];
-		printf("printf volgage: %.1f", batteryVoltage);
-		cout << "batteryVoltage: " << batteryVoltage << endl;
-		sprintf(voltsStr, "%.1f", batteryVoltage);
-		cout << "voltsStr: " << voltsStr << endl;
-		displayStream << voltsStr;
-		string displayStr = displayStream.str();
-		displayStr.replace(0, 1, "B");
-		cout << "displayStr: " << displayStr << endl;
-		
-		
-		
-		
-		
+
 	// check alarms, in order of severity
 	// 1. redline
 	// 2. coolant temp
@@ -186,37 +166,38 @@ void TacoMonitor::update() {
 	
 	bool alerting = false;
 	bool rpmAlerting = false;
-//	if (m_obdiiController->connected() && rpm > REDLINE) {
-//		cout << "--- REDLINE ---" << endl;
-//		alerting = true;
-//		rpmAlerting = true;
-//		presentationDisplayMode = DISPLAY_MODE::RPM;
-//	}
-//	else if (!alerting && (m_obdiiController->connected() && coolantTempF > MAX_COOLANT_TEMP)) {
-//		cout << "--- COOLANT TEMP ---" << endl;
-//		alerting = true;
-//		presentationDisplayMode = DISPLAY_MODE::COOLANT_TEMP;
-//	}
-//	else if (!alerting && (m_obdiiController->connected() && (rpm > 10) && batteryVoltage < MIN_VOLTAGE_RUNNING)) {
-//		cout << "--- RUNNING VOLTAGE ---" << endl;
-//		alerting = true;
-//		presentationDisplayMode = DISPLAY_MODE::BATTERY_VOLTAGE;
-//	}
-//	else if (!alerting && (m_obdiiController->connected() && (rpm <= 10) && batteryVoltage < MIN_VOLTAGE_ACC)) {
-//		cout << "--- ACC VOLTAGE ---" << endl;
-//		alerting = true;
-//		presentationDisplayMode = DISPLAY_MODE::BATTERY_VOLTAGE;
-//	}
-//#ifdef DEBUGGING
-//	else if (!alerting && lux < MIN_AMBIENT_LIGHT) {
-//		cout << "--- AMBIENT LIGHT ---" << endl;
-//		alerting = true;
-//		presentationDisplayMode = DISPLAY_MODE::AMBIENT_BRIGHTNESS;
-//	}
-//#endif
-//	else {
-//		alertPhase = ALERT_PHASE::OFF;
-//	}
+		
+	if (m_obdiiController->connected() && rpm > REDLINE) {
+		cout << "--- REDLINE ---" << endl;
+		alerting = true;
+		rpmAlerting = true;
+		presentationDisplayMode = DISPLAY_MODE::RPM;
+	}
+	else if (!alerting && (m_obdiiController->connected() && coolantTempF > MAX_COOLANT_TEMP)) {
+		cout << "--- COOLANT TEMP ---" << endl;
+		alerting = true;
+		presentationDisplayMode = DISPLAY_MODE::COOLANT_TEMP;
+	}
+	else if (!alerting && (m_obdiiController->connected() && (rpm > 10) && batteryVoltage < MIN_VOLTAGE_RUNNING)) {
+		cout << "--- RUNNING VOLTAGE ---" << endl;
+		alerting = true;
+		presentationDisplayMode = DISPLAY_MODE::BATTERY_VOLTAGE;
+	}
+	else if (!alerting && (m_obdiiController->connected() && (rpm <= 10) && batteryVoltage < MIN_VOLTAGE_ACC)) {
+		cout << "--- ACC VOLTAGE ---" << endl;
+		alerting = true;
+		presentationDisplayMode = DISPLAY_MODE::BATTERY_VOLTAGE;
+	}
+#ifdef DEBUGGING
+	else if (!alerting && lux < MIN_AMBIENT_LIGHT) {
+		cout << "--- AMBIENT LIGHT ---" << endl;
+		alerting = true;
+		presentationDisplayMode = DISPLAY_MODE::AMBIENT_BRIGHTNESS;
+	}
+#endif
+	else {
+		alertPhase = ALERT_PHASE::OFF;
+	}
 		
 	if (rpmAlerting) {
 		alertPhase = ALERT_PHASE::OFF;
