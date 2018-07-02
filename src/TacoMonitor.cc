@@ -157,6 +157,25 @@ void TacoMonitor::update() {
 	
 	auto lux = m_sensorHub->ambientLight();
 		
+		
+		
+		// TEMPORARY
+		
+		stringstream displayStream;
+		displayStream.width(6);
+		char voltsStr[32];
+		cout << "batteryVoltage: " << batteryVoltage << endl;
+		sprintf(voltsStr, "%.1f", batteryVoltage);
+		cout << "voltsStr: " << voltsStr << endl;
+		displayStream << voltsStr;
+		string displayStr = displayStream.str();
+		displayStr.replace(0, 1, "B");
+		cout << "displayStr: " << displayStr << endl;
+		
+		
+		
+		
+		
 	// check alarms, in order of severity
 	// 1. redline
 	// 2. coolant temp
