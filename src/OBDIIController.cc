@@ -248,7 +248,7 @@ void OBDIIController::update() {
 		voltsLine.erase(remove(voltsLine.begin(), voltsLine.end(), 'V'), voltsLine.end());
 		cout << "voltsLine: " << voltsLine << endl;
 		char* endPtr;
-		auto volts = strtof(voltsLine, endPtr);
+		auto volts = strtof(voltsLine.c_str(), endPtr);
 		m_mtx.lock();
 		m_voltage = volts;
 		m_mtx.unlock();
