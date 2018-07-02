@@ -274,10 +274,13 @@ void TacoMonitor::update() {
 				stringstream displayStream;
 				displayStream.width(6);
 				char voltsStr[32];
+				cout << "batteryVoltage: " << batteryVoltage << endl;
 				sprintf(voltsStr, "%.1f", batteryVoltage);
+				cout << "voltsStr: " << voltsStr << endl;
 				displayStream << voltsStr;
 				displayStr = displayStream.str();
 				displayStr.replace(0, 1, "B");
+				cout << "displayStr: " << displayStr << endl;
 				break; }
 				
 			case DISPLAY_MODE::AMBIENT_TEMP: {
