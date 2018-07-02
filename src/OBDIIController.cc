@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <chrono>
 #include <cstdio>
+#include <cstdlib>
 #include <iostream>
 #include <math.h>
 #include <string>
@@ -236,7 +237,7 @@ void OBDIIController::update() {
 	
 	float time = Time();
 	
-	// voltage
+	// battery voltage
 	
 	static float voltageUpdateTime = -1;
 	time = Time();
@@ -245,7 +246,8 @@ void OBDIIController::update() {
 		writeLine("AT RV");
 		auto voltsLine = readLines().front();
 		voltsLine.erase(remove(voltsLine.begin(), voltsLine.end(), 'V'), voltsLine.end());
-		auto volts = stof(voltsLine);
+		cout << "voltsLine: " << voltsLine << endl;
+		auto volts = strtof(voltsLine);
 		m_mtx.lock();
 		m_voltage = volts;
 		m_mtx.unlock();
