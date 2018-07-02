@@ -62,7 +62,7 @@ namespace tacomon {
 		bool								m_connected;
 		std::mutex							m_mtx;
 		std::thread							m_updateThread;
-		unsigned 							m_voltage;
+		float 								m_voltage;
 		unsigned 							m_rpm;
 		unsigned 							m_coolantTemp;
 		unsigned 							m_speed;

@@ -164,6 +164,7 @@ void TacoMonitor::update() {
 		stringstream displayStream;
 		displayStream.width(6);
 		char voltsStr[32];
+		printf("printf volgage: %.1f", batteryVoltage);
 		cout << "batteryVoltage: " << batteryVoltage << endl;
 		sprintf(voltsStr, "%.1f", batteryVoltage);
 		cout << "voltsStr: " << voltsStr << endl;
