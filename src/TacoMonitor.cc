@@ -9,6 +9,7 @@
 
 #include "TacoMonitor.h"
 
+#include <algorithm>
 #include <ctime>
 #include <iomanip>
 #include <iostream>
@@ -32,16 +33,15 @@ using namespace tacomon;
      Constants
  **************************************************************************************/
 
-constexpr unsigned REDLINE =			5450; // rpm
-constexpr unsigned MAX_COOLANT_TEMP =	195; // deg F
-constexpr float MIN_VOLTAGE_RUNNING =	13.4; // volts
-constexpr float MIN_VOLTAGE_ACC =		11.0; // volts
+constexpr unsigned REDLINE =				5450; // rpm
+constexpr unsigned MAX_COOLANT_TEMP =		195; // deg F
+constexpr float MIN_VOLTAGE_RUNNING =		13.4; // volts
+constexpr float MIN_VOLTAGE_ACC =			11.0; // volts
 
-#ifdef DEBUGGING
-constexpr float MIN_AMBIENT_LIGHT = 	50; // lux
-#endif
+constexpr unsigned ALERT_PERIOD =			1500; // ms
 
-constexpr unsigned ALERT_PERIOD =		1500; // ms
+constexpr unsigned MAX_AMBIENT_LIGHT =		200; // lux
+constexpr unsigned MIN_AMBIENT_LIGHT =		40; // lux
 
 /**************************************************************************************
      Types
@@ -216,7 +216,9 @@ void TacoMonitor::update() {
 		m_displayController->brightness(1.0);
 	}
 	else {
-		m_displayController->brightness(0.5);
+		float brightness = fmin(lux / float(MAX_AMBIENT_LIGHT), 1.0);
+		brightness = fmax(brightness, 0.01);
+		m_displayController->brightness(brightness);
 	}
 
 	if (alerting && !rpmAlerting && alertPhase == ALERT_PHASE::BEEP) {
@@ -288,6 +290,7 @@ void TacoMonitor::update() {
 //				displayStr = "RUN";
 //				break; }
 				
+#ifdef DEBUGGING
 			case DISPLAY_MODE::AMBIENT_BRIGHTNESS: {
 				stringstream displayStream;
 				displayStream.width(6);
@@ -295,6 +298,7 @@ void TacoMonitor::update() {
 				displayStr = displayStream.str();
 				displayStr.replace(0, 1, "L");
 				break; }
+#endif
 		}
 		
 		m_displayController->display(displayStr);

@@ -16,7 +16,7 @@
 #include <vector>
 
 
-//#define DEBUGGING
+#define DEBUGGING
 
 
 namespace tacomon {
