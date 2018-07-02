@@ -38,8 +38,8 @@ using namespace tacomon;
 //constexpr float MIN_VOLTAGE_ACC =		11.0; // volts
 
 constexpr unsigned REDLINE =			2000; // rpm
-constexpr unsigned MAX_COOLANT_TEMP =	160; // deg F
-constexpr float MIN_VOLTAGE_RUNNING =	13.5; // volts
+constexpr unsigned MAX_COOLANT_TEMP =	195; // deg F
+constexpr float MIN_VOLTAGE_RUNNING =	13.6; // volts
 constexpr float MIN_VOLTAGE_ACC =		11.0; // volts
 
 #ifdef DEBUGGING
