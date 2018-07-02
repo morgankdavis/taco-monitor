@@ -16,7 +16,7 @@
 #include <vector>
 
 
-#define DEBUGGING
+//#define DEBUGGING
 
 
 namespace tacomon {
@@ -58,7 +58,7 @@ namespace tacomon {
 			SPEED = 				2,
 			COOLANT_TEMP = 			3,
 			BATTERY_VOLTAGE =		4,
-			AMBIENT_TEMP = 			5,
+//			AMBIENT_TEMP = 			5,
 //			RUNTIME = 				6,
 #ifdef DEBUGGING
 			AMBIENT_BRIGHTNESS= 	6

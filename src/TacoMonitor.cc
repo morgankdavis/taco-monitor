@@ -32,13 +32,8 @@ using namespace tacomon;
      Constants
  **************************************************************************************/
 
-//constexpr unsigned REDLINE =			5450; // rpm
-//constexpr unsigned MAX_COOLANT_TEMP =	195; // deg F
-//constexpr float MIN_VOLTAGE_RUNNING =	13.5; // volts
-//constexpr float MIN_VOLTAGE_ACC =		11.0; // volts
-
-constexpr unsigned REDLINE =			3500; // rpm
-constexpr unsigned MAX_COOLANT_TEMP =	186; // deg F
+constexpr unsigned REDLINE =			5450; // rpm
+constexpr unsigned MAX_COOLANT_TEMP =	195; // deg F
 constexpr float MIN_VOLTAGE_RUNNING =	13.4; // volts
 constexpr float MIN_VOLTAGE_ACC =		11.0; // volts
 
@@ -123,7 +118,7 @@ void TacoMonitor::update() {
 #ifdef DEBUGGING
 		if (modeRaw > static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::AMBIENT_BRIGHTNESS)) {
 #else
-		if (modeRaw > static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::AMBIENT_TEMP)) {
+		if (modeRaw > static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::BATTERY_VOLTAGE)) {
 #endif
 			modeRaw = static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::CLOCK);
 		}
@@ -137,7 +132,7 @@ void TacoMonitor::update() {
 #ifdef DEBUGGING
 			modeRaw = static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::AMBIENT_BRIGHTNESS);
 #else
-			modeRaw = static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::AMBIENT_TEMP);
+			modeRaw = static_cast<underlying_type<DISPLAY_MODE>::type>(DISPLAY_MODE::BATTERY_VOLTAGE);
 #endif
 		}
 		m_displayMode = static_cast<DISPLAY_MODE>(modeRaw);
@@ -275,23 +270,20 @@ void TacoMonitor::update() {
 				stringstream displayStream;
 				displayStream.width(6);
 				char voltsStr[32];
-				cout << "batteryVoltage: " << batteryVoltage << endl;
 				sprintf(voltsStr, "%.1f", batteryVoltage);
-				cout << "voltsStr: " << voltsStr << endl;
 				displayStream << voltsStr;
 				displayStr = displayStream.str();
 				displayStr.replace(0, 1, "B");
-				cout << "displayStr: " << displayStr << endl;
 				break; }
 				
-			case DISPLAY_MODE::AMBIENT_TEMP: {
-				stringstream displayStream;
-				displayStream.width(6);
-				displayStream << right << fixed << setprecision(1) << ambientTempF;
-				displayStr = displayStream.str();
-				displayStr.replace(0, 1, "A");
-				break; }
-				
+//			case DISPLAY_MODE::AMBIENT_TEMP: {
+//				stringstream displayStream;
+//				displayStream.width(6);
+//				displayStream << right << fixed << setprecision(1) << ambientTempF;
+//				displayStr = displayStream.str();
+//				displayStr.replace(0, 1, "A");
+//				break; }
+//				
 //			case DISPLAY_MODE::RUNTIME: {
 //				displayStr = "RUN";
 //				break; }
