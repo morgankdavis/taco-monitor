@@ -2,11 +2,11 @@
 
 A simple C++ app for Raspberry Pi Zero W that monitors and displays engine and environmental stats for my 2004 Tacoma.
 
-6-character micro dot LED with 5-button shim allows cycling through various readings.  Critical metrics are monitored, and the device with beep and switch to critical measurements if they are out of their acceptable range (coolant temp, batery voltage.)
+6-character micro dot LED with 5-button shim allows cycling through various readings.  Critical metrics are monitored, and the device with beep and switch display to appropriate sensor data if out of acceptable range (coolant temp, batery voltage.)
 
-Also has an RTC (since my Tacoma doesn't have a clock!), and uses an ambient light sensor to intelligently dim the display at night.
+Also has an RTC (since my Tacoma doesn't have a clock), and uses an ambient light sensor to intelligently dim the display at night.
 
-ECU comms is done via Bluetooth SPP with a [Chinese ELM327 knock-off](https://www.amazon.com/gp/product/B009NPAORC/ref=oh_aui_search_detailpage?ie=UTF8&psc=1).
+ECU comms are done via Bluetooth SPP with a [Chinese ELM327 knock-off](https://www.amazon.com/gp/product/B009NPAORC/ref=oh_aui_search_detailpage?ie=UTF8&psc=1).
 
 Everything but the buzzer is connected via I2C.
 
