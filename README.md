@@ -1,7 +1,17 @@
 # taco-monitor
 
+A simple C++ app for Raspberry Pi Zero W that monitors and displays engine and environmental stats for my 2004 Tacoma.
 
-Depends:
+6-character micro dot LED displays readings and allows cycling through a menu.  The app checks critical metrics and flashes the screen with audible alerts if something is out or range (coolant temp, batery voltage.)
+
+Also has an RTC (since my Tacoma doesn't have a clock!), and uses an ambient light sensor to intelligently dim the display at night.
+
+ECU comms is done via Bluetooth SPP with a [Chinese ELM327 knock-off](https://www.amazon.com/gp/product/B009NPAORC/ref=oh_aui_search_detailpage?ie=UTF8&psc=1).
+
+
+
+
+**Depends:**
 
 WiringPi:
 http://wiringpi.com/
@@ -19,6 +29,9 @@ sudo apt-get install pi-bluetooth
 Button shim:
 sudo apt-get install python3-buttonshim
 sudo pip install evdev
+
+
+**Random notes:**
 
 For 'serial' library
 sudo apt-get install catkin
