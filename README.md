@@ -1,5 +1,4 @@
 # taco-monitor
-
 A simple C++ app for Raspberry Pi Zero W that monitors and displays engine and environmental stats for my 2004 Tacoma.
 
 6-character micro dot LED with 5-button shim allows cycling through various readings.  Critical metrics are monitored, and the device with beep and switch display to appropriate sensor data if out of acceptable range (coolant temp, batery voltage.)
